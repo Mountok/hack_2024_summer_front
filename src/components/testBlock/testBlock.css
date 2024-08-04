@@ -1,0 +1,44 @@
+.test_block{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(113, 201, 113);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.test_block div{
+    padding: 10px 5px;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+}
+.test_block div p:nth-child(1) {
+    font-weight: 600;
+    width: 25px;
+    color: white;
+}
+.test_block div p {
+    margin-right: 5px;
+}
+
+.test_block button{
+    background: none;
+    border: none;
+    outline: none;
+    width: 50px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #ea5333;
+    color: #facf3e;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: .15s linear;
+}
+.test_block button:hover{
+    background-color:  #facf3e;
+    color: #ea5333;
+}
+.test_block button:active{
+    font-size: 20px;
+}

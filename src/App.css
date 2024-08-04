@@ -1,0 +1,42 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 350px;
+  overflow-x: hidden;
+}
+.main.admin{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+.main.courses{
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+.main.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 350px;
+  margin: 0;
+}
+
+@media (max-width: 550px) {
+  .main{
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px 10px;
+  }
+  .main.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+}

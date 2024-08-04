@@ -1,0 +1,30 @@
+.opencourse_title{
+    color: var(--orange);
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+.opencourse_description{
+    background-color: var(--orange);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.opencourse_description p:nth-child(1) {
+    font-weight: 500;
+
+    color: var(--black);
+}
+.opencourse_description p:nth-child(2) {
+    color: white;
+    line-height: 150%;
+    text-align: justify;
+}
+.opencourse > p {
+    margin: 10px 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+@media (max-width: 550px) {
+
+}

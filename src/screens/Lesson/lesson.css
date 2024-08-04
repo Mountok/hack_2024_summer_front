@@ -1,0 +1,36 @@
+
+
+
+
+.lesson_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson_next button {
+    border: none;
+    outline: none;
+    background: none;
+
+    background-color: var(--orange);
+    border: 1px solid var(--orange);
+
+    border-radius: 2px;
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 0px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    transition:  .156s linear;
+}
+
+.lesson_next button:hover{
+    background: none;
+    color: var(--orange);
+}
+
+.lesson_next button:active{
+    background-color: var(--orange);
+    color: #ffffff;
+}

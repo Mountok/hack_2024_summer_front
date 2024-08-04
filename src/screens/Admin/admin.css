@@ -1,0 +1,97 @@
+.admin_item {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    
+}
+
+.admin_item h2 {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.admin_item_form {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+.admin_item_form.subject input:first-child {
+    display: flex;
+
+    border: 2px solid var(--orange);
+    background-color: var(--orange);
+    padding: 60px 5px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.admin_item_form.subject input:nth-child(2) {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.admin_item_form.subject input:nth-child(3),
+.admin_item_form.theme input,
+.admin_item_form.lesson {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.admin_item_form.subject input:nth-child(2),
+.admin_item_form.subject input:nth-child(3), 
+.admin_item_form.theme input ,
+.admin_item_form.lesson input{
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 2px solid var(--orange);
+}
+
+.admin_item_form.subject button,
+.admin_item_form.theme button,
+.admin_item_form.lesson button{
+    padding: 4px 10px;
+    font-size: 18px;
+    border: none;
+    background: none;
+    border: 2px solid var(--orange);
+    border-radius: 10px;
+    
+}
+.admin_item_form.subject button:hover,
+.admin_item_form.theme button:hover,
+.admin_item_form.lesson button:hover{
+    background-color: var(--orange);
+}
+
+.admin_item_form.lesson textarea {
+    
+    border: 2px dashed var(--orange);
+    background: none;
+    outline: none;
+    margin-top: 10px;
+    padding: 2px;
+
+}
+
+.admin_item_form.lesson{
+    position: relative;
+}
+.admin_item_form.lesson > svg {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    font-size: 20px;
+}
