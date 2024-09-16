@@ -28,7 +28,7 @@ const NameEditBlock = ({editName,setNameEdit}) => {
             alert(error.response.data.data)
             return
         });
-        window.location.reload();
+        // window.location.reload();
         setIsClose(true)
         setNameEdit(false)
         setIsClose(false)

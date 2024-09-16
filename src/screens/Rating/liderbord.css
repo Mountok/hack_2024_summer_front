@@ -5,15 +5,12 @@
     justify-content: center;
 }
 
+
 .rating_header .rating_header_icon {
     font-size: 100px;
     color: var(--orange);
 }
 
-.rating_header h1 {
-    color: var(--orange);
-    font-size: 40px;
-}
 
 .rating_header p {
     position: relative;
@@ -63,7 +60,7 @@
 }
 
 .rating_top_board>div>p {
-    color: var(--orange);
+    color: var(--blue);
 }
 
 .top_rating_board_image {
@@ -98,7 +95,7 @@
 
 .rating_top_board_1::after {
     position: absolute;
-    background-color: var(--orange);
+    background-color: var(--blue);
     color: black;
     padding: 2px 12px;
     left: 10px;
@@ -115,7 +112,7 @@
 
 .rating_top_board_2::after {
     position: absolute;
-    background-color: var(--orange);
+    background-color: var(--blue);
     color: black;
     padding: 2px 9px;
     left: 10px;
@@ -132,7 +129,7 @@
 
 .rating_top_board_3::after {
     position: absolute;
-    background-color: var(--orange);
+    background-color: var(--blue);
     color: black;
     padding: 2px 9px;
     left: 12px;
@@ -153,9 +150,9 @@
 
 .rating_bottom_item {
     width: 300px;
-    background-color: rgba(255, 208, 121, 0.215);
+    background-color: rgba(255, 192, 124, 0.21);
     border-radius: 10px;
-    padding: 2px 10px;
+    padding: 10px 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -166,6 +163,7 @@
 .rating_bottom_item h2 {
     font-size: 16px;
     margin-left: 5px;
+    color: var(--black);
 }
 
 .rating_bottom_item h2 span {
@@ -175,7 +173,7 @@
 .rating_bottom_item p {
     font-size: 20px;
     font-weight: 500;
-    color: black;
+    color: var(--black);
     margin-right: 10px;
 }
 
@@ -231,7 +229,7 @@
 
     .rating_top_board_1::after {
         position: absolute;
-        background-color: var(--orange);
+        background-color: var(--blue);
         color: black;
         padding: 2px 7px;
         left: 10px;
@@ -248,7 +246,7 @@
 
     .rating_top_board_2::after {
         position: absolute;
-        background-color: var(--orange);
+        background-color: var(--blue);
         color: black;
         padding: 2px 7px;
         left: 10px;
@@ -266,7 +264,7 @@
     }
     
     .rating_top_board>div>p {
-        color: var(--orange);
+        color: var(--blue);
     }
     .rating_top_board_3 {
         position: relative;
@@ -274,7 +272,7 @@
 
     .rating_top_board_3::after {
         position: absolute;
-        background-color: var(--orange);
+        background-color: var(--blue);
         color: black;
         padding: 2px 7px;
         left: 10px;
@@ -296,7 +294,7 @@
 
     .rating_bottom_item {
         width: 300px;
-        background-color: rgba(255, 208, 121, 0.215);
+        background-color: rgba(136, 213, 255, 0.21);
         border-radius: 10px;
         padding: 2px 10px;
         display: flex;
@@ -309,16 +307,17 @@
     .rating_bottom_item h2 {
         font-size: 16px;
         margin-left: 5px;
+        color: white;
     }
 
     .rating_bottom_item h2 span {
-        color: var(--orange);
+        color: var(--blue);
     }
 
     .rating_bottom_item p {
         font-size: 20px;
         font-weight: 500;
-        color: black;
+        color: var(--blue);
         margin-right: 10px;
     }
 

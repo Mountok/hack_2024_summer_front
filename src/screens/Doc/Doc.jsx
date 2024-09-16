@@ -1,5 +1,5 @@
 import React from 'react'
-
+import  "./doc.css"
 const Doc = () => {
 
     function createMarkup(str) {

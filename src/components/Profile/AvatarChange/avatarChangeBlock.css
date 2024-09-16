@@ -1,4 +1,4 @@
-.name_edit_block{
+.avatar_edit_block{
     flex-direction: column;
     position: absolute;
     left: 50%;
@@ -11,15 +11,24 @@
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 18px 14px rgba(34, 60, 80, 0.3);
--moz-box-shadow: 0px 0px 18px 14px rgba(34, 60, 80, 0.3);
-box-shadow: 0px 0px 18px 14px rgba(34, 60, 80, 0.3);
+    -moz-box-shadow: 0px 0px 18px 14px rgba(34, 60, 80, 0.3);
+    box-shadow: 0px 0px 18px 14px rgba(34, 60, 80, 0.3);
 
-animation-name: openBlock;
-animation-duration: 350ms;
-animation-timing-function: linear;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-
+    animation-name: openBlock;
+    animation-duration: 350ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.avatar_edit_block:after{
+    content: "";
+    position: absolute;
+    top: -500px;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    height: 500px;
+    background-color: red;
 }
 
 @keyframes openBlock {
@@ -34,12 +43,12 @@ animation-fill-mode: forwards;
     }
 }
 
-.name_edit_block h2 {
+.avatar_edit_block h2 {
     margin-bottom: 10px;
     text-align: center;
-    color: var(--orange);
+    color: var(--blue);
 }
-.name_edit_block input{
+.avatar_edit_block input{
     align-self: center;
     border: none;
     background: none;
@@ -51,7 +60,7 @@ animation-fill-mode: forwards;
     border-radius: 10px;
     font-size: 16px;
 }
-.name_edit_block div{
+.avatar_edit_block div{
     justify-content: space-between;
     align-self: center;
     display: flex;
@@ -59,21 +68,21 @@ animation-fill-mode: forwards;
     margin-top: 10px;
     width: 100px;
 }
-.name_edit_block button svg {
+.avatar_edit_block button svg {
     font-size: 30px;
 }
-.edit_name_done{
+.edit_avatar_done{
     color: green;
 
 }
-.edit_name_cancel{
+.edit_avatar_cancel{
     color: red;
 }
 
-.name_edit_block button svg:active{
+.avatar_edit_block button svg:active{
     scale: 0.9;
 }
-.name_edit_block button {
+.avatar_edit_block button {
     border: none;
     background: none;
 

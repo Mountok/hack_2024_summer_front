@@ -6,23 +6,25 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [currentError,setCurrentError] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     var redirect = true
     console.log("log in logic")
     const req = await axios.post('/api/auth', {
-      id: 0,
+      id: "",
       email: email,
       password: password,
       create_date: ""
     }).then(function (response) {
       console.log(response);
-      localStorage.setItem("PRAXIS_USER_ID", response.data.data)
+      localStorage.setItem("PRAXIS_USER_ID", response.data.user_info.id)
+      
     }).catch(function (error) {
       console.log(error);
       redirect = false
-      alert(error.response.data.data)
+      setCurrentError(error.response.data.data)
     });
 
     redirect ? navigate("/courses") : null;
@@ -30,23 +32,25 @@ const Login = () => {
   return (
     <section className="login">
 
-      <h2>Вход в аккаунт</h2>
+      <h2>Praxis</h2>
 
-      <p>Почта пользователя</p>
+      <p>E-mail</p>
       <input value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        name="email" type="text"
-        placeholder="введите свою почту" />
-      <p>Пароль</p>
+        onChange={(e) => {setCurrentError("");setEmail(e.target.value)}}
+        name="email" type="text" />
+      <p>Password</p>
       <input value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => {setCurrentError("");setPassword(e.target.value)}}
         name="password"
-        type="password"
-        placeholder="введите свой пароль" />
+        type="password" />
 
       <button onClick={(e) => handleSubmit(e)}>Войти</button>
 
       <Link to="/signin">Нету аккаунта? Зарегистрируйтесь.</Link>
+
+      {
+        currentError == "" ? null : <p className='currentError'>{currentError}</p>
+      }
     </section>
   )
 }

@@ -13,8 +13,8 @@
     outline: none;
     background: none;
 
-    background-color: var(--orange);
-    border: 1px solid var(--orange);
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
 
     border-radius: 2px;
     font-size: 16px;
@@ -27,10 +27,10 @@
 
 .lesson_next button:hover{
     background: none;
-    color: var(--orange);
+    color: var(--blue);
 }
 
 .lesson_next button:active{
-    background-color: var(--orange);
+    background-color: var(--blue);
     color: #ffffff;
 }

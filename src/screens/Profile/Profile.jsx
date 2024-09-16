@@ -1,24 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import "./profile.css"
-import { MdEdit } from "react-icons/md";
-import { Helmet } from 'react-helmet'
+import {MdEdit} from "react-icons/md";
+import {Helmet} from 'react-helmet'
 import axios from "axios"
-import NameEditBlock from '../../components/ProfileNameEdit/NameEditBlock';
+import NameEditBlock from '../../components/Profile/NameEdit/NameEditBlock';
+import {Link} from 'react-router-dom';
+import {IoIosLogOut} from "react-icons/io";
+import AvatarChangeBlock from "../../components/Profile/AvatarChange/AvatarChangeBlock.jsx";
+import DescriptionChange from "../../components/Profile/DescriptionEdit/DescriptionChange.jsx";
+import { IoLogOut } from "react-icons/io5";
+import Settings from "../../../settings.js";
 
 
-const Profile = ({ port }) => {
-    const [progress, setProgress] = useState(10)
+
+const Profile = () => {
+    const [progress, setProgress] = useState(0)
     const [localStoreUserId, setLocalStoreUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [userProfile, setUserProfile] = useState([])
+
     const [editName, setNameEdit] = useState(false)
+    const [editAvatar, setAvatarEdit] = useState(false)
+    const [editDescription, setDescriptionEdit] = useState(false)
+
     useEffect(() => {
         GetProfile()
-    }, [])
+
+
+    }, [editName,editAvatar,editDescription])
     const GetProfile = async () => {
         await axios.get(`/api/profile/${localStoreUserId}`)
             .then(function (response) {
                 // Обработка успешного ответа
                 console.log(response.data.data);
+                setProgress(response.data.data[0].score % 100)
                 setUserProfile(response.data.data)
             })
             .catch(function (error) {
@@ -27,52 +41,74 @@ const Profile = ({ port }) => {
             });
     }
     return (
-        <main 
-        className="main profile">
-            {editName ? <NameEditBlock 
-            editName={editName} 
-            setNameEdit={setNameEdit} /> : console.log(editName)}
+        <main
+            className="main profile">
+            {editName ? <NameEditBlock
+                editName={editName}
+                setNameEdit={setNameEdit}/> : console.log(editName)}
+
+            {editAvatar ? <AvatarChangeBlock
+                editAvatar={editAvatar}
+                setAvatarEdit={setAvatarEdit}/> : console.log(editAvatar)}
+
+            {editDescription ? <DescriptionChange
+                editDesc={editDescription}
+                setDescEdit={setDescriptionEdit}
+            /> : console.log(editDescription)}
+
             <Helmet>
                 <title>Профиль</title>
-                <meta 
-                name="theme-color" 
-                content="#e9c23bff" />
-                {/* <meta name="theme-color" content="#000000" /> */}
             </Helmet>
             {userProfile.map(el => (
                 <>
-                    <div 
-                    className="profile_header">
-                        <img 
+                    <div
+                        className="profile_header">
+                        {/* <img
                         className='profile_header_bg' 
-                        src="images/profile_bg.png" alt="" />
+                        src="images/profile_bg.png" alt="" /> */}
                         <div
-                            style={{
-                                background: `url(http://${port}/images?id=${el.image}) no-repeat`,
-                                backgroundSize: "cover"
+                            onDoubleClick={() => {
+                                setAvatarEdit(true)
                             }}
                             className="profile_header_avatar">
+                            <img className="profile_header_avatar_img" src={`http://${Settings.PORT}/images?id=${el.image}`} />
+
                         </div>
-                        <h2>{el.full_name} 
-                        <MdEdit 
-                        onClick={() => { setNameEdit(true) }} 
-                        className='name_edit_icon' /></h2>
-                        <p>{el.description}</p>
+
+                        <h2
+                            onDoubleClick={() => {
+                                setNameEdit(true)
+                            }}
+                        >{el.full_name}
+                            {/*<MdEdit*/}
+                            {/*    onClick={() => {*/}
+                            {/*        setNameEdit(true)*/}
+                            {/*    }}*/}
+                            {/*    className='name_edit_icon'/>*/}
+                        </h2>
+                        <p onDoubleClick={()=>setDescriptionEdit(true)}>{el.description}</p>
+                        <Link
+                            to='/'
+                            className={location.pathname == "/" ? "nav_links active" : "nav_links"}
+
+                        >
+                            <IoLogOut className="log_out_icon"/>
+
+                        </Link>
                     </div>
-                    <div 
-                    className="profile_body">
-                        <div 
-                        onClick={() => setProgress(progress + 5)} 
-                        className="profile_stats level">
+                    <div
+                        className="profile_body">
+                        <div
+
+                            className="profile_stats level">
                             <div>
-                                <p>Уровень {el.score}</p>
-                                <p>{progress}%</p>
+                                <p>{Math.floor(el.score / 100)} lvl</p>
                             </div>
-                            <div 
-                            className="level_range">
-                                <span 
-                                style={{ width: `${progress}%` }} 
-                                className='level_range_item'></span>
+                            <div
+                                className="level_range">
+                <span
+                    style={{width: `${progress}%`}}
+                    className='level_range_item'></span>
                             </div>
                         </div>
                     </div>

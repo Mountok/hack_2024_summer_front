@@ -1,10 +1,15 @@
+
 .opencourse_title{
-    color: var(--orange);
+    border-radius: 10px;
+    z-index: 1;
+    padding: 20px 0 20px 0;
+    color: var(--black);
     font-size: 40px;
     letter-spacing: 1px;
 }
 .opencourse_description{
-    background-color: var(--orange);
+    z-index: 2;
+    background-color: var(--blue);
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
@@ -12,14 +17,15 @@
 .opencourse_description p:nth-child(1) {
     font-weight: 500;
 
-    color: var(--black);
+    color: var(--orange);
 }
 .opencourse_description p:nth-child(2) {
-    color: white;
+    color: #000000;
     line-height: 150%;
     text-align: justify;
 }
 .opencourse > p {
+    color: var(--orange);
     margin: 10px 0;
     font-weight: 300;
     letter-spacing: 1px;

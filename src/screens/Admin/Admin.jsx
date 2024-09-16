@@ -8,12 +8,12 @@ import { FaQuestionCircle } from "react-icons/fa";
 const Admin = () => {
     const navigate = useNavigate()
 
-    const [isAdmin, setIsAdmin] = useState(localStorage.getItem("PRAXIS_USER_ID"))
-    useEffect(() => {
-        if (isAdmin != 2) {
-            navigate('/')
-        }
-    }, [])
+    // const [isAdmin, setIsAdmin] = useState(localStorage.getItem("PRAXIS_USER_ID"))
+    // useEffect(() => {
+    //     if (isAdmin != 2) {
+    //         navigate('/')
+    //     }
+    // }, [])
 
     const LockUnLockIcon = (bool) => {
         if (bool) {
@@ -124,7 +124,7 @@ const Admin = () => {
 
                 <form onSubmit={handleSubmitSubject} className='admin_item_form subject'>
                     <input
-                        onChange={(e) => setSubjectImage(e.target.files[0])}
+                        onChange={(e) => f(e.target.files[0])}
                         type="file" />
                     <input
                         value={subjectTitle}

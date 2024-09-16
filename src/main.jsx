@@ -4,13 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import axios from "axios"
+import Settings from "../settings.js";
 
-axios.defaults.baseURL = "http://172.20.10.2:8080"
+axios.defaults.baseURL = Settings.HOST
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+      <BrowserRouter>
       <App />
-    </BrowserRouter>
+      </BrowserRouter>
   </React.StrictMode>,
 )
