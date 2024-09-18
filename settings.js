@@ -11,7 +11,7 @@
 
 const Settings ={
     PORT: "10.0.0.36:8080",
-    HOST: "https://10.0.0.36:8080"
+    HOST: "http://10.0.0.36:8080"
 }
 
 
