@@ -36,6 +36,7 @@
     z-index: 1;
     background-color: var(--orange);
 
+
 }
 
 .profile_header_avatar_img {
@@ -51,7 +52,7 @@
     cursor: pointer;
 
     font-size: 28px;
-    color: rgb(255, 255, 255);
+    color: var(--black);
     font-weight: 900;
     letter-spacing: 1px;
 }
@@ -69,7 +70,8 @@
 
 
     font-size: 12px;
-    color: rgb(255, 255, 255);
+    color: var(--black);
+
 
 }
 

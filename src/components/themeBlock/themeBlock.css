@@ -28,7 +28,7 @@ color: var(--orange);
     transition: .350s ease-in-out;
     transform: scale(1.01) translateY(-2px);
     /*background-color: var(--blue);*/
-    box-shadow: 1px 1px 1px #bfbfbf;
+    box-shadow: 1px 1px 1px var(--orange);
 
 }
 .theme_block div p:nth-child(1) {

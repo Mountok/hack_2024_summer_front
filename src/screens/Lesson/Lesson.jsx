@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import "./lesson.css"
 import axios from 'axios'
-import {useLocation, useNavigate} from 'react-router-dom'
-
+import {Link, useLocation, useNavigate} from 'react-router-dom'
+import {FaArrowLeft} from "react-icons/fa6"
 const Lesson = () => {
     const [content, setContent] = useState([])
     const location = useLocation()
@@ -49,7 +49,11 @@ const Lesson = () => {
 
     return (
         <main className="main lesson">
-
+            <div className="lesson_header">
+                <Link to={"/course/"+location.pathname.split("/")[2]}>
+                    <FaArrowLeft/>
+                </Link>
+            </div>
 
             <div className="lesson_content">
                 {content.map(el => (
