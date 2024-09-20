@@ -5,6 +5,9 @@ import "./admin.css"
 import { FaLockOpen, FaLock } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
 
+const closeCode = { height: "30px", backgroundColor: "var(--orange)" }
+const openCode = { height: "auto", background: "none" }
+
 const Admin = () => {
     const navigate = useNavigate()
 
@@ -15,27 +18,18 @@ const Admin = () => {
     //     }
     // }, [])
 
-    const LockUnLockIcon = (bool) => {
-        if (bool) {
-            return <FaLock />
-
-        } else {
-            return <FaLockOpen />
-
-        }
-    }
-
+    const LockUnLockIcon = (bool) => bool ? <FaLock /> : <FaLockOpen />
 
     const [subjectTabOpen, setsubjectTabOpen] = useState(true)
     const [themeTabOpen, setthemeTabOpen] = useState(true)
     const [lessonTabOpen, setlessonTabOpen] = useState(true)
-    var closeCode = { height: "30px", backgroundColor: "var(--orange)" }
-    var openCode = { height: "auto", background: "none" }
+    
 
     // ДЛЯ СОЗДАНИЯ КУРСОВ
     const [subjectTitle, setSubjectTitle] = useState('');
     const [subjectDescription, setSubjectDescription] = useState('');
     const [subjectImage, setSubjectImage] = useState(null);
+    
     const handleSubmitSubject = async (e) => {
         e.preventDefault();
 

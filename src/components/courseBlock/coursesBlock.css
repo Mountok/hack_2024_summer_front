@@ -16,7 +16,6 @@
     animation-fill-mode: forwards;
     animation-timing-function: linear;
 }
-
 @keyframes slow_up {
     0%{
         opacity: 0;
@@ -50,15 +49,31 @@
     text-transform: capitalize;
 
 }
-
+.course_themes_lenght{
+    color: var(--orange);
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+.course_themes_complete {
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.course_themes_complete > svg {
+    padding-right: 5px;
+}
+.course_themes_lenght > svg{
+    padding-right: 10px;
+}
 .course_button {
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: flex-end;
-    margin-right: 5px;
+    margin-right: 8px;
     border: none;
     outline: none;
     background: none;
@@ -97,6 +112,13 @@
 .course_button:active{
     color: var(--orange);
 }
+.course_footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media (max-width: 550px){
     .course_block{
         margin: 10px 0;

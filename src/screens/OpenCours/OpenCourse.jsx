@@ -2,15 +2,17 @@ import React, { useEffect, useState } from 'react'
 import "./openCourse.css"
 import ThemeBlock from '../../components/themeBlock/ThemeBlock'
 import TestBlock from '../../components/testBlock/TestingBlock'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios"
-const OpenCourse = ({port}) => {
+import { FaArrowLeft } from 'react-icons/fa6'
+import Settings from '../../../settings'
+const OpenCourse = ({ port }) => {
     const location = useLocation()
     const navigate = useNavigate()
     const [subjectId, setSubjectId] = useState(location.pathname.split("/")[2])
     const [themesState, setThemesState] = useState([])
     const [subjectState, setSubjectState] = useState([])
-    const [doneThemesId,setDoneThemesId] = useState([])
+    const [doneThemesId, setDoneThemesId] = useState([])
 
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const OpenCourse = ({port}) => {
         axios.get(apiUrlDoneThemes).then((resp) => {
             const DoneThemesIds = resp.data.data;
             console.log(resp.data)
-            doneThemesId==null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
+            doneThemesId == null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
         });
     }, [])
 
@@ -39,21 +41,25 @@ const OpenCourse = ({port}) => {
             {subjectState.map(el => (
                 <main className="main opencourse">
 
+                    <div className="opencourse_header">
+                        <Link to={"/courses"}>
+                            <FaArrowLeft />
+                        </Link>
+                    </div>
+                    <div className='opencourse_header_2'>
+                        <h1 className='opencourse_title'>
+                            {el.title}
+                        </h1>
+                    </div>
 
-
-                    <h1 className='opencourse_title'>
-                        {el.title}
-
-
-                    </h1>
-                    <div  className="opencourse_description">
+                    <div className="opencourse_description">
                         <p>О курсе:</p>
                         <p>{el.description}</p>
                     </div>
                     <p>Содержание</p>
-                    {themesState.map((theme,index,array) => (
+                    {themesState.map((theme, index, array) => (
 
-                        <ThemeBlock is_done={(doneThemesId!=null) ? doneThemesId.filter(el => el == theme.id) : 0} lesson_number={index+1} title={theme.title} theme_id={theme.id} subject_id={el.id}/>
+                        <ThemeBlock is_done={(doneThemesId != null) ? doneThemesId.filter(el => el == theme.id) : 0} lesson_number={index + 1} title={theme.title} theme_id={theme.id} subject_id={el.id} />
 
                     ))}
 

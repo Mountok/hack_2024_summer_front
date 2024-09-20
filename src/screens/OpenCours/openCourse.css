@@ -1,12 +1,15 @@
 
 .opencourse_title{
+    position: relative;
     border-radius: 10px;
     z-index: 1;
     padding: 20px 0 20px 0;
     color: var(--black);
     font-size: 40px;
     letter-spacing: 1px;
+    overflow: hidden;
 }
+
 .opencourse_description{
     z-index: 2;
     background-color: var(--blue);
@@ -14,6 +17,7 @@
     padding: 10px;
     margin-top: 10px;
 }
+
 .opencourse_description p:nth-child(1) {
     font-weight: 500;
 

@@ -11,7 +11,7 @@ import Lesson from "../src/screens/Lesson/Lesson.jsx";
 import Doc from "../src/screens/Doc/Doc.jsx";
 import Admin from "../src/screens/Admin/Admin.jsx";
 
-const PORT = "127.0.0.1:80"
+// const PORT = "127.0.0.1:80"
 
 // const PORT = "172.20.10.2:80"
 // const PORT = "192.168.89.11:80"

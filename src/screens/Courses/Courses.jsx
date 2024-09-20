@@ -3,19 +3,24 @@ import CourseBlock from '../../components/courseBlock/CourseBlock'
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
 import Settings from "../../../settings.js";
-const Courses = ({port}) => {
+import { GetSubject } from '../../services/subject.js';
 
+const Courses = () => {
   const [subjectsState,setSubjectsState] = useState([])
+  
   const [requestCompleted,setRequestCompleted] = useState(false)
   
+  
   useEffect(()=>{
-    const apiUrl = '/api/subject';
-    axios.get(apiUrl).then((resp) => {
-      const allSubjects = resp.data.data;
-      console.log(resp.data)
-      setSubjectsState(allSubjects);
-      setRequestCompleted(true)
-    });
+
+    
+    GetSubject().then((res) => {
+      setSubjectsState(res)
+      setRequestCompleted(true) 
+    })
+  
+
+    
   },[])
 
   return (
