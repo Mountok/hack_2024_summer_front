@@ -118,7 +118,7 @@ const Admin = () => {
 
                 <form onSubmit={handleSubmitSubject} className='admin_item_form subject'>
                     <input
-                        onChange={(e) => f(e.target.files[0])}
+                        onChange={(e) => setSubjectImage(e.target.files[0])}
                         type="file" />
                     <input
                         value={subjectTitle}

@@ -10,6 +10,7 @@ import AvatarChangeBlock from "../../components/Profile/AvatarChange/AvatarChang
 import DescriptionChange from "../../components/Profile/DescriptionEdit/DescriptionChange.jsx";
 import { IoLogOut } from "react-icons/io5";
 import Settings from "../../../settings.js";
+import CourseHistory from '../../components/Profile/CourseHistory/CourseHistory.jsx';
 
 
 
@@ -111,8 +112,9 @@ const Profile = () => {
                     className='level_range_item'></span>
                             </div>
                         </div>
-                    </div>
+                <CourseHistory/>
 
+                    </div>
                 </>
             ))}
 

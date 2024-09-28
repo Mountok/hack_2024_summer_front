@@ -6,6 +6,10 @@
     background-color: var(--white);
     z-index: 999;
 }
+.header_1 .logotype img {
+    margin: 0;
+    width: 70px;
+}
 .header_2{
     display: none;
 }
@@ -55,6 +59,7 @@
         padding: 0;
     }
     .header_1{
+        
         padding: 5px 0;
         position: fixed;
         top: 0;
@@ -63,15 +68,12 @@
     }
     .header_1 .logotype img {
         margin: 0;
-        width: 25px;
+        width: 30px;
     }
     .header_1 .nav{
         display: none;
     }
-    .header_1 .logotype p {
-        margin: 0;
-        font-size: 20px;
-    }
+ 
     .header_2{
         position: fixed;
         bottom: 0;
@@ -96,7 +98,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: rgb(222, 222, 222);
+        color: rgb(123, 123, 123);
         text-decoration: none;
         margin: 0;
         font-size: 15px;

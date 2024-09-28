@@ -1,0 +1,118 @@
+.last_course{
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    animation-name: slow-up-last-course;
+    animation-duration: .8s;
+    transform: translateY(30px);
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+@keyframes slow-up-last-course {
+
+    100%{
+    transform: translateY(0px);
+opacity: 1;
+    }
+}
+.last_course_header {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: var(--orange);
+}
+
+.last_course > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;   
+}
+.last_course .last_course_info{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+.last_course .last_course_info > h2{
+    font-size: 20px;
+}
+.last_course .last_course_info > p{
+    font-size: 14px;
+    overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+}
+.last_course .last_course_control > svg {
+    transition: .5s;
+    width: 30px ;
+    font-size: 20px;
+
+
+
+}
+.last_course:hover .last_course_control > svg {
+    color: var(--orange);
+    font-size: 60px;
+}
+
+
+
+@media (max-width: 550px) {
+    .last_course{
+        padding: 5px 10px;
+        height: 70px;
+        cursor: pointer;
+        justify-content: space-between;
+        animation-name: slow-up-last-course;
+        animation-duration: .8s;
+        transform: translateY(30px);
+        opacity: 0;
+        animation-fill-mode: forwards;
+        animation-delay: .5s;
+    }
+    @keyframes slow-up-last-course {
+    
+        100%{
+        transform: translateY(0px);
+    opacity: 1;
+        }
+    }
+    .last_course_header {
+        
+        margin-top: 20px;
+        margin-bottom: 5px;
+        color: var(--orange);
+    }
+    
+    .last_course > img {
+        width: 70px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 10px;   
+    }
+    .last_course .last_course_info{
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .last_course .last_course_info > h2{
+        font-size: 14px;
+    }
+    .last_course .last_course_info > p{
+        display: none;
+    }
+    .last_course .last_course_control > svg {
+        transition: .5s;
+        width: 50px;
+        font-size: 25px;
+    
+    }
+    .last_course:hover .last_course_control > svg {
+        color: var(--orange);
+        font-size: 40px;
+    }
+}

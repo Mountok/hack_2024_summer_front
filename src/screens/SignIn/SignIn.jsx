@@ -49,7 +49,12 @@ const SignIn = () => {
                 <title>Регистрация</title>
             </Helmet>
     <section className="login">
-      <h2>Создайте аккаунт</h2>
+      <div className='login_header'>
+      <img width={100} height={100} src="/images/Group 1.svg" alt="" />
+      {/* <p>IN<span>iT</span></p> */}
+      </div>
+
+
       <p>E-mail</p>
       <input 
       value={email} 

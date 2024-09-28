@@ -28,6 +28,8 @@ const Courses = () => {
       <Helmet>
         <title>Курсы</title>
       </Helmet>
+
+      
       {(requestCompleted) ? (
          subjectsState.map(el => (
           <CourseBlock 

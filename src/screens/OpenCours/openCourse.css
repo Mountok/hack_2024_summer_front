@@ -10,6 +10,18 @@
     overflow: hidden;
 }
 
+.opencourse_header a {
+    text-decoration:none;
+    color: var(--orange);
+    font-size: 30px;
+}
+.opencourse_header a svg:hover{
+
+    animation-name: slide_arrow_left;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
 .opencourse_description{
     z-index: 2;
     background-color: var(--blue);

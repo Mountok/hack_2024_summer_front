@@ -4,16 +4,29 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 30px 50px 25px 50px;
-    background-color: var(--orange);
+    background-color: none;
+    /* background-color: var(--orange); */
     display: flex;
     flex-direction: column;
     align-items: start;
+    justify-content: center;
     border-radius: 20px;
+
     animation-name: slow_up_login;
     animation-duration: .568s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
+.login_header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.login_header img {
+    margin:  0 auto;
+}
+
 @keyframes slow_up_login {
     0%{
         opacity: 0;
@@ -35,16 +48,16 @@
     margin-bottom: 5px;
 }
 
-.login h2 {
+.login > h2 {
     font-weight: 500;
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: var(--blue);
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: var(--black);
     
 }
 
-.login p {
-    color: white;
+.login > p {
+    color: var(--orange);
     font-size: 11px;
     text-transform: uppercase;
     margin-top: 10px;
@@ -55,11 +68,11 @@
     border: none;
     background: none;
     outline: none;
-    color: white;
+    color: var(--black);
 
-    width: 260px;
+    width: 250px;
     padding: 8px 5px;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--orange);
     border-radius: 10px;
     font-size: 16px;
 }
@@ -68,13 +81,13 @@
     border: none;
     outline: none;
     background: none;
-
-    background-color: var(--blue);
-    border: 1px solid var(--blue);
+    margin: 0 auto;
+    background-color: none;
+    border: 1px solid var(--orange);
 
     border-radius: 2px;
     font-size: 16px;
-    color: var(--black);
+    color: var(--orange);
     margin-top: 20px;
     padding: 6px 15px;
     border-radius: 10px;
@@ -83,12 +96,12 @@
 
 .login button:hover{
     background: none;
-    color: var(--blue);
+    color: var(--black);
+    background-color: var(--orange);
 }
 
 .login button:active{
-    background-color: var(--blue);
-    color: #ffffff;
+    scale: .95;
 }
 .login .currentError {
     left: 50%;
@@ -100,12 +113,14 @@
 }
 @media (max-width: 550px) {
     .login {
-        padding: 20px 20px 5px 20px;
-        background-color: var(--orange);
+        padding: 20px 1px 5px 1px;
+        /* background-color: var(--orange); */
 
         display: flex;
         flex-direction: column;
         align-items: start;
         border-radius: 20px;
+        top: 20%;
+        transform: translate(-50%, -80%);
     }
 }

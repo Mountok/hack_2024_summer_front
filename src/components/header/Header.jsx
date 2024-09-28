@@ -13,7 +13,7 @@ const Header = ({role}) => {
     return (
         <header className="header_1">
             <div className="logotype">
-                <p>ItUp</p>
+                <img width={70} src="/images/Group 1.svg" alt="" />
             </div>
             <nav className="nav">
                 <Link to='/games' className={location.pathname == "/games" ? "nav_links active" : "nav_links"}>Игры</Link>

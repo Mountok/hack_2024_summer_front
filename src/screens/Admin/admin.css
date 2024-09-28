@@ -3,16 +3,18 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
-    border: 2px solid var(--blue);
+    user-select: none;
+   
     border-radius: 10px;
     margin-bottom: 20px;
+    color: var(--black);
+    border: 2px solid var(--orange) ;
 
-    color: #000000;
 }
 
 .admin_item h2 {
     cursor: pointer;
+    color: var(--black);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,8 +32,7 @@
 .admin_item_form.subject input:first-child {
     display: flex;
 
-    border: 2px solid var(--blue);
-    background-color: var(--blue);
+    border: 2px solid var(--orange);
     padding: 60px 5px;
     border-radius: 20px;
     margin-bottom: 10px;
@@ -53,24 +54,24 @@
 .admin_item_form.subject input:nth-child(3), 
 .admin_item_form.theme input ,
 .admin_item_form.lesson input{
-    color: white;
+    color: var(--black);
 
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid var(--blue);
+    border-bottom: 2px solid var(--orange);
 }
 
 .admin_item_form.subject button,
 .admin_item_form.theme button,
 .admin_item_form.lesson button{
     padding: 4px 10px;
-    color: white;
+    color: black;
 
     font-size: 18px;
     border: none;
     background: none;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--orange);
     border-radius: 10px;
     
 }
@@ -81,9 +82,9 @@
 }
 
 .admin_item_form.lesson textarea {
-    color: white;
+    color: black;
     
-    border: 2px dashed var(--blue);
+    border: 2px dashed var(--orange);
     background: none;
     outline: none;
     margin-top: 10px;

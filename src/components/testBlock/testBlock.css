@@ -1,25 +1,36 @@
 .test_block{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(113, 201, 113);
+    background-color: #f1f1f1;
+
     border-radius: 10px;
+    box-shadow: 0 0 1px #bfbfbf;
     margin-bottom: 10px;
 }
 .test_block div{
     padding: 10px 5px;
     display: flex;
+    align-items: center;
     font-size: 20px;
     font-weight: 500;
 }
-.test_block div p:nth-child(1) {
-    font-weight: 600;
-    width: 25px;
-    color: white;
-}
-.test_block div p {
-    margin-right: 5px;
-}
+.test_block:hover{
+    transition: .350s ease-in-out;
+    transform: scale(1.01) translateY(-2px);
+    /*background-color: var(--blue);*/
+    box-shadow: 1px 1px 1px var(--orange);
 
+}
+.test_block div p:nth-child(1) {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+    width: 30px;
+}
+.test_block div p:nth-child(2) {
+    font-size: 20px;
+}
 .test_block button{
     background: none;
     border: none;

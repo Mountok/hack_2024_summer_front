@@ -13,6 +13,7 @@ import LiderBord from './screens/Rating/LiderBord'
 import Admin from './screens/Admin/Admin'
 import Doc from './screens/Doc/Doc'
 import axios from 'axios'
+import TestQuestion from './screens/TestQuestion/TestQuestion'
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
         <Route path='/rate' element={<LiderBord/>}/>
         <Route path='/course/:id' element={<OpenCourse/>}/>
         <Route path='/lesson/:id/:id' element={<Lesson/>}/>
+        <Route path='/test/:id' element={<TestQuestion/>}/>
         <Route path='/doc' element={<Doc/>}/>
 
         <Route path='/admin' element={<Admin/>} />

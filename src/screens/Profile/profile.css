@@ -182,6 +182,7 @@
 
     .profile_header .nav_links {
         display: block;
+        background: none;
         position: absolute;
         top: 5%;
         right: 5px;

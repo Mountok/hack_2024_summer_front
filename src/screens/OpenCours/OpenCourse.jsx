@@ -6,12 +6,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios"
 import { FaArrowLeft } from 'react-icons/fa6'
 import Settings from '../../../settings'
+import { SetLastSubject } from '../../services/profile'
 const OpenCourse = ({ port }) => {
     const location = useLocation()
     const navigate = useNavigate()
     const [subjectId, setSubjectId] = useState(location.pathname.split("/")[2])
     const [themesState, setThemesState] = useState([])
     const [subjectState, setSubjectState] = useState([])
+    const [testsForSubject,setTestForSubject] = useState([])
     const [doneThemesId, setDoneThemesId] = useState([])
 
 
@@ -34,6 +36,15 @@ const OpenCourse = ({ port }) => {
             console.log(resp.data)
             doneThemesId == null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
         });
+        axios.get(`api/test/${subjectId}`).then((resp)=>{
+            setTestForSubject(resp.data.data)
+            console.log(resp)
+        })
+
+        SetLastSubject(localStorage.getItem("PRAXIS_USER_ID"),subjectId).then((res)=> {
+            console.log(res)
+        })
+
     }, [])
 
     return (
@@ -56,14 +67,21 @@ const OpenCourse = ({ port }) => {
                         <p>О курсе:</p>
                         <p>{el.description}</p>
                     </div>
-                    <p>Содержание</p>
+                    <p>Обучение</p>
                     {themesState.map((theme, index, array) => (
 
                         <ThemeBlock is_done={(doneThemesId != null) ? doneThemesId.filter(el => el == theme.id) : 0} lesson_number={index + 1} title={theme.title} theme_id={theme.id} subject_id={el.id} />
 
                     ))}
+                    
+                    <p>Тестирование</p>
 
-                    {/* <TestBlock /> */}
+                    {
+                        testsForSubject.map((test,index,array) => (
+                            <TestBlock key={index} title={test.title}/>
+                        ))
+                    }
+
                 </main>
             ))}
         </>
