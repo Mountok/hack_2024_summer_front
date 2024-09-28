@@ -77,8 +77,6 @@
     border: none;
     outline: none;
     background: none;
-    background-color: var(--blue);
-    border: 1px solid var(--blue);
 
     border-radius:5px;
     color: var(--orange);

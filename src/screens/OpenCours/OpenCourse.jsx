@@ -37,7 +37,7 @@ const OpenCourse = ({ port }) => {
             doneThemesId == null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
         });
         axios.get(`api/test/${subjectId}`).then((resp)=>{
-            setTestForSubject(resp.data.data)
+            resp.data.data == null ? setTestForSubject([]) :setTestForSubject(resp.data.data)
             console.log(resp)
         })
 
@@ -74,11 +74,13 @@ const OpenCourse = ({ port }) => {
 
                     ))}
                     
-                    <p>Тестирование</p>
+                    {
+                        testsForSubject.length != 0 ? <p>Тестирование</p> : null
+                    }
 
                     {
                         testsForSubject.map((test,index,array) => (
-                            <TestBlock key={index} title={test.title}/>
+                            <TestBlock test_id={test.id} key={index} title={test.title}/>
                         ))
                     }
 
