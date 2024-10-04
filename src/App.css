@@ -1,17 +1,16 @@
-.main{
+.main {
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow-x: hidden;
-
 }
-.main.admin{
+.main.admin {
   padding: 20px 350px;
 
   display: flex;
   flex-direction: column;
 }
-.main.courses{
+.main.courses {
   margin: 0 auto;
   padding: 20px 350px;
   position: relative;
@@ -20,43 +19,34 @@
   justify-content: left;
   flex-wrap: wrap;
 }
-.main.opencourse{
+.main.opencourse {
   padding: 0 350px;
-
-
 }
-.main.profile{
+.main.profile {
   padding: 20px 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 350px;
   margin: 0;
-
 }
-.main.lesson{
+.main.lesson {
   padding: 20px 350px;
 }
 
-.main.test_questions{
-  padding: 20px 350px;
-
-}
-
-main.doc{
+main.doc {
   padding: 5px 350px;
 }
 
 @media (max-width: 550px) {
-  .main{
+  .main {
     user-select: none;
 
     margin-top: 60px;
     margin-bottom: 60px;
     padding: 20px 10px;
   }
-  .main.profile{
-
+  .main.profile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +54,7 @@ main.doc{
     margin: 0;
   }
 
-  .main.courses{
+  .main.courses {
     padding: 100px 5px 100px 5px;
     position: relative;
     flex-direction: row;
@@ -73,7 +63,7 @@ main.doc{
     flex-wrap: wrap;
     position: relative;
   }
-  .main.courses::before{
+  .main.courses::before {
     content: "Курсы";
     position: absolute;
     left: 20px;
@@ -81,14 +71,12 @@ main.doc{
     font-style: italic;
     top: 60px;
     font-size: 25px;
-
   }
 
-  .main.opencourse{
+  .main.opencourse {
     padding: 10px 10px 100px 10px;
   }
-  .main.lesson{
+  .main.lesson {
     padding: 20px 10px;
-
   }
 }

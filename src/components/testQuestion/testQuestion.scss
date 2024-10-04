@@ -1,0 +1,59 @@
+.question_item {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  display: flex;
+  background-color: rgb(248, 248, 248);
+  box-shadow: 0px 0px 10px #bdbdbd;
+  border-radius: 10px;
+  margin: 10px;
+  transform: translateY(60px);
+  animation-name: slow_up;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  padding: 24px;
+
+  h3 {
+    margin-bottom: 16px;
+  }
+
+  .question_option {
+    width: 100%;
+
+    input {
+      display: none;
+    }
+
+    input:checked + .radio-button {
+      opacity: 1;
+    }
+
+    .radio-button {
+      display: flex;
+      align-items: center;
+      color: var(--orange);
+      opacity: 0;
+    }
+
+    label {
+      width: 100%;
+      padding: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      display: flex;
+      gap: 6px;
+
+      &:hover,
+      &:active {
+        background-color: var(--orange);
+        color: #fff;
+
+        .radio-button {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
