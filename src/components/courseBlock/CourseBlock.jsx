@@ -8,24 +8,18 @@ import { FaBookOpen } from "react-icons/fa";
 import { MdBookmarkAdded } from "react-icons/md";
 
 const CourseBlock = ({ id, image, title }) => {
-
     const [themesLength, setThemesLength] = useState()
-    const [doneThemes,setDoneThemes] = useState()
-
+    const [doneThemes,setDoneThemes] = useState(0)
     useEffect(() => {
         getCoursesThemeSumm(id)
         getDoneThemes(id)
     },[])
-
-
     const getCoursesThemeSumm = async (id) => {
         var apiUrlT = `/api/themes/${id}`;
         await axios.get(apiUrlT).then((resp) => {
             setThemesLength(resp.data.data.length);
-            
         });
     } 
-
     const getTopicLabel = (count) => {
         if (count % 10 === 1 && count % 100 !== 11) {
             return `${count} тема`;
@@ -35,7 +29,6 @@ const CourseBlock = ({ id, image, title }) => {
             return `${count} тем`;
         }
     };
-
     const getDoneThemes = async (id) => {
         const apiUrlDoneThemes = `/api/themes/complete/${localStorage.getItem("PRAXIS_USER_ID")}/${id}`;
         axios.get(apiUrlDoneThemes).then((resp) => {
@@ -62,7 +55,7 @@ return (
                 {getTopicLabel(themesLength)}
                 <span className='course_themes_complete'>
                 <MdBookmarkAdded />
-                {doneThemes}
+                {(doneThemes/themesLength)*100 + "%"}
                 </span>
                 
             </p>
@@ -74,8 +67,6 @@ return (
             <BsPlayCircleFill />
         </button>
         </div>
-        
-
     </div>
 )
 }

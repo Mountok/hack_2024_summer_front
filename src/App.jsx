@@ -15,6 +15,7 @@ import Doc from './screens/Doc/Doc'
 import axios from 'axios'
 import Certificate from './screens/Certificate/Certificate'
 import Test from './screens/Test/Test'
+import Privacy from './screens/Privacy/Privacy'
 
 
 function App() {
@@ -71,6 +72,8 @@ function App() {
 
         <Route path='/admin' element={<Admin/>} />
         <Route path='/certificate' element={<Certificate/>} />
+
+        <Route path='/privacy' element={<Privacy/>}/>
       </Routes>
       {isLogin ?  <Footer role={userRole}/> : location.pathname === "/profile" ? <Footer role={userRole}/> : null}
     </>

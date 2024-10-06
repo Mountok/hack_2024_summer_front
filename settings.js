@@ -19,8 +19,8 @@
 
 
 // const Settings ={
-//     PORT: "192.168.0.101:8080",
-//     HOST: "http://192.168.0.101:8080"
+//     PORT: "192.168.0.106:8080",
+//     HOST: "http://192.168.0.106:8080"
 // }
 
 // https://itupapi-production.up.railway.app/
