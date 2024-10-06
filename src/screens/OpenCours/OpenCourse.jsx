@@ -7,6 +7,7 @@ import axios from "axios"
 import { FaArrowLeft } from 'react-icons/fa6'
 import Settings from '../../../settings'
 import { SetLastSubject } from '../../services/profile'
+import { Helmet } from 'react-helmet'
 const OpenCourse = ({ port }) => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -49,6 +50,17 @@ const OpenCourse = ({ port }) => {
 
     return (
         <>
+
+<Helmet>
+                <title>Курсы</title>
+                <meta name="description" content="Выберите курс для себя." />
+                <meta name="keywords" content="praxis, courses, praxis курсы" />
+                <meta property="og:title" content="Курсы Praxis" />
+                <meta property="og:description" content="Выберите курсы для себя на Praxis!" />
+                <meta property="og:image" content="/images/Group 1.svg" />
+                <meta property="og:url" content="https://praxis-app.netlify.app/courses" />
+            </Helmet>
+
             {subjectState.map(el => (
                 <main className="main opencourse">
 
