@@ -8,7 +8,7 @@ export const GetSubject = async () => {
 }
 
 export const GetSubjectById = async (subjectId) => {
-    const {data} = await axios.get(`/api/subject/${subjectId}`)
+    const {data} = await axios.get(`/api/subject/${subjectId}`,)
     return data.data
 }
 

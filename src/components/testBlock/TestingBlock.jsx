@@ -6,7 +6,7 @@ import { IoMdCheckboxOutline } from "react-icons/io";
 import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 
 
-const TestingBlock = ({subject_id,test_id,title}) => {
+const TestingBlock = ({points,subject_id,test_id,title}) => {
   const navigate = useNavigate()
 
   return (
@@ -15,6 +15,10 @@ const TestingBlock = ({subject_id,test_id,title}) => {
               <p><MdOutlineCheckBoxOutlineBlank/></p>
               
                 <p>{title}</p>
+            </div>
+            <div>
+              <p>{points}%</p>
+          
             </div>
         </div>
   )

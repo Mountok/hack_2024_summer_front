@@ -18,7 +18,6 @@ const Profile = () => {
     const [progress, setProgress] = useState(0)
     const [localStoreUserId, setLocalStoreUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [userProfile, setUserProfile] = useState([])
-
     const [editName, setNameEdit] = useState(false)
     const [editAvatar, setAvatarEdit] = useState(false)
     const [editDescription, setDescriptionEdit] = useState(false)
@@ -60,9 +59,10 @@ const Profile = () => {
             <Helmet>
                 <title>Профиль</title>
             </Helmet>
-            {userProfile.map(el => (
+            {userProfile.map((el, idx, array) => (
                 <>
-                    <div
+                    <div 
+                    key={idx}
                         className="profile_header">
                         {/* <img
                         className='profile_header_bg' 
@@ -117,9 +117,6 @@ const Profile = () => {
                     </div>
                 </>
             ))}
-
-
-
         </main>
     )
 }

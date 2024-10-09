@@ -26,7 +26,7 @@ const LiderBord = () => {
             <div className="rating_bottom_board">
 
                 {liderBoard.map((el,idx,array)=>(
-                    <div className="rating_bottom_item">
+                    <div key={idx} className="rating_bottom_item">
                     <p>{idx+1}</p>
                     <div className="bottom_rating_board_image">
                         <img src={`http://${Settings.PORT}/images?id=${el.image}`} alt="" />

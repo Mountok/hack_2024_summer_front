@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding-bottom: 36px;
   max-width: 720px;
+  min-width: 720px;
   margin: 0 auto;
 
   .test_button {
@@ -9,10 +10,8 @@
     outline: none;
     background: none;
     display: block;
-
     background-color: var(--orange);
     border: 1px solid var(--orange);
-
     border-radius: 2px;
     font-size: 16px;
     color: var(--white);
@@ -21,7 +20,6 @@
     border-radius: 10px;
     transition: 0.156s linear;
     cursor: pointer;
-
 
     &:hover {
       background: none;
