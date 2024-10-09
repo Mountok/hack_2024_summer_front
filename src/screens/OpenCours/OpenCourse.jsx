@@ -121,7 +121,7 @@ const filterTestPoints = (idx, doneTestsForSubject) => {
         return 0
     } else {
         if (doneTestsForSubject[idx]) {
-            return (doneTestsForSubject[idx].points / doneTestsForSubject[idx].question_count) * 100
+            return Math.floor((doneTestsForSubject[idx].points / doneTestsForSubject[idx].question_count) * 100)
         } else {
             return 0
         }
