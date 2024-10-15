@@ -18,10 +18,10 @@
 // }
 
 
-const Settings ={
-    PORT: "192.168.0.104:8080",
-    HOST: "http://192.168.0.104:8080"
-}
+// const Settings ={
+//     PORT: "192.168.0.104:8080",
+//     HOST: "http://192.168.0.104:8080"
+// }
 // const Settings ={
 //         PORT: "10.25.225.179:8080",
 //         HOST: "http://10.25.225.179:8080"
@@ -29,8 +29,8 @@ const Settings ={
 
 
 // https://itupapi-production.up.railway.app/
-// const Settings ={
-//     PORT: "ggkitapicourses-production.up.railway.app",
-//     HOST: "https://ggkitapicourses-production.up.railway.app"
-// }
+const Settings ={
+    PORT: "ggkitapicourses-production.up.railway.app",
+    HOST: "https://ggkitapicourses-production.up.railway.app"
+}
 export default Settings
