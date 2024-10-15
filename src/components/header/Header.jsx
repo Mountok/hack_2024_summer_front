@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "./header.css"
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IoIosLogOut } from 'react-icons/io';
 
 const Header = ({role}) => {
     const location = useLocation()
-
+    const navigate = useNavigate()
     
     
 
@@ -13,7 +13,7 @@ const Header = ({role}) => {
     return (
         <header className="header_1">
             <div className="logotype">
-                <img width={70} src="/images/Group 1.svg" alt="" />
+                <img  onClick={()=>navigate('/courses')}  width={70} src="/images/Group 1.svg" alt="" />
             </div>
             <nav className="nav">
                 <Link to='/games' className={location.pathname == "/games" ? "nav_links active" : "nav_links"}>Игры</Link>

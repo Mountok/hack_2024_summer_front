@@ -46,7 +46,7 @@ const OpenCourse = ({ port }) => {
             doneThemesId == null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
         });
         GetTestsBySubjectId(subjectId).then(res => {
-            setTestForSubject(res)
+            setTestForSubject(res == null ? [] : res)
             console.log(res)
 
         })
@@ -98,7 +98,7 @@ const OpenCourse = ({ port }) => {
                     ))}
 
                     {
-                        testsForSubject.length != 0 ? <p>Тестирование</p> : null
+                        testsForSubject.length != 0 ? <p>Тестирование</p> : <></>
                     }
 
                     {

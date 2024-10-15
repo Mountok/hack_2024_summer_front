@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import "./admin.css"
 import { FaLockOpen, FaLock } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
+import SubjectForm from './Subject/SubjectForm';
+import SubjectUpdateDelete from './Subject/SubjectUpdateDelete';
+import ThemeForm from './Theme/ThemeForm';
+import ThemeUpdateDelete from './Theme/ThemeUpdateDelete';
 
 const closeCode = { height: "30px", backgroundColor: "var(--orange)" }
 const openCode = { height: "auto", background: "none" }
@@ -20,57 +24,13 @@ const Admin = () => {
 
     const LockUnLockIcon = (bool) => bool ? <FaLock /> : <FaLockOpen />
 
-    const [subjectTabOpen, setsubjectTabOpen] = useState(true)
-    const [themeTabOpen, setthemeTabOpen] = useState(true)
     const [lessonTabOpen, setlessonTabOpen] = useState(true)
     
 
-    // ДЛЯ СОЗДАНИЯ КУРСОВ
-    const [subjectTitle, setSubjectTitle] = useState('');
-    const [subjectDescription, setSubjectDescription] = useState('');
-    const [subjectImage, setSubjectImage] = useState(null);
     
-    const handleSubmitSubject = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-        formData.append('title', subjectTitle);
-        formData.append('description', subjectDescription);
-        formData.append('image', subjectImage);
-
-        try {
-            const response = await axios.post('/api/subject', formData);
-            console.log('Ответ от сервера:', response.data);
-            alert("Id созданного курса " + response.data.subject_id)
-        } catch (error) {
-            console.error('Ошибка при отправке формы:', error);
-        }
-    };
 
 
-    // ДЛЯ ДОБАВЛЕНИЯ ТЕМОВ НА КУРС
-    const [themeTitle, setThemeTitle] = useState('');
-    const [themeDescription, setThemeDescription] = useState('');
-    const [themeSubjectId, setThemeSubjectId] = useState('');
-    const handleSubmitThemes = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-        formData.append('title', themeTitle);
-        formData.append('description', themeDescription);
-        formData.append('subject_id', themeSubjectId);
-
-        try {
-            const response = await axios.post('/api/themes', formData);
-            console.log('Ответ от сервера:', response.data);
-            alert("Id созданного темы " + response.data.theme_id)
-
-
-        } catch (error) {
-            console.error('Ошибка при отправке формы:', error);
-        }
-    };
-
+    
     // ДЛЯ ДОБАВЛЕНИЯ СОДЕРЖАНИЯ В ТЕМЫ
     const [themeId, setThemeId] = useState('');
     const [themeHTML, setThemeHTML] = useState('');
@@ -110,63 +70,30 @@ const Admin = () => {
 
     return (
         <main className='main admin'>
-            <div className="admin_item" style={subjectTabOpen ? closeCode : openCode}>
-                <h2 onClick={() => { setsubjectTabOpen(!subjectTabOpen) }} className='admin_item_header'>Добавить курс
+            <SubjectForm 
+            
+            openCode={openCode} closeCode={closeCode} 
+            LockUnLockIcon={LockUnLockIcon}/>
 
-                    {LockUnLockIcon(subjectTabOpen)}
-                </h2>
+            <SubjectUpdateDelete
+openCode={openCode} closeCode={closeCode} 
+LockUnLockIcon={LockUnLockIcon}
+            />
 
-                <form onSubmit={handleSubmitSubject} className='admin_item_form subject'>
-                    <input
-                        onChange={(e) => setSubjectImage(e.target.files[0])}
-                        type="file" />
-                    <input
-                        value={subjectTitle}
-                        onChange={(e) => { setSubjectTitle(e.target.value) }}
-                        type="text"
-                        placeholder='Название' />
-                    <input
-                        value={subjectDescription}
-                        onChange={(e) => { setSubjectDescription(e.target.value) }}
-                        type="text"
-                        placeholder='Описание' />
 
-                    <br />
-                    <button type='submit'>
-                        Добавить
-                    </button>
-                </form>
-            </div>
+            <ThemeForm
+            openCode={openCode} closeCode={closeCode}
+            LockUnLockIcon={LockUnLockIcon}
+            />
 
-            <div style={themeTabOpen ? closeCode : openCode} className="admin_item">
-                <h2 onClick={() => { setthemeTabOpen(!themeTabOpen) }} className='admin_item_header'>
-                    Добавить темы
-                    {LockUnLockIcon(themeTabOpen)}
+            <ThemeUpdateDelete
+            openCode={openCode} closeCode={closeCode}
+            LockUnLockIcon={LockUnLockIcon}
+            />
 
-                </h2>
+            
 
-                <form onSubmit={handleSubmitThemes} className='admin_item_form theme'>
-                    <input
-                        value={themeTitle}
-                        onChange={(e) => { setThemeTitle(e.target.value) }}
-                        type="text"
-                        placeholder='Название' />
-                    <input
-                        value={themeDescription}
-                        onChange={(e) => { setThemeDescription(e.target.value) }}
-                        type="text"
-                        placeholder='Описание' />
-                    <input
-                        value={themeSubjectId}
-                        onChange={(e) => { setThemeSubjectId(e.target.value) }}
-                        type="number"
-                        placeholder='Введите id курса' />
-                    <br />
-                    <button type='submit'>
-                        Добавить
-                    </button>
-                </form>
-            </div>
+           
 
             <div style={lessonTabOpen ? closeCode : openCode} className="admin_item">
                 <h2 onClick={() => { setlessonTabOpen(!lessonTabOpen) }} className='admin_item_header'>
