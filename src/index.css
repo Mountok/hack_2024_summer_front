@@ -2,7 +2,7 @@
 :root {
   font-family: "Roboto", sans-serif;
   /* --orange: color(srgb 0.9345 0.5079 0.2992); */
-  --orange: rgb(255, 119, 0);
+  --orange: #ff7700;
   --blue: rgb(255, 255, 255);
   --grey: hsl(0, 0%, 12%);
   --ligth-black: hsl(0, 0%, 9%);
