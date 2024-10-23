@@ -44,7 +44,7 @@ const OpenCourse = ({ port }) => {
         GetTestsBySubjectId(subjectId).then(res => setTestForSubject(res == null ? [] : res))
 
         GetCompletedTests(userId, subjectId).then(res => setDoneTestsForSubject(res.data) )
-        
+
         CertificateVerification(userId, subjectId).then(res => {
             if (res.courseDone) {
                 alert("ваш сертификат доступен")
@@ -118,7 +118,9 @@ const filterTestPoints = (idx, doneTestsForSubject) => {
         return 0
     } else {
         if (doneTestsForSubject[idx]) {
-            return Math.floor((doneTestsForSubject[idx].points / doneTestsForSubject[idx].question_count) * 100)
+            console.log(Math.trunc((doneTestsForSubject[idx].points / doneTestsForSubject[idx].question_count) * 100))
+
+            return Math.trunc((doneTestsForSubject[idx].points / doneTestsForSubject[idx].question_count) * 100)
         } else {
             return 0
         }

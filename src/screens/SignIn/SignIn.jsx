@@ -9,6 +9,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [currentError,setCurrentError] = useState("")
+  const [loading,SetLoading] = useState(false)
 
 
   const handleSubmit = async (e) => {
@@ -72,8 +73,7 @@ const SignIn = () => {
       name="password" 
       type="password"/>
 
-      <button onClick={(e)=>handleSubmit(e)}>Войти
-      </button>
+      <button onClick={(e) => handleSubmit(e)}>{loading ?  <Loading/> : "Войти" }</button>
 
       <Link to="/">Есть аккаунт? Войдите.</Link>
 

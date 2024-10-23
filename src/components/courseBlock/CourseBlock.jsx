@@ -55,7 +55,7 @@ return (
                 {getTopicLabel(themesLength)}
                 <span className='course_themes_complete'>
                 <MdBookmarkAdded />
-                {(doneThemes/themesLength)*100 + "%"}
+                {Math.floor((doneThemes/themesLength)*100) + "%"}
                 </span>
                 
             </p>

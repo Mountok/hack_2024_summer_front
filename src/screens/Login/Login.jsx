@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./login_signin.css"
 import axios from 'axios'
+import Loading from '../../components/loading/Loading'
+
 const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [currentError,setCurrentError] = useState("")
+  const [loading,SetLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    SetLoading(true)
     var redirect = true
     console.log("log in logic")
     const req = await axios.post('/api/auth', {
@@ -26,7 +30,7 @@ const Login = () => {
       redirect = false
       setCurrentError(error.response.data.data)
     });
-
+    SetLoading(false)
     redirect ? navigate("/courses") : null;
   }
   return (
@@ -52,7 +56,7 @@ const Login = () => {
         name="password"
         type="password" />
 
-      <button onClick={(e) => handleSubmit(e)}>Войти</button>
+      <button onClick={(e) => handleSubmit(e)}>{loading ?  <Loading/> : "Войти" }</button>
 
       <Link to="/signin">Нету аккаунта? Зарегистрируйтесь.</Link>
 

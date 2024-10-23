@@ -10,7 +10,7 @@ import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 const TestingBlock = ({points,subject_id,test_id,title}) => {
   const navigate = useNavigate()
-
+  
   return (
     <div onClick={()=>navigate(`/test/${test_id}`)} className='test_block'>
             <div>
