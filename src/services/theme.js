@@ -11,3 +11,12 @@ export const DeleteTheme = async(theme_id) => {
     const {data} = await axios.delete(`/api/themes/${theme_id}`)
     return data
 }
+
+export const DoneThemes = async(userId,subjectId) => {
+    const {data} = await axios.get(`/api/themes/complete/${userId}/${subjectId}`)
+    if (data.data == null) {
+        return []
+    }else { 
+        return data.data
+    }
+}

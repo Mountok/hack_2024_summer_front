@@ -30,7 +30,11 @@ const Login = () => {
     redirect ? navigate("/courses") : null;
   }
   return (
-    <section className="login">
+    <section onKeyPress={(e)=>{
+      if (e.key === "Enter") {
+        handleSubmit(e)
+      }
+    }} className="login">
 
       
 <div className='login_header'>

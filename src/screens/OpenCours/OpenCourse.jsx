@@ -5,11 +5,10 @@ import TestBlock from '../../components/testBlock/TestingBlock'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from "axios"
 import { FaArrowLeft } from 'react-icons/fa6'
-import Settings from '../../../settings'
-import { SetLastSubject } from '../../services/profile'
 import { Helmet } from 'react-helmet'
-import { GetSubjectById } from '../../services/subject'
 import { GetCompletedTests, GetTestsBySubjectId } from '../../services/subject_test'
+import { CertificateVerification } from '../../services/cerificated'
+import { DoneThemes } from '../../services/theme'
 const OpenCourse = ({ port }) => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -40,20 +39,18 @@ const OpenCourse = ({ port }) => {
             // console.log(resp.data)
             setSubjectState(Subject);
         });
-        axios.get(apiUrlDoneThemes).then((resp) => {
-            const DoneThemesIds = resp.data.data;
-            // console.log(resp.data)
-            doneThemesId == null ? setDoneThemesId([]) : setDoneThemesId(DoneThemesIds);
-        });
-        GetTestsBySubjectId(subjectId).then(res => {
-            setTestForSubject(res == null ? [] : res)
-            console.log(res)
+        DoneThemes(userId,subjectId).then(res => setDoneThemesId(res))
 
-        })
-        GetCompletedTests(userId, subjectId).then(res => {
-            // doneTest = res.data
-            setDoneTestsForSubject(res.data);
-            console.log(res)
+        GetTestsBySubjectId(subjectId).then(res => setTestForSubject(res == null ? [] : res))
+
+        GetCompletedTests(userId, subjectId).then(res => setDoneTestsForSubject(res.data) )
+        
+        CertificateVerification(userId, subjectId).then(res => {
+            if (res.courseDone) {
+                alert("ваш сертификат доступен")
+            } 
+        }).catch(err => {
+            console.log(err)
         })
 
 

@@ -48,7 +48,11 @@ const SignIn = () => {
     <Helmet>
                 <title>Регистрация</title>
             </Helmet>
-    <section className="login">
+    <section  onKeyPress={(e)=>{
+      if (e.key === "Enter") {
+        handleSubmit(e)
+      }
+    }}  className="login">
       <div className='login_header'>
       <img width={100} height={100} src="/images/Group 1.svg" alt="" />
       {/* <p>IN<span>iT</span></p> */}
