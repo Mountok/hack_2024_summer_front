@@ -11,6 +11,7 @@ import DescriptionChange from "../../components/Profile/DescriptionEdit/Descript
 import { IoLogOut } from "react-icons/io5";
 import Settings from "../../../settings.js";
 import CourseHistory from '../../components/Profile/CourseHistory/CourseHistory.jsx';
+import { ShimmerCategoryItems } from 'shimmer-effects-react';
 
 
 
@@ -59,6 +60,7 @@ const Profile = () => {
             <Helmet>
                 <title>Профиль</title>
             </Helmet>
+
             {userProfile.map((el, idx, array) => (
                 <>
                     <div 

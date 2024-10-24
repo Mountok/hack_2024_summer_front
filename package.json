@@ -22,6 +22,7 @@
     "react-router-dom": "^6.22.3",
     "sass": "^1.79.4",
     "serve": "^14.2.3",
+    "shimmer-effects-react": "^1.0.4",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

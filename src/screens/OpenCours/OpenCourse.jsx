@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./openCourse.css"
+import "./openCourse.scss"
 import ThemeBlock from '../../components/themeBlock/ThemeBlock'
 import TestBlock from '../../components/testBlock/TestingBlock'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -9,6 +9,8 @@ import { Helmet } from 'react-helmet'
 import { GetCompletedTests, GetTestsBySubjectId } from '../../services/subject_test'
 import { CertificateVerification } from '../../services/cerificated'
 import { DoneThemes } from '../../services/theme'
+import { GiDiploma } from "react-icons/gi";
+
 const OpenCourse = ({ port }) => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -23,6 +25,8 @@ const OpenCourse = ({ port }) => {
     const [doneTestsForSubject, setDoneTestsForSubject] = useState([])
 
     const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
+
+    const [isCertificated,setIsSertificated] = useState(false)
 
 
     useEffect(() => {
@@ -47,10 +51,12 @@ const OpenCourse = ({ port }) => {
 
         CertificateVerification(userId, subjectId).then(res => {
             if (res.courseDone) {
-                alert("ваш сертификат доступен")
+                // alert("ваш сертификат доступен")
+                setIsSertificated(true)
             } 
         }).catch(err => {
             console.log(err)
+            
         })
 
 
@@ -86,6 +92,10 @@ const OpenCourse = ({ port }) => {
                     <div className="opencourse_description">
                         <p>О курсе:</p>
                         <p>{el.description}</p>
+                        {isCertificated &&  <button className='sertificate_btn'>
+                            <GiDiploma/> Получить сертификат
+                            </button>}
+                       
                     </div>
                     <p>Обучение</p>
                     {themesState.map((theme, index, array) => (

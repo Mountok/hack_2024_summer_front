@@ -6,10 +6,14 @@ import { BsPlayCircleFill } from "react-icons/bs";
 import axios from 'axios';
 import { FaBookOpen } from "react-icons/fa";
 import { MdBookmarkAdded } from "react-icons/md";
+import Loading from '../loading/Loading';
+import { ShimmerButton } from 'shimmer-effects-react';
 
 const CourseBlock = ({ id, image, title }) => {
     const [themesLength, setThemesLength] = useState()
-    const [doneThemes,setDoneThemes] = useState(0)
+    const [doneThemes,setDoneThemes] = useState(null)
+    const [doneThemesLoad,setDoneThemesLoad]= useState(false)
+    const [imgIsLoad,setImgIsLoad] = useState(false)
     useEffect(() => {
         getCoursesThemeSumm(id)
         getDoneThemes(id)
@@ -30,12 +34,15 @@ const CourseBlock = ({ id, image, title }) => {
         }
     };
     const getDoneThemes = async (id) => {
+        setDoneThemesLoad(false)
+
         const apiUrlDoneThemes = `/api/themes/complete/${localStorage.getItem("PRAXIS_USER_ID")}/${id}`;
         axios.get(apiUrlDoneThemes).then((resp) => {
             const DoneThemesIds = resp.data.data;
             console.log(resp.data)
             DoneThemesIds == null ? setDoneThemes(0) : setDoneThemes(DoneThemesIds.length);
         });
+        setDoneThemesLoad(true)
     }
 
 
@@ -44,30 +51,39 @@ const CourseBlock = ({ id, image, title }) => {
 
 const navigate = useNavigate()
 return (
-    <div className='course_block'>
-        <img className='course_image' src={image} alt="" />
-
-        <h3 className='course_title'>{title}</h3>
-
-        <div className='course_footer'>
-            <p className='course_themes_lenght'>
-                <FaBookOpen/>
-                {getTopicLabel(themesLength)}
-                <span className='course_themes_complete'>
-                <MdBookmarkAdded />
-                {Math.floor((doneThemes/themesLength)*100) + "%"}
-                </span>
-                
-            </p>
-                
-        <button onClick={() => {
-            navigate(`/course/${id}`)
-        }}
-            className='course_button'> <p>{doneThemes == 0 ? "Начать" : "Продолжить"}</p>
-            <BsPlayCircleFill />
-        </button>
-        </div>
-    </div>
+    <>
+             <div  onClick={() => {
+                navigate(`/course/${id}`)
+            }} className='course_block'>
+                <img 
+                onLoad={(e)=>setImgIsLoad(true)} 
+        
+                style={{opacity: imgIsLoad ? ('1') : ('0') }}  
+                className='course_image' src={image} alt="" />
+        
+                <h3 className='course_title'>{title}</h3>
+        
+                <div className='course_footer'>
+                    <p className='course_themes_lenght'>
+                        <FaBookOpen/>
+                        { (themesLength) ? getTopicLabel(themesLength) : <Loading/>}
+                        <span className='course_themes_complete'>
+                        <MdBookmarkAdded />
+                        {(doneThemesLoad && themesLength ) ? Math.floor((doneThemes/themesLength)*100) + "%" : (<Loading/>) }
+                        </span>
+                        
+                    </p>
+                        
+                <button onClick={() => {
+                    navigate(`/course/${id}`)
+                }}
+                    className='course_button'> <p>{(doneThemes == 0) ? "Начать" : "Продолжить"}</p>
+                    <BsPlayCircleFill />
+                </button>
+                </div>
+            </div>
+    </>
+   
 )
 }
 

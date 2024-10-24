@@ -19,6 +19,10 @@
   justify-content: left;
   flex-wrap: wrap;
 }
+.main.courses .shimmer_block {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
 .main.opencourse {
   padding: 0 350px;
 }

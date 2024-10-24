@@ -4,6 +4,8 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet'
 import Settings from "../../../settings.js";
 import { GetSubject } from '../../services/subject.js';
+import Loading from '../../components/loading/Loading.jsx';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const Courses = () => {
   const [subjectsState,setSubjectsState] = useState([])
@@ -40,7 +42,14 @@ const Courses = () => {
           subtitle={el.description}/>
         ))
       ) : (
-        <span className='loader'>Загрузка курсов</span>
+        <>
+
+        <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
+        <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
+        <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
+        <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
+        </>
+        // <Loading/>
       )}
      
     </main>

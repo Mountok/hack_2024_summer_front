@@ -320,7 +320,9 @@
         color: var(--orange);
         margin-right: 10px;
     }
-
+.rating_bottom_board > .loading {
+    font-size: 100px;
+}
     .bottom_rating_board_image {
         width: 60px;
         height: 60px;

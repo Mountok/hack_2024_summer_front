@@ -9,6 +9,39 @@
     letter-spacing: 1px;
     overflow: hidden;
 }
+.sertificate_btn{
+
+    border: none;
+    outline: none;
+    background: none;
+    border: 1px solid var(--orange);
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 2px;
+    color: var(--orange);
+    margin-top: 5px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    transition:  .156s linear;
+
+    &:hover {
+        color: #000000;
+        background-color: var(--orange);
+    
+    }
+    &:active{
+        transform: scale(.97);
+    }
+
+    & > svg {
+        font-size: 30px;   
+        margin-right: 5px;
+    }
+}
+
+
+
 
 .opencourse_header a {
     text-decoration:none;
