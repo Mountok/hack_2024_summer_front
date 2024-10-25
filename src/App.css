@@ -71,6 +71,10 @@ main.doc {
     flex-wrap: wrap;
     position: relative;
   }
+  .main.courses .shimmer_block {
+    margin-left: 5px;
+    margin-bottom: 20px;
+  }
   .main.courses::before {
     content: "Курсы";
     position: absolute;
