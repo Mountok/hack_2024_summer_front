@@ -9,7 +9,7 @@ import { MdBookmarkAdded } from "react-icons/md";
 import Loading from '../loading/Loading';
 import { ShimmerButton } from 'shimmer-effects-react';
 
-const CourseBlock = ({ id, image, title }) => {
+const CourseBlock = ({ id, image, title,setAllLoad }) => {
     const [themesLength, setThemesLength] = useState()
     const [doneThemes,setDoneThemes] = useState(null)
     const [doneThemesLoad,setDoneThemesLoad]= useState(false)
@@ -56,7 +56,10 @@ return (
                 navigate(`/course/${id}`)
             }} className='course_block'>
                 <img 
-                onLoad={(e)=>setImgIsLoad(true)} 
+                onLoad={(e)=>{
+                    setImgIsLoad(true)
+                    setAllLoad(true)
+                }} 
         
                 style={{opacity: imgIsLoad ? ('1') : ('0') }}  
                 className='course_image' src={image} alt="" />

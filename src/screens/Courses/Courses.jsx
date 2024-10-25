@@ -11,7 +11,7 @@ const Courses = () => {
   const [subjectsState,setSubjectsState] = useState([])
   
   const [requestCompleted,setRequestCompleted] = useState(false)
-  
+  const [allLoad, setAllLoad] = useState(false)
   
   useEffect(()=>{
 
@@ -39,9 +39,10 @@ const Courses = () => {
           key={el.id} 
           image={`http://${Settings.PORT}/images?id=`+el.image}
           title={el.title}
+          setAllLoad={setAllLoad}
           subtitle={el.description}/>
         ))
-      ) : (
+      ) : (!allLoad) ? (
         <>
 
         <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
@@ -50,6 +51,8 @@ const Courses = () => {
         <ShimmerDiv className='shimmer_block' rounded={1} mode="light" height={240} width={330} />
         </>
         // <Loading/>
+      ) : (
+        null
       )}
      
     </main>
