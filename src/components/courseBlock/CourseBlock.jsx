@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./coursesBlock.css"
+import "./coursesBlock.scss"
 import { useNavigate } from 'react-router-dom'
 import { RxChevronRight } from "react-icons/rx";
 import { BsPlayCircleFill } from "react-icons/bs";
@@ -63,27 +63,29 @@ return (
         
                 style={{opacity: imgIsLoad ? ('1') : ('0') }}  
                 className='course_image' src={image} alt="" />
-        
+                <div>
                 <h3 className='course_title'>{title}</h3>
         
-                <div className='course_footer'>
-                    <p className='course_themes_lenght'>
-                        <FaBookOpen/>
-                        { (themesLength) ? getTopicLabel(themesLength) : <Loading/>}
-                        <span className='course_themes_complete'>
-                        <MdBookmarkAdded />
-                        {(doneThemesLoad && themesLength ) ? Math.floor((doneThemes/themesLength)*100) + "%" : (<Loading/>) }
-                        </span>
-                        
-                    </p>
-                        
-                <button onClick={() => {
-                    navigate(`/course/${id}`)
-                }}
-                    className='course_button'> <p>{(doneThemes == 0) ? "Начать" : "Продолжить"}</p>
-                    <BsPlayCircleFill />
-                </button>
+        <div className='course_footer'>
+            <p className='course_themes_lenght'>
+                <FaBookOpen/>
+                { (themesLength) ? getTopicLabel(themesLength) : <Loading/>}
+                <span className='course_themes_complete'>
+                <MdBookmarkAdded />
+                {(doneThemesLoad && themesLength ) ? Math.floor((doneThemes/themesLength)*100) + "%" : (<Loading/>) }
+                </span>
+                
+            </p>
+                
+        {/* <button onClick={() => {
+            navigate(`/course/${id}`)
+        }}
+            className='course_button'> <p>{(doneThemes == 0) ? "Начать" : "Продолжить"}</p>
+            <BsPlayCircleFill />
+        </button> */}
+        </div>
                 </div>
+                
             </div>
     </>
    

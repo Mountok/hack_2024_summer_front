@@ -55,7 +55,7 @@ const SignIn = () => {
       }
     }}  className="login">
       <div className='login_header'>
-      <img width={100} height={100} src="/images/Group 1.svg" alt="" />
+      <img width={100} height={100} src="/images/ico_next.svg" alt="" />
       {/* <p>IN<span>iT</span></p> */}
       </div>
 

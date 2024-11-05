@@ -22,7 +22,6 @@ const LiderBord = () => {
     return (
         <main className='main rating'>
             <div className="rating_header">
-                <GiLaurelCrown className='rating_header_icon' />
                 <p>Топ 10 пользователей</p>
             </div>
 

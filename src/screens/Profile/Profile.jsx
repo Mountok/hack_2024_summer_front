@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import "./profile.css"
-import {MdEdit} from "react-icons/md";
 import {Helmet} from 'react-helmet'
 import axios from "axios"
 import NameEditBlock from '../../components/Profile/NameEdit/NameEditBlock';
 import {Link} from 'react-router-dom';
-import {IoIosLogOut} from "react-icons/io";
 import AvatarChangeBlock from "../../components/Profile/AvatarChange/AvatarChangeBlock.jsx";
 import DescriptionChange from "../../components/Profile/DescriptionEdit/DescriptionChange.jsx";
 import { IoLogOut } from "react-icons/io5";
 import Settings from "../../../settings.js";
 import CourseHistory from '../../components/Profile/CourseHistory/CourseHistory.jsx';
-import { ShimmerCategoryItems } from 'shimmer-effects-react';
+import ProfileStats from '../../components/Profile/Stats/ProfileStats.jsx';
 
 
 
@@ -101,22 +99,18 @@ const Profile = () => {
                     </div>
                     <div
                         className="profile_body">
-                        <div
+                        {/* <div
 
                             className="profile_stats level">
                             <div>
                                 <p>{Math.floor(el.score / 100)} lvl</p>
                             </div>
-                            <div
-                                className="level_range">
-                <span
-                    style={{width: `${progress}%`}}
-                    className='level_range_item'></span>
-                            </div>
-                        </div>
+                        </div> */}
                 <CourseHistory/>
+                <ProfileStats/>
 
                     </div>
+                    
                 </>
             ))}
         </main>

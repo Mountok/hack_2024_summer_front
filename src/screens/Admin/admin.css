@@ -8,11 +8,12 @@
     border-radius: 10px;
     margin-bottom: 20px;
     color: var(--black);
-    border: 2px solid var(--orange) ;
+    border: 2px solid var(--blue) ;
 
 }
 
 .admin_item h2 {
+    
     cursor: pointer;
     color: var(--black);
     display: flex;
@@ -32,7 +33,7 @@
 .admin_item_form.subject input:first-child {
     display: flex;
 
-    border: 2px solid var(--orange);
+    border: 2px solid var(--blue);
     padding: 60px 5px;
     border-radius: 20px;
     margin-bottom: 10px;
@@ -60,7 +61,7 @@
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid var(--orange);
+    border-bottom: 2px solid var(--blue);
 }
 
 .admin_item_form.subject button,
@@ -72,7 +73,7 @@
     font-size: 18px;
     border: none;
     background: none;
-    border: 2px solid var(--orange);
+    border: 2px solid var(--blue);
     border-radius: 10px;
     
 }
@@ -85,7 +86,7 @@
 .admin_item_form.lesson textarea {
     color: black;
     
-    border: 2px dashed var(--orange);
+    border: 2px solid var(--blue);
     background: none;
     outline: none;
     margin-top: 10px;
@@ -101,4 +102,17 @@
     right: 5px;
     bottom: 0;
     font-size: 20px;
+}
+
+
+@media (max-width: 550px) {
+    .admin_item_form.lesson > svg {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        font-size: 12px;
+    }
+.admin_item h2 {
+    font-size: 18px;    
+}
 }

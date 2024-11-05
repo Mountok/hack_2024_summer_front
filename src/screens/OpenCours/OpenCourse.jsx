@@ -10,6 +10,7 @@ import { GetCompletedTests, GetTestsBySubjectId } from '../../services/subject_t
 import { CertificateVerification } from '../../services/cerificated'
 import { DoneThemes } from '../../services/theme'
 import { GiDiploma } from "react-icons/gi";
+import { SetLastSubject } from '../../services/profile'
 
 const OpenCourse = ({ port }) => {
     const location = useLocation()
@@ -58,6 +59,8 @@ const OpenCourse = ({ port }) => {
             console.log(err)
             
         })
+
+        SetLastSubject(userId,subjectId)
 
 
     }, [])

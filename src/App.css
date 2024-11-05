@@ -1,9 +1,46 @@
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
   overflow-x: hidden;
+  background-color: var(--white);
+  
 }
+.main::after{
+  position: fixed;
+  content:  "";
+  width: 100px;
+  height: 500px;
+  border-radius: 50%;
+  left: -150px;
+  top: 100px;
+  background-color: none;
+  z-index: -1;
+  box-shadow:  10px 0 100px var(--blue),10px 0 200px var(--green),20px 0 200px var(--blue);
+
+
+
+}
+.main::before{
+  position: fixed;
+  content:  "";
+  width: 100px;
+  height: 500px;
+  border-radius: 50%;
+  right: -150px;
+  top: 100px;
+  background-color: none;
+  z-index: -1;
+  box-shadow:  10px 0 100px var(--red),10px 0 200px var(--orange),20px 0 200px var(--red);
+}
+.main.rating {
+
+  padding: 70px 5px;
+
+}
+
+
 .main.admin {
   padding: 20px 350px;
 
@@ -15,8 +52,8 @@
   padding: 20px 350px;
   position: relative;
   flex-direction: row;
-  align-items: start;
-  justify-content: left;
+  justify-content: center;
+  align-items: self-start;
   flex-wrap: wrap;
 }
 .main.courses .shimmer_block {
@@ -50,10 +87,10 @@ main.doc {
   .main {
     user-select: none;
 
-    margin-top: 60px;
-    margin-bottom: 60px;
     padding: 20px 10px;
   }
+
+  
   .main.profile {
     display: flex;
     flex-direction: column;
@@ -63,7 +100,7 @@ main.doc {
   }
 
   .main.courses {
-    padding: 100px 5px 100px 5px;
+    padding: 60px 5px 100px 5px;
     position: relative;
     flex-direction: row;
     align-items: start;
@@ -75,20 +112,25 @@ main.doc {
     margin-left: 5px;
     margin-bottom: 20px;
   }
-  .main.courses::before {
-    content: "Курсы";
-    position: absolute;
-    left: 20px;
-    color: var(--orange);
-    font-style: italic;
-    top: 60px;
-    font-size: 25px;
-  }
+  .main.test_questions {
+    padding: 80px 10px 100px 10px;
 
+  }
+  .main.admin{
+    padding: 80px 10px 100px 10px;
+
+  }
   .main.opencourse {
-    padding: 10px 10px 100px 10px;
+    padding: 80px 10px 100px 10px;
   }
   .main.lesson {
-    padding: 20px 10px;
+    padding: 80px 10px 100px 10px;
   }
+
+  .main.rating {
+
+    padding: 70px 5px;
+  
+  }
+  
 }

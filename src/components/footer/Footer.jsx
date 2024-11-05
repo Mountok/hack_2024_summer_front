@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../header/header.css"
+import "../header/header.scss"
 
 import { IoCopy } from "react-icons/io5";
 import { IoDice } from "react-icons/io5";
@@ -16,10 +16,10 @@ const Footer = ({role}) => {
     return (
         <footer className="header_2">
             <nav className="nav">
-                <Link to='/games'
-                    className={location.pathname == "/games" ? "nav_links active" : "nav_links"}>
+                <Link
+                    to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>
                     <IoDice />
-                    Игры
+                Ресурсы
                 </Link>
                 <Link
                     to='/courses'
@@ -42,7 +42,7 @@ const Footer = ({role}) => {
                 {
                     role == "admin" ? <Link to='/admin' className={location.pathname == "/admin" ? "nav_links active" : "nav_links"}>
                         <RiAdminLine/>
-                        Администрирование
+                        Root
                         </Link> : null
                 }
             </nav>

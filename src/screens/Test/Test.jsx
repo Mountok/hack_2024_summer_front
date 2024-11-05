@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./test.scss";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TestQuestion from "../../components/testQuestion/testQuestion";
 import { CheckQuestionsForTestId } from "../../services/subject_test";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Test = () => {
   const location = useLocation();
   const [testId, setTestId] = useState(location.pathname.split("/")[2]);
   const [questions, setQuestions] = useState([]);
+  const [subjectId,setSubjectId] = useState(0)
   const [selectedQueston, setSelectedQuestion] = useState([]);
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const Test = () => {
     await axios.get(`/api/testing/${testId}`).then((resp) => {
       console.log("test", resp.data.data);
       var questions =  resp.data.data
+      setSubjectId(questions[0].subject_id)
       questions == null ? setQuestions([]) : setQuestions(resp.data.data);
     });
   };
@@ -65,6 +68,13 @@ const Test = () => {
 
   return (
     <div className="main test_questions">
+      <nav>
+
+        <Link to={"/course/"+subjectId}>
+                    <FaArrowLeft/>
+                </Link>
+      </nav>
+
       <form>
         {questions.map((data, i) => (
           <TestQuestion

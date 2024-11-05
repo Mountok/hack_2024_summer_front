@@ -4,8 +4,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 30px 50px 25px 50px;
-    background-color: none;
-    /* background-color: var(--orange); */
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -21,9 +19,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 100px;
 
 }
 .login_header img {
+    rotate: -20deg;
     margin:  0 auto;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .login > a {
-    color: #626262;
+    color: #5b5b5b;
     text-decoration: none;
     font-size: 11px;
     margin-top: 10px;
@@ -57,8 +57,8 @@
 }
 
 .login > p {
-    color: var(--orange);
-    font-size: 11px;
+    color: var(--white);
+    font-size: 15px;
     text-transform: uppercase;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -72,8 +72,9 @@
 
     width: 250px;
     padding: 8px 5px;
-    border: 1px solid var(--orange);
-    border-radius: 10px;
+    border: 1px solid var(--white);
+    background-color: var(--white);
+    border-radius: 5px;
     font-size: 16px;
 }
 
@@ -83,11 +84,11 @@
     background: none;
     margin: 0 auto;
     background-color: none;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--white);
 
-    border-radius: 2px;
+    border-radius: 1px;
     font-size: 16px;
-    color: var(--orange);
+    color: var(--white);
     margin-top: 20px;
     padding: 6px 15px;
     border-radius: 10px;
@@ -97,7 +98,7 @@
 .login button:hover{
     background: none;
     color: var(--black);
-    background-color: var(--orange);
+    background-color: var(--white);
 }
 
 .login button:active{
@@ -114,13 +115,59 @@
 @media (max-width: 550px) {
     .login {
         padding: 20px 1px 5px 1px;
-        /* background-color: var(--orange); */
 
         display: flex;
         flex-direction: column;
         align-items: start;
         border-radius: 20px;
-        top: 20%;
-        transform: translate(-50%, -80%);
+        top: 35%;
+        transform: translate(-50%, -65%);
     }
+
+
+.login > h2 {
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: var(--black);
+    
+}
+
+.login > p {
+    color: var(--white);
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.login input {
+    background: none;
+    outline: none;
+    color: var(--black);
+    background-color: var(--white);
+
+    width: 280px;
+    padding: 8px 5px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+.login button {
+    border: none;
+    outline: none;
+    background: none;
+    margin: 0 auto;
+    background-color: none;
+    border: 1px solid var(--white);
+
+    border-radius: 1px;
+    font-size: 25px;
+    color: var(--white);
+    margin-top: 20px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    transition:  .156s linear;
+}
 }

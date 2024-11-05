@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { IoPlay } from "react-icons/io5";
-import "./themeBlock.css"
+import "./themeBlock.scss"
 import { useNavigate } from 'react-router-dom';
 import { BsBookmarkCheck,BsBookmarkCheckFill } from "react-icons/bs";
 

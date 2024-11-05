@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import CourseBlock from '../../components/courseBlock/CourseBlock'
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
@@ -12,21 +12,20 @@ const Courses = () => {
   
   const [requestCompleted,setRequestCompleted] = useState(false)
   const [allLoad, setAllLoad] = useState(false)
-  
-  useEffect(()=>{
 
-    
+  useEffect(()=>{
     GetSubject().then((res) => {
       setSubjectsState(res)
       setRequestCompleted(true) 
     })
-  
-
-    
   },[])
 
+  
+
+
   return (
-    <main className='main courses'>
+    <main 
+    className='main courses'>
       <Helmet>
         <title>Курсы</title>
       </Helmet>

@@ -45,7 +45,7 @@
 
 .opencourse_header a {
     text-decoration:none;
-    color: var(--orange);
+    color: var(--black);
     font-size: 30px;
 }
 .opencourse_header a svg:hover{
@@ -56,27 +56,27 @@
     animation-timing-function: linear;
 }
 .opencourse_description{
+    color: black;
     z-index: 2;
-    background-color: var(--blue);
+    background-color: var(--grey);
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
 }
 
 .opencourse_description p:nth-child(1) {
-    font-weight: 500;
-
-    color: var(--orange);
+    font-weight: 800;
+    font-size: 25px;
+    color: var(--black);
 }
 .opencourse_description p:nth-child(2) {
-    color: #000000;
     line-height: 150%;
     text-align: justify;
 }
 .opencourse > p {
-    color: var(--orange);
+    color: var(--black);
     margin: 10px 0;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 1px;
     font-size: 30px;
 }

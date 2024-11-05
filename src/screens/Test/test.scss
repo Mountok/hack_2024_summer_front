@@ -1,19 +1,43 @@
 .test_questions {
   box-sizing: border-box;
   padding-bottom: 36px;
-  max-width: 720px;
-  min-width: 720px;
+  width: 100%;
+  padding: 20px 350px;
   margin: 0 auto;
 
+  & nav  a {
+    text-decoration:none;
+    color: var(--blue);
+    font-size: 30px;
+  }
+  & nav  a  svg:hover{
+
+    animation-name: slide_arrow_left;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+@keyframes slide_arrow_left {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-10px);
+    }
+    100%{
+        transform: translateX(0px);
+
+    }
+}
   .test_button {
     border: none;
     outline: none;
     background: none;
     display: block;
-    background-color: var(--orange);
-    border: 1px solid var(--orange);
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
     border-radius: 2px;
-    font-size: 16px;
+    font-size: 25px;
     color: var(--white);
     margin: 16px auto;
     padding: 6px 15px;
@@ -23,12 +47,22 @@
 
     &:hover {
       background: none;
-      color: var(--orange);
+      color: var(--blue);
     }
 
     &:active {
       background-color: var(--white);
       color: #ffffff;
     }
+  }
+}
+
+@media (max-width: 550px) {
+  .test_questions {
+    padding: 10px 5px;
+  }
+  .test_button {
+    font-size: 14px;
+
   }
 }

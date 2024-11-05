@@ -18,7 +18,7 @@ const Login = () => {
     console.log("log in logic")
     const req = await axios.post('/api/auth', {
       id: "",
-      email: email,
+      email:  email,
       password: password,
       create_date: ""
     }).then(function (response) {
@@ -42,8 +42,8 @@ const Login = () => {
 
       
 <div className='login_header'>
-      <img width={100} height={100} src="/images/Group 1.svg" alt="" />
-      {/* <p>IN<span>iT</span></p> */}
+<img width={100} height={100} src="/images/ico_next.svg" alt="" />
+{/* <p>IN<span>iT</span></p> */}
       </div>
 
       <p>E-mail</p>

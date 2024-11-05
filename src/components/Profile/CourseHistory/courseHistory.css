@@ -1,6 +1,6 @@
 .last_course{
     border-radius: 20px;
-    background-color: #f1f1f1;
+    background:  var(--blue);
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -21,7 +21,7 @@ opacity: 1;
 .last_course_header {
     margin-top: 20px;
     margin-bottom: 5px;
-    color: var(--orange);
+    color: var(-- );
 }
 
 .last_course > img {
@@ -85,7 +85,7 @@ display: -webkit-box;
         
         margin-top: 20px;
         margin-bottom: 5px;
-        color: var(--orange);
+        color: var(--black);
     }
     
     .last_course > img {
@@ -100,9 +100,11 @@ display: -webkit-box;
         flex-direction: column;
     }
     .last_course .last_course_info > h2{
+        color: var(--black);
         font-size: 14px;
     }
     .last_course .last_course_info > p{
+
         display: none;
     }
     .last_course .last_course_control > svg {
@@ -112,7 +114,8 @@ display: -webkit-box;
     
     }
     .last_course:hover .last_course_control > svg {
-        color: var(--orange);
+        color: var(--black);
+        font-weight: 700;
         font-size: 40px;
     }
 }

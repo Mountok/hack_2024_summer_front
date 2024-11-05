@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--orange);
+    background-color: var(--grey);
 
 }
 
@@ -34,7 +34,7 @@
     cursor: pointer;
     /*box-shadow: 0 0 2px 1px black;*/
     z-index: 1;
-    background-color: var(--orange);
+    background-color: none;
 
 
 }
@@ -130,7 +130,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--orange);
+    background-color: var(--red);
     height: 15px;
     border-radius: 15px;
     transition: .2s linear;
@@ -203,7 +203,7 @@
         cursor: pointer;
         /*box-shadow: 0 0 2px 1px black;*/
         z-index: 1;
-        background-color: var(--orange);
+        background-color: none;
 
 
     }
@@ -220,7 +220,7 @@
 
     .profile_header h2 {
         font-size: 28px;
-        color: rgb(255, 255, 255);
+        color: var(--black);
         font-weight: 900;
         letter-spacing: 1px;
         animation-name: slow_view_name;
@@ -247,7 +247,7 @@
 
     .profile_header p {
         font-size: 12px;
-        color: rgb(255, 255, 255);
+        color: var(--black);
         animation-name: slow_view_desc;
         animation-fill-mode: forwards;
         animation-duration: 1s;

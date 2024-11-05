@@ -1,14 +1,15 @@
 .course_block{
     display: flex;
     flex-direction: column;
-    align-items: self-start;
-    width: 330px;
-    height: 240px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 350px;
+    height: 250px;
     display: flex;
-    background-color: rgb(248, 248, 248);
-    box-shadow: 0px 0px 10px #bdbdbd;
+    background-color: var(--red);
+    --web-kit-backdrop-filter: blur(10px);
     border-radius: 10px;
-    padding: 8px 2px 8px 2px;
+    padding: none;
     margin: 10px;
     transform: translateY(10px);
     animation-name: slow_up;
@@ -18,17 +19,24 @@
     cursor: pointer;
     transition: .3s;
     overflow: hidden;
+
+    & > div {
+        padding: 0 5px 15px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 100%;
+        height: inherit;
+        background: linear-gradient(rgba(0, 0, 0, 0) ,rgba(0, 0, 0, 0.842) 90%);
+        
+    }
 }
 .course_block:hover{
     scale: .97;
-    box-shadow: inset 0px 0px 2px #bdbdbd;
 
 }
-.course_image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .course_image  {
     font-size: 60px;
 }
@@ -45,34 +53,45 @@
     }
 } 
 .course_image{
+    position: absolute;
+    z-index: -1;
     object-fit: cover;
-    background-color: rgb(170, 241, 255);
-    width: 95%;
+    background-color: rgb(110, 110, 110);
+    width:100%;
     margin: 0 auto;
     border-radius: 10px;
-    height: 170px;
+    height: 250px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 .course_title{
     padding-left: 7px;
     padding-top: 4px;
-    color: var(--black);
+    color: var(--white);
     font-size: 25px;
     text-transform: capitalize;
 
 }
+.course_themes_lenght {
+    color: var(--white);
+}
 .course_themes_lenght{
-    color: var(--orange);
+    
     margin-left: 8px;
     display: flex;
     align-items: center;
+    &  > svg {
+        color: var(--red);
+    }
 }
 .course_themes_complete {
-    color: var(--green);
     display: flex;
     align-items: center;
     margin-left: 10px;
+    & > svg {
+    color: var(--green);
+
+    }
 }
 .course_themes_complete > svg {
     padding-right: 5px;
@@ -133,12 +152,13 @@
 @media (max-width: 550px){
     .course_block{
         margin: 10px 0;
-        padding: 8px 0 0 0 ;
+        padding: 0px 0 0 0 ;
     }
     .course_title{
-        color: var(--black);
+        color: var(--white);
         text-transform:capitalize;
         font-size: 20px;
+        padding-bottom: 10px;
     }
     .course_image{
         object-fit: cover;
