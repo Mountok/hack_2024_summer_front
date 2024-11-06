@@ -11,6 +11,7 @@
     color: black;
     border: 1px solid  #333333;
     padding-right: 30px;
+    transition:  .3s linear;
 }
 .theme_block_icons{
     color: black;
@@ -30,7 +31,7 @@ position: relative;
     font-weight: 500;
 }
 .theme_block:hover{
-    transition: .350s ease-in-out;
+    transition: .20s linear;
     transform: scale(1.01) translateY(-2px);
 
 

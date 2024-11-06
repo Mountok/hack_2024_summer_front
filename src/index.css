@@ -26,7 +26,7 @@ input[type=text], input[type=submit], textarea{
   -webkit-text-size-adjust: none;
   overflow-y: auto;
 	-webkit-overflow-scrolling:touch;
-  background-color: var(--black);
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   min-height: 100dvh;

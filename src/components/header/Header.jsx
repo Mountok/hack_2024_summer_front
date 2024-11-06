@@ -39,7 +39,7 @@ const Header = ({role}) => {
         <header className={scrolledHeader ? "header_1 scrolled": "header_1"}>
             <div className="logotype">
                 <h2>{currentLocation}</h2>
-                <img  onClick={()=>navigate('/courses')}  width={100} src="/images/ico_next.svg" alt="" />
+                <img  onClick={()=>navigate('/courses')}  src="/images/skillCamp.svg" alt="" />
             </div>
             <nav className="nav">
                 <Link to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>Ресурсы</Link>

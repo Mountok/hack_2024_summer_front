@@ -95,7 +95,9 @@ const OpenCourse = ({ port }) => {
                     <div className="opencourse_description">
                         <p>О курсе:</p>
                         <p>{el.description}</p>
-                        {isCertificated &&  <button className='sertificate_btn'>
+                        {isCertificated &&  <button onClick={(e)=>{
+                            alert("В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся")
+                        }} className='sertificate_btn'>
                             <GiDiploma/> Получить сертификат
                             </button>}
                        

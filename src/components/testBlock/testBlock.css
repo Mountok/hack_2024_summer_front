@@ -8,6 +8,8 @@ color: var(--black);
     border:  1px solid var(--black);
     box-shadow: 0 0 1px #bfbfbf;
     margin-bottom: 10px;
+    transition: .2s linear;
+
 }
 .test_block div{
     padding: 10px 5px;
@@ -17,7 +19,7 @@ color: var(--black);
     font-weight: 500;
 }
 .test_block:hover{
-    transition: .350s ease-in-out;
+    transition: .2s linear;
     transform: scale(1.01) translateY(-2px);
     box-shadow: 1px 1px 1px var(--blue);
 

@@ -16,6 +16,8 @@
     animation-timing-function: ease-out;
 }
 .login_header{
+    z-index: -100;
+    transform: translateY(100px);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -23,8 +25,6 @@
 
 }
 .login_header img {
-    rotate: -20deg;
-    margin:  0 auto;
 }
 
 @keyframes slow_up_login {
@@ -57,7 +57,7 @@
 }
 
 .login > p {
-    color: var(--white);
+    color: var(--color);
     font-size: 15px;
     text-transform: uppercase;
     margin-top: 10px;
@@ -72,7 +72,7 @@
 
     width: 250px;
     padding: 8px 5px;
-    border: 1px solid var(--white);
+    border: 1px solid var(--black);
     background-color: var(--white);
     border-radius: 5px;
     font-size: 16px;
@@ -84,7 +84,7 @@
     background: none;
     margin: 0 auto;
     background-color: none;
-    border: 1px solid var(--white);
+    border: 1px solid var(--blue);
 
     border-radius: 1px;
     font-size: 16px;
@@ -93,6 +93,8 @@
     padding: 6px 15px;
     border-radius: 10px;
     transition:  .156s linear;
+    background-color: var(--blue);
+
 }
 
 .login button:hover{

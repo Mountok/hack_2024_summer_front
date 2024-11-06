@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import "./liderbord.css"
+import "./liderbord.scss"
 import { GiLaurelCrown } from "react-icons/gi";
 import axios from "axios";
 import Settings from "../../../settings.js";
