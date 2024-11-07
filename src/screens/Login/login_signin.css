@@ -151,7 +151,7 @@
 
     width: 280px;
     padding: 8px 5px;
-    border: 1px solid var(--white);
+    border: 1px solid var(--black);
     border-radius: 10px;
     font-size: 22px;
 }
@@ -162,14 +162,16 @@
     background: none;
     margin: 0 auto;
     background-color: none;
-    border: 1px solid var(--white);
+    border: 1px solid var(--blue);
 
     border-radius: 1px;
-    font-size: 25px;
+    font-size: 16px;
     color: var(--white);
     margin-top: 20px;
     padding: 6px 15px;
     border-radius: 10px;
     transition:  .156s linear;
+    background-color: var(--blue);
+
 }
 }
