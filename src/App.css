@@ -55,13 +55,18 @@
   justify-content: center;
   align-items: self-start;
   flex-wrap: wrap;
+  flex: none;
 }
+
 .main.courses .shimmer_block {
   margin-left: 20px;
   margin-bottom: 20px;
 }
 .main.opencourse {
   padding: 0 350px;
+}
+.main.opencourse .loading svg {
+  font-size: 100px;
 }
 .main.profile {
   padding: 20px 350px;

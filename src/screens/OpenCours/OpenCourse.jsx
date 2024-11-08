@@ -11,6 +11,7 @@ import { CertificateVerification } from '../../services/cerificated'
 import { DoneThemes } from '../../services/theme'
 import { GiDiploma } from "react-icons/gi";
 import { SetLastSubject } from '../../services/profile'
+import Loading from '../../components/loading/Loading'
 
 const OpenCourse = ({ port }) => {
     const location = useLocation()
@@ -26,6 +27,8 @@ const OpenCourse = ({ port }) => {
     const [doneTestsForSubject, setDoneTestsForSubject] = useState([])
 
     const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
+
+    const [allDateGet,setAllDateGet] = useState(false)
 
     const [isCertificated,setIsSertificated] = useState(false)
 
@@ -61,6 +64,7 @@ const OpenCourse = ({ port }) => {
         })
 
         SetLastSubject(userId,subjectId)
+        // setAllDateGet(true)
 
 
     }, [])
@@ -78,7 +82,14 @@ const OpenCourse = ({ port }) => {
                 <meta property="og:url" content="https://praxis-app.netlify.app/courses" />
             </Helmet>
 
-            {subjectState.map(el => (
+            {!allDateGet ? (
+                <main className="main opencourse">
+
+                        <Loading/>
+
+                </main> 
+            ) : (
+            subjectState.map(el => (
                 <main className="main opencourse">
 
                     <div className="opencourse_header">
@@ -121,7 +132,8 @@ const OpenCourse = ({ port }) => {
                     }
 
                 </main>
-            ))}
+            ))
+        )}
         </>
 
     )
