@@ -28,7 +28,6 @@ const OpenCourse = ({ port }) => {
 
     const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
 
-    const [allDateGet,setAllDateGet] = useState(false)
 
     const [isCertificated,setIsSertificated] = useState(false)
 
@@ -64,7 +63,6 @@ const OpenCourse = ({ port }) => {
         })
 
         SetLastSubject(userId,subjectId)
-        setAllDateGet(true)
 
 
     }, [])
@@ -82,14 +80,7 @@ const OpenCourse = ({ port }) => {
                 <meta property="og:url" content="https://praxis-app.netlify.app/courses" />
             </Helmet>
 
-            {!allDateGet ? (
-                <main className="main opencourse">
-
-                        <Loading/>
-
-                </main> 
-            ) : (
-            subjectState.map(el => (
+            {subjectState.map(el => (
                 <main className="main opencourse">
 
                     <div className="opencourse_header">
@@ -132,8 +123,7 @@ const OpenCourse = ({ port }) => {
                     }
 
                 </main>
-            ))
-        )}
+            ))}
         </>
 
     )
