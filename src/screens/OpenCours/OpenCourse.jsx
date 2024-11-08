@@ -64,7 +64,7 @@ const OpenCourse = ({ port }) => {
         })
 
         SetLastSubject(userId,subjectId)
-        // setAllDateGet(true)
+        setAllDateGet(true)
 
 
     }, [])
