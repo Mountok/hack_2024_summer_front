@@ -20,3 +20,13 @@ export const DoneThemes = async(userId,subjectId) => {
         return data.data
     }
 }
+
+
+export const DoneThemesForAllSubjects = async(userId) => {
+    const {data} = await axios.get(`/api/themes/complete/${userId}`)
+    if (data.data == null) {
+        return []
+    }else { 
+        return data.data
+    }
+}

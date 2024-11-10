@@ -11,7 +11,6 @@ import { CertificateVerification } from '../../services/cerificated'
 import { DoneThemes } from '../../services/theme'
 import { GiDiploma } from "react-icons/gi";
 import { SetLastSubject } from '../../services/profile'
-import Loading from '../../components/loading/Loading'
 
 const OpenCourse = ({ port }) => {
     const location = useLocation()

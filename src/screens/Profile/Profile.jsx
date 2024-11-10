@@ -30,7 +30,6 @@ const Profile = () => {
         await axios.get(`/api/profile/${localStoreUserId}`)
             .then(function (response) {
                 // Обработка успешного ответа
-                console.log(response.data.data);
                 setProgress(response.data.data[0].score % 100)
                 setUserProfile(response.data.data)
             })
@@ -107,7 +106,7 @@ const Profile = () => {
                             </div>
                         </div> */}
                 <CourseHistory/>
-                <ProfileStats/>
+                <ProfileStats userId={el.user_id}/>
 
                     </div>
                     

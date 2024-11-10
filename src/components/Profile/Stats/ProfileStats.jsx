@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./profilestat.scss"
+import { DoneThemesForAllSubjects } from '../../../services/theme'
 // import styles from "./profilestat.scss"
-const ProfileStats = () => {
+const ProfileStats = ({userId}) => {
+  const [doneThemes,setDoneThemes] = useState(0)
+  
+  useEffect(()=>{
+    DoneThemesForAllSubjects(userId).then(data => {
+      setDoneThemes(data)
+    })
+  },[])
+
+
   return (
     <div className='profile_stat'>
         
@@ -12,7 +22,7 @@ const ProfileStats = () => {
         <div className='stat_items'>
         <div className='stat_item'>
             <p>Пройдено тем</p>
-            <span>10</span>
+            <span>{doneThemes}</span>
         </div>
         <div className='stat_item'>
             <p>Пройдено тестов</p>
