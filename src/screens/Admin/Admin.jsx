@@ -8,9 +8,11 @@ import SubjectForm from './Subject/SubjectForm';
 import SubjectUpdateDelete from './Subject/SubjectUpdateDelete';
 import ThemeForm from './Theme/ThemeForm';
 import ThemeUpdateDelete from './Theme/ThemeUpdateDelete';
+import SubjectTest from './Tests/SubjectTest';
+import TestQuestion from './Tests/TestQuestion';
 
-const closeCode = { height: "30px", backgroundColor: "var(--orange)" }
-const openCode = { height: "auto", background: "none" }
+const closeCode = { height: "30px", backgroundColor: "var(--blue)" }
+const openCode = { height: "fit-content", background: "none", }
 
 const Admin = () => {
     const navigate = useNavigate()
@@ -93,8 +95,6 @@ LockUnLockIcon={LockUnLockIcon}
 
             
 
-           
-
             <div style={lessonTabOpen ? closeCode : openCode} className="admin_item">
                 <h2 onClick={() => { setlessonTabOpen(!lessonTabOpen) }} className='admin_item_header'>
                     Добавить содержание к теме
@@ -139,7 +139,19 @@ LockUnLockIcon={LockUnLockIcon}
                     <FaQuestionCircle onClick={()=>navigate("/doc")}/>
                 </form>
             </div>
+
+
+
+            <SubjectTest
+            openCode={openCode} closeCode={closeCode}
+            LockUnLockIcon={LockUnLockIcon}/>
+
+
+            <TestQuestion
+            openCode={openCode} closeCode={closeCode}
+            LockUnLockIcon={LockUnLockIcon}/>
         </main>
+
     )
 }
 

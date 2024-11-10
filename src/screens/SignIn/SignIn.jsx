@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 
 const SignIn = () => {
   const navigate = useNavigate()
+  const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [currentError,setCurrentError] = useState("")
@@ -28,6 +29,7 @@ const SignIn = () => {
     console.log("reg logic")
     const req = await axios.post('/api/reg', {
       id: "",
+      username: username,
       email: email,
       password: password,
       create_date: ""
@@ -59,7 +61,12 @@ const SignIn = () => {
       {/* <p>IN<span>iT</span></p> */}
       </div>
 
-
+      <p>ФИО</p>
+      <input 
+      value={username} 
+      onChange={(e) => {setCurrentError("");setUsername(e.target.value)}} 
+      name="name" 
+      type="text" />
       <p>E-mail</p>
       <input 
       value={email} 

@@ -8,6 +8,7 @@ const SubjectForm = ({closeCode,openCode,LockUnLockIcon}) => {
     const [subjectTitle, setSubjectTitle] = useState('');
     const [subjectDescription, setSubjectDescription] = useState('');
     const [subjectImage, setSubjectImage] = useState(null);
+    const [courseCompleted, setCourseCompleted] = useState('false'); // Новое состояние для чекбокса
     
     const handleSubmitSubject = async (e) => {
         e.preventDefault();
@@ -16,7 +17,7 @@ const SubjectForm = ({closeCode,openCode,LockUnLockIcon}) => {
         formData.append('title', subjectTitle);
         formData.append('description', subjectDescription);
         formData.append('image', subjectImage);
-
+        formData.append('iscertificated', "false"); // Добавляем состояние чекбокса в formData
         try {
             const response = await axios.post('/api/subject', formData);
             console.log('Ответ от сервера:', response.data);
@@ -47,6 +48,7 @@ const SubjectForm = ({closeCode,openCode,LockUnLockIcon}) => {
             onChange={(e) => { setSubjectDescription(e.target.value) }}
             type="text"
             placeholder='Описание' />
+
 
         <br />
         <button type='submit'>

@@ -52,6 +52,7 @@ const OpenCourse = ({ port }) => {
         GetCompletedTests(userId, subjectId).then(res => setDoneTestsForSubject(res.data) )
 
         CertificateVerification(userId, subjectId).then(res => {
+
             if (res.courseDone) {
                 // alert("ваш сертификат доступен")
                 setIsSertificated(true)
@@ -96,7 +97,7 @@ const OpenCourse = ({ port }) => {
                     <div className="opencourse_description">
                         <p>О курсе:</p>
                         <p>{el.description}</p>
-                        {isCertificated &&  <button onClick={(e)=>{
+                        {(isCertificated && el.iscertificated == "true") &&  <button onClick={(e)=>{
                             alert("В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся")
                         }} className='sertificate_btn'>
                             <GiDiploma/> Получить сертификат

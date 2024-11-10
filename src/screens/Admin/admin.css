@@ -9,6 +9,7 @@
     margin-bottom: 20px;
     color: var(--black);
     border: 2px solid var(--blue) ;
+    transition: .3s;
 
 }
 

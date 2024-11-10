@@ -9,15 +9,21 @@ const SubjectUpdateDelete = ({openCode,closeCode,LockUnLockIcon}) => {
     const [subjectTitle, setSubjectTitle] = useState('');
     const [subjectDescription, setSubjectDescription] = useState('');
     const [subjectImage, setSubjectImage] = useState(null);
+    const [courseCompleted, setCourseCompleted] = useState(false); // Новое состояние для чекбокса
+
 
     const handleSubjectUpdate = async (e) => {
         e.preventDefault();
+
+        
 
         const formData = new FormData();
         formData.append('subject_id', subjectId);
         formData.append('title', subjectTitle);
         formData.append('description', subjectDescription);
         formData.append('image', subjectImage);
+        formData.append('iscertificated', (courseCompleted) ? "true" : "false"); // Добавляем состояние чекбокса в formData
+
         try {
             const response = await axios.put('/api/subject', formData);
             console.log('Ответ от сервера:', response.data);
@@ -68,7 +74,18 @@ const SubjectUpdateDelete = ({openCode,closeCode,LockUnLockIcon}) => {
                     onChange={(e) => { setSubjectDescription(e.target.value) }}
                     type="text"
                     placeholder='Описание' />
-
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={courseCompleted}
+                        onChange={(e) => {
+                            setCourseCompleted(e.target.checked)
+                        }
+                            
+                        } // Обработчик изменения состояния чекбокса
+                    />
+                    Курс завершен?
+                </label>
                 <br />
                 <div>
                 <button onClick={handleSubjectUpdate}>
