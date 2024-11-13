@@ -15,14 +15,16 @@ const TestingBlock = ({points,subject_id,test_id,title}) => {
     <div onClick={()=>navigate(`/test/${test_id}`)} className='test_block'>
             <div>
               <p>
-                {points>90?<MdCheckBox style={{color:"var(--green)"}}/>:<MdCheckBoxOutlineBlank/>}
+                {points>90?<MdCheckBox style={{color:"darkgreen"}}/>:<MdCheckBoxOutlineBlank/>}
                 
                 </p>
               
                 <p>{title}</p>
             </div>
             <div>
-              <p>{points}%</p>
+              <p style={{
+                color: (points > 90) ? "darkgreen" : (points >= 50) ? "orange" : "red"
+              }}>{points}%</p>
           
             </div>
         </div>

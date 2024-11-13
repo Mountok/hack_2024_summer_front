@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import TestQuestion from "../../components/testQuestion/testQuestion";
 import { CheckQuestionsForTestId } from "../../services/subject_test";
 import { FaArrowLeft } from "react-icons/fa";
+import TestResultModal from "./TestResultModal";
 
 const Test = () => {
   const location = useLocation();
@@ -12,6 +13,10 @@ const Test = () => {
   const [questions, setQuestions] = useState([]);
   const [subjectId,setSubjectId] = useState(0)
   const [selectedQueston, setSelectedQuestion] = useState([]);
+
+  const [modalView,setModalView] = useState(true)
+  const [isLoaded,setIsLoaded] = useState(false)
+  const [resultPoints, setResultPoints] = useState(0)
 
   useEffect(() => {
     getQuestion();
@@ -28,9 +33,13 @@ const Test = () => {
 
   const SubmitQueston = async (e) => {
     e.preventDefault();
+    setModalView(false)
     CheckQuestionsForTestId(testId,questions[0].subject_id,localStorage.getItem("PRAXIS_USER_ID"),selectedQueston).then(resp=>{
       console.log(resp)
+      setResultPoints(Math.trunc(( resp.points / questions.length) * 100))
     })
+    setIsLoaded(true)
+
   };
 
   const setValueForQuestion = (e, question_id) => {
@@ -86,6 +95,19 @@ const Test = () => {
         ))}
         <button className="test_button" onClick={SubmitQueston}>Отправить</button>
       </form>
+
+      { modalView ? null :
+        <TestResultModal 
+        setModalView={setModalView}  
+        isLoaded={isLoaded} 
+        setIsLoaded={setIsLoaded}
+        resultPoints={resultPoints}
+        to={"/course/"+subjectId}
+        /> 
+ 
+      }
+
+      
     </div>
   );
 };

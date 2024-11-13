@@ -5,30 +5,35 @@
   padding: 20px 350px;
   margin: 0 auto;
 
-  & nav  a {
-    text-decoration:none;
+  & nav a {
+    text-decoration: none;
     color: var(--blue);
     font-size: 30px;
   }
-  & nav  a  svg:hover{
+
+  & nav a svg:hover {
 
     animation-name: slide_arrow_left;
     animation-duration: .5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
-}
-@keyframes slide_arrow_left {
-    0%{
-        transform: translateX(0px);
+  }
+
+  @keyframes slide_arrow_left {
+    0% {
+      transform: translateX(0px);
     }
-    50%{
-        transform: translateX(-10px);
+
+    50% {
+      transform: translateX(-10px);
     }
-    100%{
-        transform: translateX(0px);
+
+    100% {
+      transform: translateX(0px);
 
     }
-}
+  }
+
   .test_button {
     border: none;
     outline: none;
@@ -57,10 +62,101 @@
   }
 }
 
+
+.test_modal {
+  padding: 20px 0px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: var(--black);
+
+  background-color: white;
+  border-radius: 10px;
+
+  & .test_modal_result {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & div {
+      padding: 5px;
+
+      display: flex;
+      & .test_modal_prev {
+        background-color: var(--blue);
+        border: 1px solid var(--blue);
+        margin-right: 5px;
+        &:hover {
+          background: none;
+          color: var(--blue);
+        }
+      }
+      & .test_modal_reset {
+        background-color: var(--red);
+        border: 1px solid var(--red);
+        &:hover {
+          background: none;
+          color: var(--red);
+        }
+      }
+      & button {
+        border: none;
+        outline: none;
+        background: none;
+
+        
+
+        font-size: 16px;
+        color: var(--white);
+        margin-top: 0px;
+        padding: 6px 15px;
+        border-radius: 5px;
+        transition: .156s linear;
+
+        
+
+        &:active {
+          background-color: var(--white);
+          color: #ffffff;
+        }
+      }
+    }
+
+    & p {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      font-size: 20px;
+    }
+
+
+  }
+
+}
+
+.test_modal_back {
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.04);
+  z-index: 1;
+  width: 100%;
+  height: 100dvh;
+}
+
 @media (max-width: 550px) {
   .test_questions {
     padding: 10px 5px;
   }
+
   .test_button {
     font-size: 14px;
 
