@@ -6,7 +6,7 @@
     width: 350px;
     height: 250px;
     display: flex;
-    background-color: var(--red);
+    background-color: var(--white);
     --web-kit-backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: none;
@@ -28,7 +28,7 @@
         justify-content: flex-end;
         width: 100%;
         height: inherit;
-        background: linear-gradient(rgba(0, 0, 0, 0) ,rgba(0, 0, 0, 0.842) 90%);
+        background: linear-gradient(rgba(0, 0, 0, 0) ,rgba(0, 0, 0, 0.842) 95%);
         
     }
 }

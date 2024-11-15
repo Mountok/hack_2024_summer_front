@@ -10,9 +10,10 @@ import ThemeForm from './Theme/ThemeForm';
 import ThemeUpdateDelete from './Theme/ThemeUpdateDelete';
 import SubjectTest from './Tests/SubjectTest';
 import TestQuestion from './Tests/TestQuestion';
+import Editor from '../../components/textEditor/Editor';
 
 const closeCode = { height: "30px", backgroundColor: "var(--blue)" }
-const openCode = { height: "fit-content", background: "none", }
+const openCode = { height: "fit-content", background: "none", overflow: "visible" }
 
 const Admin = () => {
     const navigate = useNavigate()
@@ -33,26 +34,7 @@ const Admin = () => {
 
 
     
-    // ДЛЯ ДОБАВЛЕНИЯ СОДЕРЖАНИЯ В ТЕМЫ
-    const [themeId, setThemeId] = useState('');
-    const [themeHTML, setThemeHTML] = useState('');
-    const handleSubmitLessons = async (e) => {
-        e.preventDefault();
-
-        // Создаем объект с данными для отправки
-        const formData = new FormData();
-        formData.append('theme_id', themeId);
-        formData.append('theme_html', themeHTML);
-
-        try {
-            const response = await axios.post('/api/lessons', formData);
-            console.log('Ответ от сервера:', response.data);
-        } catch (error) {
-            console.error('Ошибка при отправке формы:', error);
-        }
-
-    };
-
+ 
 
     // Функции для предпросмотра
     const [prevView, setPrevView] = useState(false)
@@ -96,12 +78,12 @@ LockUnLockIcon={LockUnLockIcon}
             
 
             <div style={lessonTabOpen ? closeCode : openCode} className="admin_item">
-                <h2 onClick={() => { setlessonTabOpen(!lessonTabOpen) }} className='admin_item_header'>
+                 <h2 onClick={() => { setlessonTabOpen(!lessonTabOpen) }} className='admin_item_header'>
                     Добавить содержание к теме
                     {LockUnLockIcon(lessonTabOpen)}
 
                 </h2>
-
+{/*
                 <form onSubmit={handleSubmitLessons} className='admin_item_form lesson'>
                     <input
                         value={themeId}
@@ -137,7 +119,8 @@ LockUnLockIcon={LockUnLockIcon}
                         Предпросмотр
                     </button>
                     <FaQuestionCircle onClick={()=>navigate("/doc")}/>
-                </form>
+                </form> */}
+                <Editor/>
             </div>
 
 

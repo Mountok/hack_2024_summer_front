@@ -30,3 +30,21 @@ export const DoneThemesForAllSubjects = async(userId) => {
         return data.data
     }
 }
+
+
+export const AddContentInTheme = async (theme_id,text) => {
+
+    
+       const formData = new FormData();
+       formData.append('theme_id', theme_id);
+       formData.append('theme_html', text);
+
+       try {
+           const response = await axios.post('/api/lessons', formData);
+           console.log('Ответ от сервера:', response.data);
+            return response.data
+       } catch (error) {
+           console.error('Ошибка при отправке формы:', error);
+           return error
+       }
+}
