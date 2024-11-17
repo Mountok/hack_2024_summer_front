@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const CreateTheme = async(formData) => {
     const {data} = await axios.post('/api/themes', formData);
-    alert("Id созданного темы " + data.data.theme_id)
+    console.log("Id созданного темы " + data.theme_id)
     return data
 }
 
