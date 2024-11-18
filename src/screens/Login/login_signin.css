@@ -136,7 +136,7 @@
 }
 
 .login > p {
-    color: var(--white);
+    color: var(--black);
     font-size: 18px;
     text-transform: uppercase;
     margin-top: 10px;
