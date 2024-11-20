@@ -3,28 +3,24 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 30px 50px 25px 50px;
+    padding: 0px 50px 25px 50px;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
+    align-items: center;
     border-radius: 20px;
 
     animation-name: slow_up_login;
     animation-duration: .568s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.505);
 }
 .login_header{
     z-index: -100;
-    transform: translateY(100px);
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 100px;
 
-}
-.login_header img {
 }
 
 @keyframes slow_up_login {
@@ -63,7 +59,23 @@
     margin-top: 10px;
     margin-bottom: 5px;
 }
-
+.login > div { 
+    position: relative;
+    margin-top: 20px;
+}
+.login > div > .icon{
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+.login > div > .passread{
+    cursor: pointer;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
 .login input {
     border: none;
     background: none;
@@ -71,20 +83,19 @@
     color: var(--black);
 
     width: 250px;
-    padding: 8px 5px;
-    border: 1px solid var(--black);
-    background-color: var(--white);
+    padding: 8px 25px 8px 25px;
+ 
+    background-color: white;
+    box-shadow: 0 0 1px black;
     border-radius: 5px;
     font-size: 16px;
 }
-
 .login button {
     border: none;
     outline: none;
     background: none;
     margin: 0 auto;
     background-color: none;
-    border: 1px solid var(--blue);
 
     border-radius: 1px;
     font-size: 16px;
@@ -93,14 +104,19 @@
     padding: 6px 15px;
     border-radius: 10px;
     transition:  .156s linear;
-    background-color: var(--blue);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+
+    background-color: var(--white);
 
 }
 
 .login button:hover{
+    color: black;
     background: none;
-    color: var(--black);
-    background-color: var(--white);
+    background-color: var(--orange);
+
+    
 }
 
 .login button:active{
@@ -116,7 +132,7 @@
 }
 @media (max-width: 550px) {
     .login {
-        padding: 20px 1px 5px 1px;
+        padding: 20px 20px 5px 20px;
 
         display: flex;
         flex-direction: column;
@@ -126,14 +142,6 @@
         transform: translate(-50%, -65%);
     }
 
-
-.login > h2 {
-    font-weight: 500;
-    font-size: 25px;
-    margin-bottom: 10px;
-    color: var(--black);
-    
-}
 
 .login > p {
     color: var(--black);
@@ -147,22 +155,19 @@
     background: none;
     outline: none;
     color: var(--black);
-    background-color: var(--white);
-
+    background-color: white;
+    
     width: 280px;
-    padding: 8px 5px;
-    border: 1px solid var(--black);
+    padding: 8px 25px;
     border-radius: 10px;
-    font-size: 22px;
+    font-size: 20px;
 }
-
 .login button {
     border: none;
     outline: none;
     background: none;
     margin: 0 auto;
     background-color: none;
-    border: 1px solid var(--blue);
 
     border-radius: 1px;
     font-size: 16px;
@@ -171,7 +176,18 @@
     padding: 6px 15px;
     border-radius: 10px;
     transition:  .156s linear;
-    background-color: var(--blue);
+    color: var(--orange);
+    border: 1px solid var(--orange);
 
+    background-color: var(--white);
+
+}
+
+.login button:hover{
+    color: black;
+    background: none;
+    background-color: var(--orange);
+
+    
 }
 }

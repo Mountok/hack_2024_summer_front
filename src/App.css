@@ -7,33 +7,6 @@
   background-color: var(--white);
   
 }
-.main::after{
-  position: fixed;
-  content:  "";
-  width: 100px;
-  height: 500px;
-  border-radius: 50%;
-  left: -150px;
-  top: 100px;
-  background-color: none;
-  z-index: -1;
-  box-shadow:  10px 0 100px var(--blue),10px 0 200px var(--green),20px 0 200px var(--blue);
-
-
-
-}
-.main::before{
-  position: fixed;
-  content:  "";
-  width: 100px;
-  height: 500px;
-  border-radius: 50%;
-  right: -150px;
-  top: 100px;
-  background-color: none;
-  z-index: -1;
-  box-shadow:  10px 0 100px var(--red),10px 0 200px var(--orange),20px 0 200px var(--red);
-}
 .main.rating {
 
   padding: 70px 5px;
@@ -87,6 +60,8 @@
 main.doc {
   padding: 5px 350px;
 }
+
+
 
 @media (max-width: 550px) {
   .main {

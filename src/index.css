@@ -32,7 +32,7 @@ input[type=text], input[type=submit], textarea{
   min-height: 100dvh;
 
 }
-
+/* 
 .lesson_content{
   flex: 1;
 }
@@ -102,4 +102,5 @@ input[type=text], input[type=submit], textarea{
   left: -20px;
   color: var(--orange);
   font-weight: 600;
-}
+} */
+

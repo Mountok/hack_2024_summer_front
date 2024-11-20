@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import "../Login/login_signin.css"
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
+import { CiRead, CiUnread, CiUser } from 'react-icons/ci'
+import { CiEdit } from "react-icons/ci";
+import { CiLock } from "react-icons/ci";
 
 const SignIn = () => {
   const navigate = useNavigate()
@@ -12,6 +15,7 @@ const SignIn = () => {
   const [currentError,setCurrentError] = useState("")
   const [loading,SetLoading] = useState(false)
 
+  const [isPassView,setisPassView] = useState(true)
 
   const handleSubmit = async (e) => {
 
@@ -57,28 +61,46 @@ const SignIn = () => {
       }
     }}  className="login">
       <div className='login_header'>
-      <img width={200} src="/images/skillCamp.svg" alt="" />
+      <img height={100} width={100} src="/images/skillCamp.svg" alt="" />
       {/* <p>IN<span>iT</span></p> */}
       </div>
 
-      <p>ФИО</p>
+      <div>
+      <CiEdit className='icon'/>
       <input 
+      placeholder='Ваше ФИО'
       value={username} 
       onChange={(e) => {setCurrentError("");setUsername(e.target.value)}} 
       name="name" 
       type="text" />
-      <p>E-mail</p>
+      </div>
+
+      <div>
+      <CiUser className='icon'/>
       <input 
+      placeholder='Адрес Эл.почты'
       value={email} 
       onChange={(e) => {setCurrentError("");setEmail(e.target.value)}} 
       name="email" 
       type="text" />
-      <p>Password</p>
+      </div>
+      
+
+      <div>
+        <CiLock className='icon'/>
       <input 
+      placeholder='Пароль'
       value={password} 
       onChange={(e) => {setCurrentError("");setPassword(e.target.value)}} 
       name="password" 
-      type="password"/>
+      type={isPassView ? "name" : "password"} />
+        
+      {
+        isPassView ? <CiUnread onClick={()=>setisPassView(false)} className='passread'/> 
+        :            <CiRead onClick={()=>setisPassView(true)} className='passread'/>
+
+      }
+      </div>
 
       <button onClick={(e) => handleSubmit(e)}>{loading ?  <Loading/> : "Войти" }</button>
 

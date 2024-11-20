@@ -1,20 +1,31 @@
 .header_1, .header_2{
-    padding: 15px 150px;
+    padding: 5px 350px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-end;
     background-color: none;
     z-index: 999;
-    background-color: rgb(26, 26, 26);
+    background-color: white;
 }
 .header_1 .logotype{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
+}
+.logotype h3 {
+
+    margin-left: 10px;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+
 }
 .logotype h2 {
     display: none;
 }
 .header_1 .logotype img {
-    width: 150px;
+    width: 70px;
 }
 .header_2{
     display: none;
@@ -42,10 +53,9 @@
     background-color: none;
     padding: 3px 10px;
     border-radius: 20px;
-    color: var(--white);
+    color:rgb(66, 66, 66);
     text-decoration: none;
     margin-left: 20px;
-    font-weight: 800;
     letter-spacing: 1px;
     font-size: 18px;
     transition: .2s linear;
@@ -63,6 +73,9 @@
     
 
 }
+
+
+
 
 @media (max-width: 550px) {
     .header_1, .header_2 {

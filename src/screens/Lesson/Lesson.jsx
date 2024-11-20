@@ -3,6 +3,7 @@ import "./lesson.css"
 import axios from 'axios'
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import {FaArrowLeft} from "react-icons/fa6"
+import 'react-quill/dist/quill.snow.css'; // Импорт стилей Quill
 const Lesson = () => {
     const [content, setContent] = useState([])
     const location = useLocation()

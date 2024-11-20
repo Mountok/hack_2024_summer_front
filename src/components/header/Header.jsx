@@ -40,16 +40,17 @@ const Header = ({role}) => {
             <div className="logotype">
                 <h2>{currentLocation}</h2>
                 <img  onClick={()=>navigate('/courses')}  src="/images/skillCamp.svg" alt="" />
+                <h3>SkillCamp</h3>
             </div>
             <nav className="nav">
-                <Link to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>Ресурсы</Link>
-                <Link to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>
+            <Link to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>
+            <Link to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>Ресурсы</Link>
                 <Link to='/rate' className={location.pathname == "/rate" ? "nav_links active" : "nav_links"}>Рейтинг</Link>
                 <Link to='/profile' className={location.pathname == "/profile" ? "nav_links active" : "nav_links"}>Профиль</Link>
                 {
                     role == "admin" ? <Link to='/admin' className={location.pathname == "/admin" ? "nav_links active" : "nav_links"}>Админ</Link> : null
                 }
-                <Link to='/' className={location.pathname == "/" ? "nav_links active" : "nav_links"} >
+                <Link to='/' className={location.pathname == "/" ? "nav_links active outlink" : "nav_links outlink"} >
                 <IoIosLogOut style={{
                     fontSize:"20px"
                     
