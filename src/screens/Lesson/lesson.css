@@ -3,7 +3,6 @@
 .lesson_header a {
     text-decoration:none;
     color: var(--black);
-    font-size: 30px;
 }
 .lesson_header a svg:hover{
 
@@ -11,6 +10,13 @@
     animation-duration: .5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+}
+.ql-syntax{
+    background-color: rgba(0, 0, 0, 0.834);
+    color: #ffffff;
+    padding: 10px;
+    line-height: 20px;
+    border-radius: 3px;
 }
 @keyframes slide_arrow_left {
     0%{

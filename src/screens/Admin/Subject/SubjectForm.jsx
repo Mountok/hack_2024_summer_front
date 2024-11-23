@@ -8,7 +8,6 @@ const SubjectForm = ({closeCode,openCode,LockUnLockIcon}) => {
     const [subjectTitle, setSubjectTitle] = useState('');
     const [subjectDescription, setSubjectDescription] = useState('');
     const [subjectImage, setSubjectImage] = useState(null);
-    const [courseCompleted, setCourseCompleted] = useState('false'); // Новое состояние для чекбокса
     
     const handleSubmitSubject = async (e) => {
         e.preventDefault();
