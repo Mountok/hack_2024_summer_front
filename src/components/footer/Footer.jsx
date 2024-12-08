@@ -17,9 +17,9 @@ const Footer = ({role}) => {
         <footer className="header_2">
             <nav className="nav">
                 <Link
-                    to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>
+                    to='/events' className={location.pathname == "/events" ? "nav_links active" : "nav_links"}>
                     <IoDice />
-                Ресурсы
+                Мероприятия
                 </Link>
                 <Link
                     to='/courses'

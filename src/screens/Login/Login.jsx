@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./login_signin.css"
 import axios from 'axios'
@@ -16,8 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState("")
 
   const [password, setPassword] = useState("")
-  const [isPassView,setisPassView] = useState(true)
-
+  const [isPassView,setisPassView] = useState(false)
 
 
 

@@ -44,7 +44,7 @@ const Header = ({role}) => {
             </div>
             <nav className="nav">
             <Link to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>
-            <Link to='/sources' className={location.pathname == "/sources" ? "nav_links active" : "nav_links"}>Ресурсы</Link>
+            <Link to='/events' className={location.pathname == "/events" ? "nav_links active" : "nav_links"}>Мероприятия</Link>
                 <Link to='/rate' className={location.pathname == "/rate" ? "nav_links active" : "nav_links"}>Рейтинг</Link>
                 <Link to='/profile' className={location.pathname == "/profile" ? "nav_links active" : "nav_links"}>Профиль</Link>
                 {

@@ -20,3 +20,4 @@ export const GetAllCompletedTest = async(userId) => {
     const {data} = await axios.get(`/api/test/${userId}/all`)
     return data.data
 }
+

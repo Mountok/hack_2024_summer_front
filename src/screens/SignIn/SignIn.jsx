@@ -15,7 +15,7 @@ const SignIn = () => {
   const [currentError,setCurrentError] = useState("")
   const [loading,SetLoading] = useState(false)
 
-  const [isPassView,setisPassView] = useState(true)
+  const [isPassView,setisPassView] = useState(false)
 
   const handleSubmit = async (e) => {
 

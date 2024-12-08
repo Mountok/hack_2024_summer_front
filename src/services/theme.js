@@ -22,6 +22,11 @@ export const DoneThemes = async(userId,subjectId) => {
 }
 
 
+export const GetStruct = async(struct) => {
+    const {data} = await axios.post(`https:/`)
+}
+
+
 export const DoneThemesForAllSubjects = async(userId) => {
     const {data} = await axios.get(`/api/themes/complete/${userId}`)
     if (data.data == null) {
