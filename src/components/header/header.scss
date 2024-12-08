@@ -7,6 +7,9 @@
     z-index: 999;
     background-color: white;
 }
+.header_1{
+    padding: 20px 200px;
+}
 .header_1 .logotype{
     display: flex;
     flex-direction: row;
@@ -25,7 +28,7 @@
     display: none;
 }
 .header_1 .logotype img {
-    width: 70px;
+    width: 40px;
 }
 .header_2{
     display: none;

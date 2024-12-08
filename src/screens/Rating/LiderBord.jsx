@@ -22,7 +22,7 @@ const LiderBord = () => {
     return (
         <main className='main rating'>
             <div className="rating_header">
-                <p>Топ 10 пользователей</p>
+                <p>Топ 10</p>
             </div>
 
             <div className="rating_bottom_board">
