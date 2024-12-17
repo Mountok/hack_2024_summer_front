@@ -34,8 +34,8 @@
 
 
 // https://itupapi-production.up.railway.app/
-// const Settings ={
-//     PORT: "ggkitapicourses-production.up.railway.app",
-//     HOST: "https://ggkitapicourses-production.up.railway.app"
-// }
+const Settings ={
+    PORT: "ggkitapicourses-production.up.railway.app",
+    HOST: "https://ggkitapicourses-production.up.railway.app"
+}
 export default Settings
