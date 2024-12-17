@@ -28,41 +28,56 @@ const OpenCourse = ({ port }) => {
     const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
 
 
-    const [isCertificated,setIsSertificated] = useState(false)
+    const [isCertificated, setIsSertificated] = useState(false)
 
 
     useEffect(() => {
         const apiUrlT = `/api/themes/${subjectId}`;
         const apiUrlS = `/api/subject/${subjectId}`;
-        const apiUrlDoneThemes = `/api/themes/complete/${userId}/${subjectId}`;
-        axios.get(apiUrlT).then((resp) => {
+        axios.get(apiUrlT, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        }).then((resp) => {
             const allThemes = resp.data.data;
             // console.log(resp.data)
             setThemesState(allThemes);
         });
-        axios.get(apiUrlS).then((resp) => {
+        axios.get(apiUrlS,
+            {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            }
+        ).then((resp) => {
             const Subject = resp.data.data;
             // console.log(resp.data)
             setSubjectState(Subject);
         });
-        DoneThemes(userId,subjectId).then(res => setDoneThemesId(res))
+        DoneThemes(subjectId).then(res => setDoneThemesId(res))
 
         GetTestsBySubjectId(subjectId).then(res => setTestForSubject(res == null ? [] : res))
 
-        GetCompletedTests(userId, subjectId).then(res => setDoneTestsForSubject(res.data) )
+        GetCompletedTests(subjectId).then(res => setDoneTestsForSubject(res.data))
 
-        CertificateVerification(userId, subjectId).then(res => {
+        // CertificateVerification(userId, subjectId).then(res => {
 
-            if (res.courseDone) {
-                // alert("ваш сертификат доступен")
-                setIsSertificated(true)
-            } 
-        }).catch(err => {
-            console.log(err)
-            
+        //     if (res.courseDone) {
+        //         // alert("ваш сертификат доступен")
+        //         setIsSertificated(true)
+        //     } 
+        // }).catch(err => {
+        //     console.log(err)
+
+        // })
+
+        SetLastSubject(subjectId).then(resp => {
+            console.log(resp)
+        }).catch(resp => {
+            console.log(resp)
+
+            // (resp.response.status == 401) && navigate("/")
         })
-
-        SetLastSubject(userId,subjectId)
 
 
     }, [])
@@ -97,12 +112,12 @@ const OpenCourse = ({ port }) => {
                     <div className="opencourse_description">
                         <p>О курсе:</p>
                         <p>{el.description}</p>
-                        {(isCertificated && el.iscertificated == "true") &&  <button onClick={(e)=>{
+                        {(isCertificated && el.iscertificated == "true") && <button onClick={(e) => {
                             alert("В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся")
                         }} className='sertificate_btn'>
-                            <GiDiploma/> Получить сертификат
-                            </button>}
-                       
+                            <GiDiploma /> Получить сертификат
+                        </button>}
+
                     </div>
                     <p>Обучение</p>
                     {themesState.map((theme, index, array) => (

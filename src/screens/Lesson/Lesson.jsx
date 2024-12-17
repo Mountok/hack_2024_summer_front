@@ -23,8 +23,12 @@ const Lesson = () => {
 
     const addPoint = async (e) => {
         e.preventDefault()
-        const apiUrl = `/api/profile/point/${localStorage.getItem("PRAXIS_USER_ID")}/${content[0].theme_id}`
-        await axios.post(apiUrl).then((resp) => {
+        const apiUrl = `/api/profile/point/${content[0].theme_id}`
+        await axios.post(apiUrl,undefined,{
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        }).then((resp) => {
             console.log(resp)
         })
       navigate(`/course/${location.pathname.split('/')[2]}`)

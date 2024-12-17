@@ -6,22 +6,23 @@ import { Helmet } from 'react-helmet'
 import { CiRead, CiUnread, CiUser } from 'react-icons/ci'
 import { CiEdit } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
+import { signUp } from '../../services/auth'
+import { TbRuler2Off } from 'react-icons/tb'
 
 const SignIn = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [currentError,setCurrentError] = useState("")
-  const [loading,SetLoading] = useState(false)
+  const [currentError, setCurrentError] = useState("")
+  const [loading, SetLoading] = useState(false)
 
-  const [isPassView,setisPassView] = useState(false)
+  const [isPassView, setisPassView] = useState(false)
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
-    if (email.split("@").length == 1 || email.split(".").length == 1 ) {
+    if (email.split("@").length == 1 || email.split(".").length == 1) {
       setCurrentError("неверный формат почты")
       return
     }
@@ -29,87 +30,73 @@ const SignIn = () => {
       setCurrentError("Пароль должен быть длинее 4-х символов")
       return
     }
-    var redirect = true
-    console.log("reg logic")
-    const req = await axios.post('/api/reg', {
-      id: "",
-      username: username,
-      email: email,
-      password: password,
-      create_date: ""
-    }).then(function (response) {
-      console.log(response);
-      localStorage.setItem("PRAXIS_USER_ID", response.data.user_info.id)
-    }).catch(function (error) {
-      console.log(error);
-      redirect = false
-      setCurrentError(error.response.data.split("\"")[3])
-      
-    });
-
-    redirect ? navigate("/courses") : null;
+    signUp(username, email, password).then(resp => {
+      navigate("/")
+    }).catch((err) => {
+      setCurrentError(err.response.data.data)
+    })
   }
 
   return (
     <>
-    <Helmet>
-                <title>Регистрация</title>
-            </Helmet>
-    <section  onKeyPress={(e)=>{
-      if (e.key === "Enter") {
-        handleSubmit(e)
-      }
-    }}  className="login">
-      <div className='login_header'>
-      <img height={100} width={100} src="/images/skillCamp.svg" alt="" />
-      {/* <p>IN<span>iT</span></p> */}
-      </div>
+      <Helmet>
+        <title>Регистрация</title>
+      </Helmet>
+      <section onKeyPress={(e) => {
+        if (e.key === "Enter") {
+          handleSubmit(e)
+        }
+      }} className="login">
+        <div className='login_header'>
+          <img height={100} width={100} src="/images/skillCamp.svg" alt="" />
+          {/* <p>IN<span>iT</span></p> */}
+        </div>
 
-      <div>
-      <CiEdit className='icon'/>
-      <input 
-      placeholder='Ваше ФИО'
-      value={username} 
-      onChange={(e) => {setCurrentError("");setUsername(e.target.value)}} 
-      name="name" 
-      type="text" />
-      </div>
+        <div>
+          <CiEdit className='icon' />
+          <input
+            placeholder='Ваше ФИО'
+            value={username}
+            onChange={(e) => { setCurrentError(""); setUsername(e.target.value) }}
+            name="name"
+            type="text" />
+        </div>
 
-      <div>
-      <CiUser className='icon'/>
-      <input 
-      placeholder='Адрес Эл.почты'
-      value={email} 
-      onChange={(e) => {setCurrentError("");setEmail(e.target.value)}} 
-      name="email" 
-      type="text" />
-      </div>
-      
+        <div>
+          <CiUser className='icon' />
+          <input
+            placeholder='Адрес Эл.почты'
+            value={email}
+            onChange={(e) => { setCurrentError(""); setEmail(e.target.value) }}
+            name="email"
+            type="text" />
+        </div>
 
-      <div>
-        <CiLock className='icon'/>
-      <input 
-      placeholder='Пароль'
-      value={password} 
-      onChange={(e) => {setCurrentError("");setPassword(e.target.value)}} 
-      name="password" 
-      type={isPassView ? "name" : "password"} />
-        
-      {
-        isPassView ? <CiUnread onClick={()=>setisPassView(false)} className='passread'/> 
-        :            <CiRead onClick={()=>setisPassView(true)} className='passread'/>
 
-      }
-      </div>
+        <div>
+          <CiLock className='icon' />
+          <input
+            placeholder='Пароль'
+            value={password}
+            onChange={(e) => { setCurrentError(""); setPassword(e.target.value) }}
+            name="password"
+            type={isPassView ? "name" : "password"} />
 
-      <button onClick={(e) => handleSubmit(e)}>{loading ?  <Loading/> : "Войти" }</button>
+          {
+            isPassView ? <CiUnread onClick={() => setisPassView(false)} className='passread' />
+              : <CiRead onClick={() => setisPassView(true)} className='passread' />
 
-      <Link to="/">Есть аккаунт? Войдите.</Link>
+          }
+        </div>
 
-      {
-        currentError == "" ? null : <p className='currentError'>{currentError}</p>
-      }
-    </section>
+        <button onClick={(e) => handleSubmit(e)}>{loading ? <Loading /> : "Войти"}</button>
+
+        <Link to="/">Есть аккаунт? Войдите.</Link>
+
+        {
+          currentError == "" ? null : <p className='currentError'>{currentError}</p>
+        }
+      </section>
     </>
   )
 }

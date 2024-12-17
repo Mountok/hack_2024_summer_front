@@ -33,7 +33,12 @@ const Header = ({role}) => {
         setCurrentLocation(locations[location.pathname])
     })
 
-
+    const logout = (e) => {
+        e.preventDefault()
+        localStorage.setItem("SKUToken","-")
+        navigate("/")
+    }
+    
 
     return (
         <header className={scrolledHeader ? "header_1 scrolled": "header_1"}>
@@ -50,13 +55,13 @@ const Header = ({role}) => {
                 {
                     role == "admin" ? <Link to='/admin' className={location.pathname == "/admin" ? "nav_links active" : "nav_links"}>Админ</Link> : null
                 }
-                <Link to='/' className={location.pathname == "/" ? "nav_links active outlink" : "nav_links outlink"} >
+                <button onClick={(e)=>logout(e)} className={location.pathname == "/" ? "nav_links active outlink" : "nav_links outlink"} >
                 <IoIosLogOut style={{
                     fontSize:"20px"
                     
                     }} />
 
-                </Link>
+                </button>
             </nav>
         </header>
     )

@@ -6,17 +6,24 @@ import Settings from "../../../settings.js";
 import { GetSubject } from '../../services/subject.js';
 import Loading from '../../components/loading/Loading.jsx';
 import { ShimmerDiv } from 'shimmer-effects-react';
+import { useNavigate } from 'react-router-dom';
 
 const Courses = () => {
   const [subjectsState,setSubjectsState] = useState([])
   
   const [requestCompleted,setRequestCompleted] = useState(false)
   const [allLoad, setAllLoad] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(()=>{
     GetSubject().then((res) => {
       setSubjectsState(res)
       setRequestCompleted(true) 
+    }).catch(err => {
+      if (err.response.status == 401) {
+        navigate("/")
+      }
+      console.log(err)
     })
   },[])
 

@@ -1,4 +1,4 @@
-import {Route, RouterProvider, Routes, useLocation, useNavigate} from 'react-router-dom'
+import { Route, RouterProvider, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './App.css'
 import { useEffect, useState } from 'react'
 import Header from './components/header/Header'
@@ -16,66 +16,59 @@ import axios from 'axios'
 import Certificate from './screens/Certificate/Certificate'
 import Test from './screens/Test/Test'
 import Privacy from './screens/Privacy/Privacy'
+import { authorization } from './services/auth'
 
 
 function App() {
   const location = useLocation()
   const navigate = useNavigate()
-  const [isLogin,setIsLogIn] = useState(false)
-  const [isMobile,setIsMobile] = useState(false)
-  const [userRole,setUserRole] = useState("user")
+  const [isLogin, setIsLogIn] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const [userRole, setUserRole] = useState("user")
 
 
-  useEffect(()=>{
+
+
+  useEffect(() => {
     setIsMobile(window.matchMedia("(max-width: 560px)").matches)
     if (location.pathname === "/" || location.pathname === "/signin") {
       setIsLogIn(false)
     } else {
+      authorization().then((res) => {
+        setUserRole(res.user_role)
+      })
       setIsLogIn(true)
-      handleSubmit()
     }
-  },[location])
+  }, [location])
 
-  const handleSubmit = async () => {
-    console.log("валидация: проверка")
-    let isValid = false
-    let uuid = localStorage.getItem("PRAXIS_USER_ID")
-    const req = await axios.post('/api/validate', {
-      user_uuid: uuid
-    }).then(function (response) {
-      console.log(response);
-      if (response.data.is_valid === true) {
-        isValid = true
-        console.log("валидация: успешна")
-        setUserRole(response.data.user[0].role)
-        console.log(response.data.user[0].role)
-      }
-    }).catch(function (error) {
-      console.log(error);
-    });
-    !isValid ? navigate("/") : null;
-  }
+
+
+
 
   return (
     <>
-      {isLogin ? location.pathname === "/profile" ? isMobile ? null : <Header role={userRole}/> : <Header role={userRole}/> : null  }
+      {isLogin ? location.pathname === "/profile" ? isMobile ? null : <Header role={userRole} /> : <Header role={userRole} /> : null}
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/signin' element={<SignIn/>}/>
-        <Route path='/courses' element={<Home />}/>
-        <Route path='/profile' element={<Profile/>}/>
-        <Route path='/rate' element={<LiderBord/>}/>
-        <Route path='/course/:id' element={<OpenCourse/>}/>
-        <Route path='/lesson/:id/:id' element={<Lesson/>}/>
-        <Route path='/test/:id' element={<Test />}/>
-        <Route path='/doc' element={<Doc/>}/>
+        <Route path='/' element={<Login />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/courses' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/rate' element={<LiderBord />} />
+        <Route path='/course/:id' element={<OpenCourse />} />
+        <Route path='/lesson/:id/:id' element={<Lesson />} />
+        <Route path='/test/:id' element={<Test />} />
+        <Route path='/doc' element={<Doc />} />
 
-        <Route path='/admin' element={<Admin/>} />
-        <Route path='/certificate' element={<Certificate/>} />
+        <Route path='/admin' element={<Admin />} />
+        <Route path='/certificate' element={<Certificate />} />
 
-        <Route path='/privacy' element={<Privacy/>}/>
+        <Route path='/privacy' element={<Privacy />} />
+
+
+        {/* <Route path='/unauth' element={<Privacy/>}/> */}
+
       </Routes>
-      {isLogin ?  <Footer role={userRole}/> : location.pathname === "/profile" ? <Footer role={userRole}/> : null}
+      {isLogin ? <Footer role={userRole} /> : location.pathname === "/profile" ? <Footer role={userRole} /> : null}
     </>
   )
 }

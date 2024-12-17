@@ -2,18 +2,30 @@ import axios from "axios";
 
 
 export const CreateTheme = async(formData) => {
-    const {data} = await axios.post('/api/themes', formData);
+    const {data} = await axios.post('/api/themes', formData,{
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("SKUToken")
+        }
+    });
     console.log("Id созданного темы " + data.theme_id)
     return data
 }
 
 export const DeleteTheme = async(theme_id) => {
-    const {data} = await axios.delete(`/api/themes/${theme_id}`)
+    const {data} = await axios.delete(`/api/themes/${theme_id}`,{
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("SKUToken")
+        }
+    })
     return data
 }
 
-export const DoneThemes = async(userId,subjectId) => {
-    const {data} = await axios.get(`/api/themes/complete/${userId}/${subjectId}`)
+export const DoneThemes = async(subjectId) => {
+    const {data} = await axios.get(`/api/themes/complete/${subjectId}`,{
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("SKUToken")
+        }
+    })
     if (data.data == null) {
         return []
     }else { 
@@ -22,30 +34,29 @@ export const DoneThemes = async(userId,subjectId) => {
 }
 
 
-export const GetStruct = async(struct) => {
-    const {data} = await axios.post(`https:/`)
-}
 
 
 export const DoneThemesForAllSubjects = async(userId) => {
-    const {data} = await axios.get(`/api/themes/complete/${userId}`)
-    if (data.data == null) {
-        return []
-    }else { 
-        return data.data
-    }
+    const {data} = await axios.get(`/api/themes/completed/${userId}`,{
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("SKUToken")
+        }
+    })
+    return data
 }
 
 
 export const AddContentInTheme = async (theme_id,text) => {
 
-    
        const formData = new FormData();
        formData.append('theme_id', theme_id);
        formData.append('theme_html', text);
-
        try {
-           const response = await axios.post('/api/lessons', formData);
+           const response = await axios.post('/api/lessons', formData,{
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        });
            console.log('Ответ от сервера:', response.data);
             return response.data
        } catch (error) {

@@ -3,13 +3,14 @@ import "./profile.css"
 import {Helmet} from 'react-helmet'
 import axios from "axios"
 import NameEditBlock from '../../components/Profile/NameEdit/NameEditBlock';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import AvatarChangeBlock from "../../components/Profile/AvatarChange/AvatarChangeBlock.jsx";
 import DescriptionChange from "../../components/Profile/DescriptionEdit/DescriptionChange.jsx";
 import { IoLogOut } from "react-icons/io5";
 import Settings from "../../../settings.js";
 import CourseHistory from '../../components/Profile/CourseHistory/CourseHistory.jsx';
 import ProfileStats from '../../components/Profile/Stats/ProfileStats.jsx';
+import { GetProfile } from '../../services/profile.js';
 
 
 
@@ -20,24 +21,24 @@ const Profile = () => {
     const [editName, setNameEdit] = useState(false)
     const [editAvatar, setAvatarEdit] = useState(false)
     const [editDescription, setDescriptionEdit] = useState(false)
+    const navigate = useNavigate()
+    useEffect(() => {  
+        GetProfile().then((res) => {
+            console.log(res)
+            setUserProfile(res.data)
 
-    useEffect(() => {
-        GetProfile()
+        }).catch((err) => {
+            console.log(err)
+            if (err.response.status == 401) {
+                console.log("unauth")
+                navigate("/")
+            }
+            
+        })
 
 
     }, [editName,editAvatar,editDescription])
-    const GetProfile = async () => {
-        await axios.get(`/api/profile/${localStoreUserId}`)
-            .then(function (response) {
-                // Обработка успешного ответа
-                setProgress(response.data.data[0].score % 100)
-                setUserProfile(response.data.data)
-            })
-            .catch(function (error) {
-                // Обработка ошибки
-                console.log(error);
-            });
-    }
+    
     return (
         <main
             className="main profile">

@@ -9,8 +9,8 @@ const ProfileStats = ({userId}) => {
 
   
   useEffect(()=>{
-    DoneThemesForAllSubjects(userId).then(data => {
-      setDoneThemes(data)
+    DoneThemesForAllSubjects(userId).then(res => {
+      setDoneThemes(res.data)
     })
 
 

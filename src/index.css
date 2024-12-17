@@ -2,7 +2,7 @@
 :root {
   font-family: "Roboto", sans-serif;
   /* --orange: color(srgb 0.9345 0.5079 0.2992); */
-  --orange: #ff7700;
+  --orange: #ff861c;
   --blue: rgb(255, 255, 255);
   --grey: hsla(0, 0%, 84%, 0.057);
   --ligth-black: hsla(0, 0%, 0%, 0.921);
@@ -32,75 +32,3 @@ input[type=text], input[type=submit], textarea{
   min-height: 100dvh;
 
 }
-/* 
-.lesson_content{
-  flex: 1;
-}
-.lesson_content.doc{
-  flex: unset;
-}
-.lesson_content .content .lh1{
-  color: var(--black);
-
-}
-.lesson_content .content .lps {
-  color: #000000;
-  font-size: 18px;
-  padding: 5px;
-}
-.lesson_content .content .lcmd {
-  position: relative;
-}
-.lesson_content .content b {
-  color: var(--orange);
-}
-.lesson_content .content .lcmd::after{
-  position: absolute;
-  content: "";
-  background-color: black;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  border-radius: 10px;
-  z-index: -1;
-}
-.lesson_content .content .lcmd::before{
-  position: absolute;
-  content: "";
-  background-color: black;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px; 
-  border-radius: 10px;
-  z-index: -1;
-
-}
-.lesson_content .content .lcmd p{
-  position: relative;
-  padding: 5px 15px;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 5px;
-
-}
-
-
-.lesson_content .content ol,.lesson_content .content ul {
-  color: var(--black);
-  list-style: none;
-  margin-left: 30px;  
-}
-.lesson_content .content ol li, .lesson_content .content ul li{
-  letter-spacing: 1.5px;
-  position: relative;
-}
-.lesson_content .content ol li::before,.lesson_content .content ul li::before {
-  position: absolute;
-  content: "-";
-  left: -20px;
-  color: var(--orange);
-  font-weight: 600;
-} */
-

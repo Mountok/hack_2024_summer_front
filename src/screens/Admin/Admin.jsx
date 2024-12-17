@@ -12,7 +12,7 @@ import SubjectTest from './Tests/SubjectTest';
 import TestQuestion from './Tests/TestQuestion';
 import Editor from '../../components/textEditor/Editor';
 
-const closeCode = { height: "30px", backgroundColor: "var(--blue)" }
+const closeCode = { height: "30px", backgroundColor: "var(--orange)" }
 const openCode = { height: "fit-content", background: "none", overflow: "visible" }
 
 const Admin = () => {

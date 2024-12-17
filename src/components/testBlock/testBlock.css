@@ -5,8 +5,8 @@ color: var(--black);
      background-color: #f1f1f10b;
      backdrop-filter: blur(10px);
     border-radius: 10px;
-    border:  1px solid var(--black);
-    box-shadow: 0 0 1px #bfbfbf;
+    border:  1px solid #33333362;
+    box-shadow: 0 0 1px #33333362;
     margin-bottom: 10px;
     transition: .2s linear;
 
@@ -19,9 +19,9 @@ color: var(--black);
     font-weight: 500;
 }
 .test_block:hover{
+    background-color: var(--orange);
     transition: .2s linear;
     transform: scale(1.01) translateY(-2px);
-    box-shadow: 1px 1px 1px var(--blue);
 
 }
 .test_block div p:nth-child(1) {

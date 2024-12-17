@@ -20,8 +20,15 @@ const CourseBlock = ({ id, image, title,setAllLoad }) => {
     },[])
     const getCoursesThemeSumm = async (id) => {
         var apiUrlT = `/api/themes/${id}`;
-        await axios.get(apiUrlT).then((resp) => {
+        await axios.get(apiUrlT,{
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        }).then((resp) => {
+            console.log("COURSEBLOCK res: ",resp)
             setThemesLength(resp.data.data.length);
+        }).catch(err => {
+            console.log(err)
         });
     } 
     const getTopicLabel = (count) => {
@@ -36,8 +43,12 @@ const CourseBlock = ({ id, image, title,setAllLoad }) => {
     const getDoneThemes = async (id) => {
         setDoneThemesLoad(false)
 
-        const apiUrlDoneThemes = `/api/themes/complete/${localStorage.getItem("PRAXIS_USER_ID")}/${id}`;
-        axios.get(apiUrlDoneThemes).then((resp) => {
+        const apiUrlDoneThemes = `/api/themes/complete/${id}`;
+        axios.get(apiUrlDoneThemes,{
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        }).then((resp) => {
             const DoneThemesIds = resp.data.data;
             console.log(resp.data)
             DoneThemesIds == null ? setDoneThemes(0) : setDoneThemes(DoneThemesIds.length);

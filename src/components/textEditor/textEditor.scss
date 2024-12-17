@@ -10,7 +10,7 @@
         outline: none;
         border: none;
         background: none;
-        border-bottom: 2px solid var(--blue);
+        border-bottom: 2px solid var(--orange);
     }
 
     & button {
@@ -20,11 +20,11 @@
         font-size: 18px;
         border: none;
         background: none;
-        border: 2px solid var(--blue);
+        border: 2px solid var(--orange);
         border-radius: 10px;
 
         &:hover {
-            background-color: var(--blue);
+            background-color: var(--orange);
         }
 
     }

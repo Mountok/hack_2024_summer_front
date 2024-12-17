@@ -11,10 +11,13 @@ const CourseHistory = () => {
     const [lastSubject, setLastSubject] = useState([{}])
     const navigate = useNavigate()
     useEffect(() => {
-        GetLastSubject(localStorage.getItem("PRAXIS_USER_ID")).then((res) => {
-            GetSubjectById(res[0].subjects_id).then((res) => {
-                console.log(res)
+        GetLastSubject().then((res) => {
+            console.log(res)
+            GetSubjectById(res.data[0].subjects_id).then((res) => {
                 setLastSubject(res)
+            }).catch(err=>{
+                console.log(err)
+
             })
         })
 

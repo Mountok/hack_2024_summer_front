@@ -34,7 +34,7 @@ const Test = () => {
   const SubmitQueston = async (e) => {
     e.preventDefault();
     setModalView(false)
-    CheckQuestionsForTestId(testId,questions[0].subject_id,localStorage.getItem("PRAXIS_USER_ID"),selectedQueston).then(resp=>{
+    CheckQuestionsForTestId(testId,questions[0].subject_id,selectedQueston).then(resp=>{
       console.log(resp)
       setResultPoints(Math.trunc(( resp.points / questions.length) * 100))
     })

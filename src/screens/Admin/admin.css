@@ -8,7 +8,7 @@
     border-radius: 10px;
     margin-bottom: 20px;
     color: var(--black);
-    border: 2px solid var(--blue) ;
+    border: 2px solid var(--orange) ;
     transition: .3s;
 
 }
@@ -33,9 +33,8 @@
 
 
 .admin_item_form.subject input:first-child {
-    display: flex;
-
-    border: 2px solid var(--blue);
+    display: flex;  
+    border: 2px solid var(--orange);
     padding: 60px 5px;
     border-radius: 20px;
     margin-bottom: 10px;
@@ -63,7 +62,7 @@
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid var(--blue);
+    border-bottom: 2px solid var(--orange);
 }
 
 .admin_item_form.subject button,
@@ -75,20 +74,20 @@
     font-size: 18px;
     border: none;
     background: none;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--orange);
     border-radius: 10px;
     
 }
 .admin_item_form.subject button:hover,
 .admin_item_form.theme button:hover,
 .admin_item_form.lesson button:hover{
-    background-color: var(--blue);
+    background-color: var(--orange);
 }
 
 .admin_item_form.lesson textarea {
     color: black;
     
-    border: 2px solid var(--blue);
+    border: 2px solid var(--orange);
     background: none;
     outline: none;
     margin-top: 10px;
