@@ -3,7 +3,7 @@ import "./profilestat.scss"
 import { DoneThemesForAllSubjects } from '../../../services/theme'
 import { GetAllCompletedTest } from '../../../services/subject_test'
 // import styles from "./profilestat.scss"
-const ProfileStats = ({userId}) => {
+const ProfileStats = ({userId,level}) => {
   const [doneThemes,setDoneThemes] = useState(0)
   const [doneTest,setDoneTest] = useState(0)
 
@@ -25,7 +25,7 @@ const ProfileStats = ({userId}) => {
     <div className='profile_stat'>
         
         <div className='stat_lvl'>
-            <p>Ваш уровень <span>10</span></p>
+            <p>Уровень <span>{Math.floor(level)}</span></p>
         </div>
 
         <div className='stat_items'>

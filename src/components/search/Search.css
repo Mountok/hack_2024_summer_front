@@ -1,0 +1,34 @@
+.search_course{
+    width: 320px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search_course_input{
+    width: 300px;
+    font-size: 20px;
+    padding: 8px 10px;
+    border: none;
+    border: 2px solid rgba(0, 0, 0, 0.122);
+    border-radius: 15px;
+    outline: none;
+    transition: .4s linear;
+}
+.search_course_input:focus{
+    border: 2px solid rgba(255, 94, 0, 0.8);
+    box-shadow: 0 0 1px 1px rgba(255, 94, 0, 0.8);
+
+}
+.search_course_input:focus::placeholder{
+    color: rgba(255, 94, 0, 0.8);
+    transition: .4s linear;
+
+    text-shadow:  0 0 1px 1px rgba(255, 94, 0, 0.8);
+}
+.search_course_btn{
+    display: none;
+    background: none;
+    border: none;
+
+}

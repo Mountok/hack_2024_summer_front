@@ -11,6 +11,7 @@ const Header = ({role}) => {
         "/courses": "Курсы",
         "/rate":"Рейтинг",
         "/admin":"Админ панель",
+        "/events":"События",
     }
     const [currentLocation,setCurrentLocation] = useState(locations[location.pathname])
 
@@ -45,7 +46,6 @@ const Header = ({role}) => {
             <div className="logotype">
                 <h2>{currentLocation}</h2>
                 <img  onClick={()=>navigate('/courses')}  src="/images/skillCamp.svg" alt="" />
-                <h3>SkillCamp</h3>
             </div>
             <nav className="nav">
             <Link to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>

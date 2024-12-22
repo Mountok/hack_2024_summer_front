@@ -97,6 +97,7 @@
         justify-content: flex-end;
         
         & .logotype h2{
+            color: rgba(0, 0, 0, 0.508);
             font-size: 30px;
         }
 
@@ -104,6 +105,7 @@
             background-color: rgba(0, 0, 0, 0.944);
             height: 20px;
             & h2{
+                color: white;
                 top: 0px;
                 font-size: 18px;
                 letter-spacing: 2px;
@@ -112,7 +114,7 @@
                 width: 25px;
                 rotate: 0deg;
                 animation-name: closeLogo;
-                animation-duration: .4s;
+                animation-duration: 1s;
                 animation-fill-mode: forwards;
             }
         }
@@ -131,12 +133,18 @@
             opacity: 0;
         }
     }
+    .header_1 .logotype {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition:  .5s linear;
+
+    }
     .header_1 .logotype img {
         transition:  .3s;
         margin: 0;
         width: 45px;
         padding-right: 10px;
-        margin-top: 10px;
     }
     .header_1 .nav{
         display: none;
@@ -193,13 +201,13 @@
         text-decoration: none;
         margin: 0;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 11px;
 
 
         &.active{
-            color: var(--blue);
+            color: var(--orange);
             position: relative;
-            text-shadow: 0 0 15px var(--blue);
+            text-shadow: 0 0 15px var(--orange);
             
             
         }
@@ -207,11 +215,11 @@
     }
    
     .header_2 .nav_links svg {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .header_2 .nav_links:hover{
-        color:var(--blue);
+        color:var(--orange);
     }
     
 }

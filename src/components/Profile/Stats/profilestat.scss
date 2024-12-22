@@ -7,12 +7,12 @@
 
     & .stat_lvl {
         background-color: var(--grey);
-        border: 1.5px solid rgba(162, 135, 251, 0.839);
+        border: 1.5px solid rgba(240, 126, 12, 0.839);
         border-radius: 10px;
         color: var(--black);
         font-size: 25px;
         font-weight: 300;
-        height: 70px;
+        height: 40px;
         transform: translateY(20px);
         opacity: 0;
         display: flex;
@@ -41,9 +41,13 @@
 
 
         & span {
-            color: var(--orange);
+            color: rgba(240, 126, 12, 0.839);
             font-weight: 600;
             font-size: 30px;
+        }
+        & p {
+            color: rgba(240, 126, 12, 0.839);
+            font-weight: 600;
         }
         
     }

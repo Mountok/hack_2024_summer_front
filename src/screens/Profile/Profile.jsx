@@ -38,7 +38,17 @@ const Profile = () => {
 
 
     }, [editName,editAvatar,editDescription])
-    
+
+    const logOut = () => {
+        var result = confirm("Подтвердите свое действие.") 
+        if (result) {
+            localStorage.setItem("SKUToken","-")
+            navigate("/")
+        } else {
+            null
+        }
+    }
+
     return (
         <main
             className="main profile">
@@ -88,14 +98,14 @@ const Profile = () => {
                             {/*    className='name_edit_icon'/>*/}
                         </h2>
                         <p onDoubleClick={()=>setDescriptionEdit(true)}>{el.description}</p>
-                        <Link
-                            to='/'
+                        <a
+                        onClick={logOut}
                             className={location.pathname == "/" ? "nav_links active" : "nav_links"}
 
                         >
                             <IoLogOut className="log_out_icon"/>
 
-                        </Link>
+                        </a>
                     </div>
                     <div
                         className="profile_body">
@@ -107,7 +117,7 @@ const Profile = () => {
                             </div>
                         </div> */}
                 <CourseHistory/>
-                <ProfileStats userId={el.user_id}/>
+                <ProfileStats userId={el.user_id} level={el.score / 100}/>
 
                     </div>
                     

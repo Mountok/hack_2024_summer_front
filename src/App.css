@@ -13,7 +13,6 @@
 
 }
 
-
 .main.admin {
   padding: 20px 350px;
 
@@ -80,6 +79,7 @@ main.doc {
   }
 
   .main.courses {
+    
     padding: 60px 5px 100px 5px;
     position: relative;
     flex-direction: row;

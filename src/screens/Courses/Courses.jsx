@@ -7,9 +7,11 @@ import { GetSubject } from '../../services/subject.js';
 import Loading from '../../components/loading/Loading.jsx';
 import { ShimmerDiv } from 'shimmer-effects-react';
 import { useNavigate } from 'react-router-dom';
+import Search from '../../components/search/Search.jsx';
 
 const Courses = () => {
   const [subjectsState,setSubjectsState] = useState([])
+  const [subjectsFilter,setSubjectsFilter] = useState([])
   
   const [requestCompleted,setRequestCompleted] = useState(false)
   const [allLoad, setAllLoad] = useState(false)
@@ -18,6 +20,7 @@ const Courses = () => {
   useEffect(()=>{
     GetSubject().then((res) => {
       setSubjectsState(res)
+      setSubjectsFilter(res)
       setRequestCompleted(true) 
     }).catch(err => {
       if (err.response.status == 401) {
@@ -37,9 +40,13 @@ const Courses = () => {
         <title>Курсы</title>
       </Helmet>
 
+      <Search 
+      subjectsFilter={subjectsFilter}
+      setSubjectsFilter={setSubjectsFilter}
+      subjectsState={subjectsState}/>
       
       {(requestCompleted) ? (
-         subjectsState.map(el => (
+         subjectsFilter.map(el => (
           <CourseBlock 
           id={el.id} 
           key={el.id} 
