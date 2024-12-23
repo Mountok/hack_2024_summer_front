@@ -18,7 +18,11 @@ const SubjectForm = ({closeCode,openCode,LockUnLockIcon}) => {
         formData.append('image', subjectImage);
         formData.append('iscertificated', "false"); // Добавляем состояние чекбокса в formData
         try {
-            const response = await axios.post('/api/subject', formData);
+            const response = await axios.post('/api/subject', formData, {
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
             alert("Id созданного курса " + response.data.subject_id)
         } catch (error) {

@@ -22,7 +22,11 @@ const TestQuestion = ({openCode,closeCode,LockUnLockIcon}) => {
 
         
         try {
-            const response = await axios.post(`/api/testing/${testId}`, formData);
+            const response = await axios.post(`/api/testing/${testId}`, formData, {
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
             alert("Id созданного вопроса " + response.data.data)
         } catch (error) {

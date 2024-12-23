@@ -16,7 +16,11 @@ const SubjectTest = ({openCode,closeCode,LockUnLockIcon}) => {
         formData.append('title', testTitle);
 
         try {
-            const response = await axios.post(`/api/test/${testSubjectId}`, formData);
+            const response = await axios.post(`/api/test/${testSubjectId}`, formData, {
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
             alert("Id созданного курса " + response.data.subject_id)
         } catch (error) {

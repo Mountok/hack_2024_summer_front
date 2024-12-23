@@ -25,7 +25,11 @@ const SubjectUpdateDelete = ({openCode,closeCode,LockUnLockIcon}) => {
         formData.append('iscertificated', (courseCompleted) ? "true" : "false"); // Добавляем состояние чекбокса в formData
 
         try {
-            const response = await axios.put('/api/subject', formData);
+            const response = await axios.put('/api/subject', formData,{
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
             alert("Id измененного курса " + response.data.subject_id)
         } catch (error) {
@@ -37,7 +41,11 @@ const SubjectUpdateDelete = ({openCode,closeCode,LockUnLockIcon}) => {
         e.preventDefault();
 
         try {
-            const response = await axios.delete(`/api/subject/${subjectId}`);
+            const response = await axios.delete(`/api/subject/${subjectId}`, {
+                headers:{
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
             alert("Курса удален" + response.data)
         } catch (error) {
