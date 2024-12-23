@@ -34,16 +34,18 @@ const Courses = () => {
 
 
   return (
+    <>
+    <Search 
+      subjectsFilter={subjectsFilter}
+      setSubjectsFilter={setSubjectsFilter}
+      subjectsState={subjectsState}/>
     <main 
     className='main courses'>
       <Helmet>
         <title>Курсы</title>
       </Helmet>
 
-      <Search 
-      subjectsFilter={subjectsFilter}
-      setSubjectsFilter={setSubjectsFilter}
-      subjectsState={subjectsState}/>
+      
       
       {(requestCompleted) ? (
          subjectsFilter.map(el => (
@@ -69,6 +71,8 @@ const Courses = () => {
       )}
      
     </main>
+    </>
+
   )
 }
 
