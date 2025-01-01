@@ -1,3 +1,11 @@
+.quill {
+    position: relative;
+}
+.quill .ql-toolbar {
+    background-color: white;
+    position: sticky;
+}
+
 .text_editor_form {
     display: flex;
     flex-direction: column;

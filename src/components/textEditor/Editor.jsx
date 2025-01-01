@@ -29,10 +29,10 @@ const Editor = () => {
       
       modules={Editor.modules} formats={Editor.formats}/>
    
-       <div>
+       {/* <div>
         <h2>Содержимое редактора:</h2>
         <div dangerouslySetInnerHTML={{ __html: text }} />
-      </div> 
+      </div>  */}
 
       <div className='text_editor_form'>
         <input value={theme_id} onChange={(e)=>{setThemeId(e.target.value)}} type="number" placeholder='введите id темы' />
