@@ -5,9 +5,7 @@ import { MdDone } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from 'react';
 import axios from "axios"
-import { useEffect } from 'react';
 const NameEditBlock = ({editName,setNameEdit}) => {
-    const [userId,setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [newName, setNewName] = useState("")
     const [isClose,setIsClose] = useState(!editName)
 
@@ -22,7 +20,11 @@ const NameEditBlock = ({editName,setNameEdit}) => {
             return
         }
         
-        await axios.post(`/api/profile/name/${userId}/${newName}`,).then(function (response) {
+        await axios.post(`/api/profile/name/${newName}`,null,{
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("SKUToken")
+            }
+        }).then(function (response) {
             console.log(response);
         }).catch(function (error) {
             alert(error.response.data.data)

@@ -11,6 +11,8 @@ import { CertificateVerification } from '../../services/cerificated'
 import { DoneThemes } from '../../services/theme'
 import { GiDiploma } from "react-icons/gi";
 import { SetLastSubject } from '../../services/profile'
+import AvatarGroup from '../../components/Profile/AvatarGroup/AvatarGroup'
+import { GetUserOnSubject } from '../../services/subject'
 
 const OpenCourse = ({ port }) => {
     const location = useLocation()
@@ -26,6 +28,9 @@ const OpenCourse = ({ port }) => {
     const [doneTestsForSubject, setDoneTestsForSubject] = useState([])
 
     const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
+
+
+    // const [courseLearner, setCourseLearner] = useState([])
 
 
     const [isCertificated, setIsSertificated] = useState(false)
@@ -60,24 +65,26 @@ const OpenCourse = ({ port }) => {
 
         GetCompletedTests(subjectId).then(res => setDoneTestsForSubject(res.data))
 
-        // CertificateVerification(userId, subjectId).then(res => {
+        CertificateVerification(subjectId).then(res => {
+            if (res.courseDone) {
+                // alert("ваш сертификат доступен")
+                setIsSertificated(true)
+            }
+        }).catch(err => {
+            console.log(err)
 
-        //     if (res.courseDone) {
-        //         // alert("ваш сертификат доступен")
-        //         setIsSertificated(true)
-        //     } 
-        // }).catch(err => {
-        //     console.log(err)
-
-        // })
+        })
 
         SetLastSubject(subjectId).then(resp => {
             console.log(resp)
         }).catch(resp => {
             console.log(resp)
-
             // (resp.response.status == 401) && navigate("/")
         })
+
+
+       
+
 
 
     }, [])
@@ -119,6 +126,8 @@ const OpenCourse = ({ port }) => {
                         </button>}
 
                     </div>
+                    <AvatarGroup subjectId={subjectId} max={3} />
+
                     <p>Обучение</p>
                     {themesState.map((theme, index, array) => (
 

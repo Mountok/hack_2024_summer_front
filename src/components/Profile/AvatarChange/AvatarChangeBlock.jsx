@@ -4,7 +4,6 @@ import "./avatarChangeBlock.css"
 import axios from "axios";
 
 const AvatarChangeBlock = ({editAvatar, setAvatarEdit}) => {
-    const [userId, setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [newImage, setNewImage] = useState(null)
     const [isClose, setIsClose] = useState(!editAvatar)
 
@@ -13,11 +12,13 @@ const AvatarChangeBlock = ({editAvatar, setAvatarEdit}) => {
 
         const formData = new FormData();
         formData.append('image', newImage);
-        formData.append("user_id",userId)
-
 
         try {
-            const response = await axios.post('/api/profile/avatar', formData);
+            const response = await axios.post('/api/profile/avatar', formData, {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken") 
+                }
+            });
             console.log('Ответ от сервера:', response.data);
         } catch (error) {
             console.error('Ошибка при отправке формы:', error);

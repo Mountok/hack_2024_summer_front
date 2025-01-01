@@ -20,3 +20,7 @@ export const GetSubjectById = async (subjectId) => {
     return data.data
 }
 
+export const GetUserOnSubject = async (subjectId) => {
+    const {data} = await axios.get(`/api/profiles/on/subject/${subjectId}`)
+    return data
+}

@@ -4,7 +4,6 @@ import axios from "axios";
 
 
 const DescriptionChange = ({editDesc,setDescEdit}) => {
-    const [userId,setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [newDesc, setNewDesc] = useState("")
     const [isClose,setIsClose] = useState(!editDesc)
 
@@ -17,11 +16,14 @@ const DescriptionChange = ({editDesc,setDescEdit}) => {
         }
 
         const formData = new FormData()
-        formData.append("user_id",userId)
         formData.append("description",newDesc)
 
         try {
-            const response = await axios.post('/api/profile/description', formData);
+            const response = await axios.post('/api/profile/description', formData, {
+                headers: {
+                    Authorization: "Bearer " + localStorage.getItem("SKUToken")
+                }
+            });
             console.log('Ответ от сервера:', response.data);
         } catch (error) {
             console.error('Ошибка при отправке формы:', error);

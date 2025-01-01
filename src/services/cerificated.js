@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const CertificateVerification = async (userId, subjectId) => {
+export const CertificateVerification = async (subjectId) => {
     try {
-        const { data } = await axios.get(`/api/certificate/${userId}/${subjectId}`,{
+        const { data } = await axios.get(`/api/certificate/${subjectId}`,{
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("SKUToken")
             }

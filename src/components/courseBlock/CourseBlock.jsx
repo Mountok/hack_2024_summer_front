@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import "./coursesBlock.scss"
 import { useNavigate } from 'react-router-dom'
-import { RxChevronRight } from "react-icons/rx";
-import { BsPlayCircleFill } from "react-icons/bs";
 import axios from 'axios';
-import { FaBookOpen } from "react-icons/fa";
-import { MdBookmarkAdded } from "react-icons/md";
 import Loading from '../loading/Loading';
-import { ShimmerButton } from 'shimmer-effects-react';
+import { BsPlayCircleFill } from 'react-icons/bs';
 
-const CourseBlock = ({ id, image, title,setAllLoad }) => {
+const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
     const [themesLength, setThemesLength] = useState()
-    const [doneThemes,setDoneThemes] = useState(null)
-    const [doneThemesLoad,setDoneThemesLoad]= useState(false)
-    const [imgIsLoad,setImgIsLoad] = useState(false)
+    const [doneThemes, setDoneThemes] = useState(null)
+    const [doneThemesLoad, setDoneThemesLoad] = useState(false)
+    const [imgIsLoad, setImgIsLoad] = useState(false)
     useEffect(() => {
         getCoursesThemeSumm(id)
         getDoneThemes(id)
-    },[])
+    }, [])
     const getCoursesThemeSumm = async (id) => {
         var apiUrlT = `/api/themes/${id}`;
-        await axios.get(apiUrlT,{
+        await axios.get(apiUrlT, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("SKUToken")
             }
         }).then((resp) => {
-            console.log("COURSEBLOCK res: ",resp)
+            console.log("COURSEBLOCK res: ", resp)
             setThemesLength(resp.data.data.length);
         }).catch(err => {
             console.log(err)
         });
-    } 
+    }
     const getTopicLabel = (count) => {
         if (count % 10 === 1 && count % 100 !== 11) {
             return `${count} тема`;
@@ -44,7 +40,7 @@ const CourseBlock = ({ id, image, title,setAllLoad }) => {
         setDoneThemesLoad(false)
 
         const apiUrlDoneThemes = `/api/themes/complete/${id}`;
-        axios.get(apiUrlDoneThemes,{
+        axios.get(apiUrlDoneThemes, {
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("SKUToken")
             }
@@ -57,50 +53,53 @@ const CourseBlock = ({ id, image, title,setAllLoad }) => {
     }
 
 
-   
 
 
-const navigate = useNavigate()
-return (
-    <>
-             <div  onClick={() => {
+
+    const navigate = useNavigate()
+    return (
+        <>
+            <div onClick={() => {
                 navigate(`/course/${id}`)
             }} className='course_block'>
-                <img 
-                onLoad={(e)=>{
-                    setImgIsLoad(true)
-                    setAllLoad(true)
-                }} 
-        
-                style={{opacity: imgIsLoad ? ('1') : ('0') }}  
-                className='course_image' src={image} alt="" />
+                
                 <div>
-                <h3 className='course_title'>{title}</h3>
-        
-        <div className='course_footer'>
-            <p className='course_themes_lenght'>
-                <FaBookOpen/>
-                { (themesLength) ? getTopicLabel(themesLength) : <Loading/>}
-                <span className='course_themes_complete'>
-                <MdBookmarkAdded />
-                {(doneThemesLoad && themesLength ) ? Math.floor((doneThemes/themesLength)*100) + "%" : (<Loading/>) }
-                </span>
-                
-            </p>
-                
-        {/* <button onClick={() => {
+                    <img
+                        onLoad={(e) => {
+                            setImgIsLoad(true)
+                            setAllLoad(true)
+                        }}
+
+                        style={{ opacity: imgIsLoad ? ('1') : ('0') }}
+                        className='course_image' src={image} alt="" />
+                    
+                    
+                    <div className='course_footer'>
+                        <p className='course_themes_lenght'>
+                            {(themesLength) ? getTopicLabel(themesLength) : <Loading />}
+                        </p>
+                        <p className='course_themes_complete'>
+                                {(doneThemesLoad && themesLength) ? Math.floor((doneThemes / themesLength) * 100) + "%" : (<Loading />)}
+                        </p>
+
+
+                    </div>
+                    <h3 className='course_title'>{title}</h3>
+                    <p className='course_subtitle'>{subtitle}</p>
+
+                    
+                    <button onClick={() => {
             navigate(`/course/${id}`)
         }}
-            className='course_button'> <p>{(doneThemes == 0) ? "Начать" : "Продолжить"}</p>
-            <BsPlayCircleFill />
-        </button> */}
-        </div>
+            className='course_button'> <p>{(doneThemes == 0) ? "Бесплатно" : "Продолжить"}</p>
+        </button>
+
                 </div>
-                
+
             </div>
-    </>
-   
-)
+        </>
+
+    )
 }
 
 export default CourseBlock

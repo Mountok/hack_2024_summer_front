@@ -32,7 +32,7 @@
     .radio-button {
       display: flex;
       align-items: center;
-      color: var(--blue);
+      color: var(--orange);
       opacity: 0;
     }
 
@@ -47,7 +47,7 @@
 
       &:hover,
       &:active {
-        background-color: var(--blue);
+        background-color: var(--orange);
         color: #fff;
 
         .radio-button {
