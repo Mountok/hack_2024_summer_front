@@ -60,7 +60,7 @@ function App() {
         <Route path='/doc' element={<Doc />} />
 
         <Route path='/admin' element={<Admin />} />
-        <Route path='/certificate' element={<Certificate />} />
+        <Route path='/certificate/:id' element={<Certificate />} />
 
         <Route path='/privacy' element={<Privacy />} />
 

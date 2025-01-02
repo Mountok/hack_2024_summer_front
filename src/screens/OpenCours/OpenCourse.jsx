@@ -120,7 +120,8 @@ const OpenCourse = ({ port }) => {
                         <p>О курсе:</p>
                         <p>{el.description}</p>
                         {(isCertificated && el.iscertificated == "true") && <button onClick={(e) => {
-                            alert("В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся")
+                            alert("В данный момент приложение находиться в бета тестировании сертификаты будут добавлены в будующих обновления. Ваши сертификаты сохранятся");
+                            navigate(`/certificate/${subjectId}`);
                         }} className='sertificate_btn'>
                             <GiDiploma /> Получить сертификат
                         </button>}

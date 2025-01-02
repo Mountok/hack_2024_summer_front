@@ -1,0 +1,61 @@
+.certificate-container {
+    overflow-x:scroll;
+    margin: 0 auto;
+    position: relative;
+    width: 1280px; /* Уменьшено для вертикального расположения */
+    height: 1780px; /* Больше для вертикального сертификата */
+    background-image: url("./crtf.jpg");
+  }
+  .certificate-container p {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .name{
+    left: 220px;
+    top: 658px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 50px;
+  }
+  .course{
+    left: 220px;
+    top: 825px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 50px;
+    color: rgb(255, 111, 0);
+  }
+  .date{
+    left: 220px;
+    top: 894px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 25px;
+  }
+  .certificate-button{
+    
+    width: 200px;
+    font-size: 20px;
+    border: 1px solid var(--orange);
+    border-radius: 8px;
+    padding: 10px;
+    background: none;
+    font-weight: 600;
+    margin: 10px auto;
+
+
+  }
+  .certificate-button:hover{
+    background-color: var(--orange);
+  }
+  @media (max-width: 550px) {
+    .certificate-button{
+        z-index: 1;
+    transform: translateY(100px);
+    }
+    .certificate-container{
+        transform: translateY(100px);
+    }
+
+    
+  }
