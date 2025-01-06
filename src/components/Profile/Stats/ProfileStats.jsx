@@ -24,9 +24,9 @@ const ProfileStats = ({userId,level}) => {
   return (
     <div className='profile_stat'>
         
-        <div className='stat_lvl'>
+        {/* <div className='stat_lvl'>
             <p>Уровень <span>{Math.floor(level)}</span></p>
-        </div>
+        </div> */}
 
         <div className='stat_items'>
         <div className='stat_item'>

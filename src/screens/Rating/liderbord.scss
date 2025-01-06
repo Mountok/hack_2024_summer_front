@@ -142,9 +142,7 @@
 }
 .rating_bottom_item {
     width: 300px;
-    background-color: rgba(187, 187, 187, 0.21);
-    --web-kit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background-color: rgba(13, 13, 13, 0.767);
     border-radius: 10px;
     padding: 10px 10px;
     display: flex;
@@ -278,7 +276,7 @@
 
     .rating_bottom_item {
         width: 300px;
-        background-color: rgba(201, 201, 201, 0.21);
+        background-color: rgba(0, 0, 0, 0.21);
         border-radius: 10px;
         padding: 2px 10px;
         display: flex;

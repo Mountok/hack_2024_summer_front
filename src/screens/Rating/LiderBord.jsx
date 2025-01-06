@@ -19,6 +19,13 @@ const LiderBord = () => {
         setRequestCompleted(true)
     },[])
 
+    function truncateText(text, maxLength) {
+        const truncatedText =
+          text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+      
+        return truncatedText;
+      }
+
     return (
         <main className='main rating'>
             <div className="rating_header">
@@ -29,15 +36,25 @@ const LiderBord = () => {
 
                 {(requestCompleted) ? (
                     liderBoard.map((el,idx,array)=>(
-                        <div key={idx} className="rating_bottom_item">
-                            <p>{idx+1}</p>
-                            <div className="bottom_rating_board_image">
+                        <div
+                        style={{
+                            height: (idx+1) > 3 ? "40px": null
+                        }}
+                         key={idx} className="rating_bottom_item">
+
+                            <p style={{
+                                display: (idx+1) > 3 ? "none": "block"
+                            }}>{idx+1}</p>
+                            <div style={{
+                                display: (idx+1) > 3 ? "none": "block"
+                            }} className="bottom_rating_board_image">
 
                                 
 
-                                <img loading="lazy"  src={`http://${Settings.PORT}/images?id=${el.image}`} alt="" />
+                                <img  loading="lazy"  src={`http://${Settings.PORT}/images?id=${el.image}`} alt="" />
                             </div>
-                            <h2>{el.username} - <span>{el.score}</span></h2>
+                            <h2
+                            >{(idx+1) > 3 ? truncateText(el.username,25) : el.username} - <span>{el.score}</span></h2>
                         </div>
                 ))) : (
                     <Loading/>

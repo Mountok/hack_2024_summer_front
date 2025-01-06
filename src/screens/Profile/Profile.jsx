@@ -39,6 +39,18 @@ const Profile = () => {
 
     }, [editName,editAvatar,editDescription])
 
+
+    function formatPhoneNumber(phone) {
+        if (!phone) return ""; // Проверка на пустую строку
+      
+        // Регулярное выражение для разбивки номера
+        const match = phone.match(/^(\+7)(\d{3})(\d{3})(\d{2})(\d{2})$/);
+        if (match) {
+          return `${match[1]} (${match[2]})-${match[3]}-${match[4]}-${match[5]}`;
+        }
+        return phone; // Возвращаем исходный номер, если формат не совпадает
+      }
+
     const logOut = () => {
         var result = confirm("Подтвердите свое действие.") 
         if (result) {
@@ -74,9 +86,12 @@ const Profile = () => {
                     <div 
                     key={idx}
                         className="profile_header">
-                        {/* <img
-                        className='profile_header_bg' 
-                        src="images/profile_bg.png" alt="" /> */}
+                        <div className="profile_bg">
+
+                        </div>
+
+                        {/* аватарка пользователя */}
+
                         <div
                             onDoubleClick={() => {
                                 setAvatarEdit(true)
@@ -86,6 +101,8 @@ const Profile = () => {
 
                         </div>
 
+
+                        {/* имя пользователя */}
                         <h2
                             onDoubleClick={() => {
                                 setNameEdit(true)
@@ -97,7 +114,12 @@ const Profile = () => {
                             {/*    }}*/}
                             {/*    className='name_edit_icon'/>*/}
                         </h2>
+
+                        {/* описание профиля */}
+                        <p >{formatPhoneNumber(el.phone)}</p>
                         <p onDoubleClick={()=>setDescriptionEdit(true)}>{el.description}</p>
+
+                        {/* кнопка выхода */}
                         <a
                         onClick={logOut}
                             className={location.pathname == "/" ? "nav_links active" : "nav_links"}

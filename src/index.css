@@ -9,8 +9,9 @@
   --black: #000000;
   --white: #ededed;
   --green: rgba(136, 254, 136, 0.813);
-  --blue: #429dff;
+  --blue: #78b9ff54;
   --red: #ff0e13;
+  --black-grey: rgba(0, 0, 0, 0.477);
 }
 *{
   padding: 0;
