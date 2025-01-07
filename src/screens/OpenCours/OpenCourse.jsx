@@ -137,7 +137,7 @@ const OpenCourse = ({ port }) => {
                     ))}
 
                     {
-                        testsForSubject.length != 0 ? <p>Тестирование</p> : <></>
+                        testsForSubject.length != 0 ? <p>Тесты</p> : <></>
                     }
 
                     {

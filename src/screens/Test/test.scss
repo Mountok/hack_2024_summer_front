@@ -52,7 +52,7 @@
 
     &:hover {
       background: none;
-      color: var(--blue);
+      color: var(--orange);
     }
 
     &:active {
@@ -85,21 +85,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     & div {
       padding: 5px;
+    color: var(--black);
 
       display: flex;
       & .test_modal_prev {
-        background-color: var(--blue);
+      color: var(--black);
+
+        background-color: rgb(44, 108, 255);
         border: 1px solid var(--blue);
         margin-right: 5px;
         &:hover {
           background: none;
-          color: var(--blue);
+          color: rgb(44, 108, 255);
         }
       }
       & .test_modal_reset {
+        color: black;
         background-color: var(--red);
         border: 1px solid var(--red);
         &:hover {

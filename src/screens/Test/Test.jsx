@@ -93,7 +93,7 @@ const Test = () => {
             setValueForQuestion={setValueForQuestion}
           />
         ))}
-        <button className="test_button" onClick={SubmitQueston}>Отправить</button>
+        <button className="test_button" onClick={SubmitQueston}>Готово</button>
       </form>
 
       { modalView ? null :

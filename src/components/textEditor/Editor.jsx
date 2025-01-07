@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Импорт стилей Quill
-import { AddContentInTheme } from '../../services/theme';
+import { AddContentInTheme, GetContentForTheme, PutContentInTheme } from '../../services/theme';
 import "./textEditor.scss"
 
 const Editor = () => {
@@ -23,6 +23,25 @@ const Editor = () => {
     })
   }
 
+  const handlePut = (e) => {
+    e.preventDefault()
+    PutContentInTheme(theme_id,text).then(data => {
+        console.log(data)
+    }).catch(err => {
+        console.log(err)
+    })
+  }
+
+  const handleGet = (e) => {
+    e.preventDefault()
+    GetContentForTheme(theme_id).then(data => {
+      console.log(data)
+      setText(data.data)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div>
       <ReactQuill value={text} onChange={handleChange}
@@ -36,7 +55,9 @@ const Editor = () => {
 
       <div className='text_editor_form'>
         <input value={theme_id} onChange={(e)=>{setThemeId(e.target.value)}} type="number" placeholder='введите id темы' />
-        <button onClick={handlePost}>Добавить</button>
+        <button onClick={handlePut}>Добавить</button>
+        <button onClick={handlePost}>Обновить</button>
+        <button onClick={handleGet}>Получить содержимое</button>
       </div>
 
     </div>

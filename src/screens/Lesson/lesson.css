@@ -69,6 +69,11 @@
     border-radius: 10px;
     transition:  .156s linear;
 }
+.content p > img {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+}
 
 .lesson_next button:hover{
     background: none;

@@ -64,3 +64,40 @@ export const AddContentInTheme = async (theme_id,text) => {
            return error
        }
 }
+
+export const PutContentInTheme = async (theme_id,text) => {
+
+    const formData = new FormData();
+    formData.append('theme_id', theme_id);
+    formData.append('theme_html', text);
+    try {
+        const response = await axios.put('/api/lessons', formData,{
+         headers: {
+             Authorization: "Bearer " + localStorage.getItem("SKUToken")
+         }
+     });
+        console.log('Ответ от сервера:', response.data);
+         return response.data
+    } catch (error) {
+        console.error('Ошибка при отправке формы:', error);
+        return error
+    }
+}
+
+export const GetContentForTheme = async (theme_id) => {
+    const formData = new FormData();
+    formData.append('theme_id', "");
+    formData.append('theme_html', "");
+    try {
+        const response = await axios.get(`/api/lessons?theme_id=${theme_id}`, formData,{
+         headers: {
+             Authorization: "Bearer " + localStorage.getItem("SKUToken")
+         }
+     });
+        console.log('Ответ от сервера:', response.data);
+         return response.data
+    } catch (error) {
+        console.error('Ошибка при отправке формы:', error);
+        return error
+    }
+} 
