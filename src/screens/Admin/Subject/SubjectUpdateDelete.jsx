@@ -41,7 +41,7 @@ const SubjectUpdateDelete = ({openCode,closeCode,LockUnLockIcon}) => {
         e.preventDefault();
 
         try {
-            const response = await axios.delete(`/api/subject/${subjectId}`, {
+            const response = await axios.delete(`/api/delete/subject?id=${subjectId}`, {
                 headers:{
                     Authorization: "Bearer " + localStorage.getItem("SKUToken")
                 }
