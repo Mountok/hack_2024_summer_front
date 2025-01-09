@@ -19,7 +19,7 @@ const AvatarGroup = ({ subjectId, max = 3 }) => {
                 const arrGood = resp.data.filter(item => item.image != "admin.png");
                 console.log(arrAdmin)
                 console.log(arrGood)
-                setCourseLearner(arrGood)
+                setCourseLearner(resp.data)
                 setCourseLearnerA(arrAdmin)
             }
         }).catch(err => {
@@ -32,16 +32,8 @@ const AvatarGroup = ({ subjectId, max = 3 }) => {
     const extraCount = courseLearner.length - max; // Count extra avatars 
     return (
         <div className="avatar-group">
-            {courseLearnerA.map((avatar, index) => (
-                <Avatar size={40} name={avatar.full_name} />
-            ))}
             {visibleAvatars.map((avatar, index) => (
-                    <img
-                        key={index}
-                        className="avatar"
-                        src={`http://${Settings.PORT}/images?id=${avatar.image}`}
-                        alt={avatar.id}
-                    />
+                <Avatar name={avatar.full_name} />
             ))}
             {extraCount > 0 && (
                 <div className="extra-avatar">+{extraCount}</div>

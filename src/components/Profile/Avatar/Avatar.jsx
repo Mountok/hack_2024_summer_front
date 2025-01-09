@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Avatar = ({ name, size = 50, backgroundColor = '#007BFF', textColor = '#FFFFFF', fontSize = 16 }) => {
+const Avatar = ({ name, size = 50, backgroundColor = '#ff8000', textColor = '#FFFFFF', fontSize = 16 }) => {
   // Функция для извлечения инициалов
   const getInitials = (name) => {
     if (!name) return '';

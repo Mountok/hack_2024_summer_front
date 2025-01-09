@@ -12,7 +12,10 @@
     margin-left: -10px; /* Overlapping effect */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-
+  .avatar-group .avatar_letter{
+    margin-left: -10px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.473);
+  }
   .extra-avatar {
     width: 40px;
     height: 40px;
