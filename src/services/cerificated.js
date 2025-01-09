@@ -9,6 +9,7 @@ export const CertificateVerification = async (subjectId) => {
         });
         console.log(data);
         return data;
+        
     } catch (error) {
         // Обработка ошибки
         // console.error('Ошибка при получении сертификата:', error);
