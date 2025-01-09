@@ -6,20 +6,19 @@
   
   .avatar {
     background-color: rgb(172, 172, 172);
-
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-left: -10px; /* Overlapping effect */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-  
+
   .extra-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-left: -10px;
-    background-color: rgb(172, 172, 172);
+    background-color: rgb(255, 155, 48);
     color: white;
     display: flex;
     align-items: center;

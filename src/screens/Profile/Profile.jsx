@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import "./profile.css"
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import axios from "axios"
 import NameEditBlock from '../../components/Profile/NameEdit/NameEditBlock';
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AvatarChangeBlock from "../../components/Profile/AvatarChange/AvatarChangeBlock.jsx";
 import DescriptionChange from "../../components/Profile/DescriptionEdit/DescriptionChange.jsx";
 import { IoLogOut } from "react-icons/io5";
@@ -11,6 +11,7 @@ import Settings from "../../../settings.js";
 import CourseHistory from '../../components/Profile/CourseHistory/CourseHistory.jsx';
 import ProfileStats from '../../components/Profile/Stats/ProfileStats.jsx';
 import { GetProfile } from '../../services/profile.js';
+import Avatar from '../../components/Profile/Avatar/Avatar.jsx';
 
 
 
@@ -22,7 +23,7 @@ const Profile = () => {
     const [editAvatar, setAvatarEdit] = useState(false)
     const [editDescription, setDescriptionEdit] = useState(false)
     const navigate = useNavigate()
-    useEffect(() => {  
+    useEffect(() => {
         GetProfile().then((res) => {
             console.log(res)
             setUserProfile(res.data)
@@ -33,28 +34,28 @@ const Profile = () => {
                 console.log("unauth")
                 navigate("/")
             }
-            
+
         })
 
 
-    }, [editName,editAvatar,editDescription])
+    }, [editName, editAvatar, editDescription])
 
 
     function formatPhoneNumber(phone) {
         if (!phone) return ""; // Проверка на пустую строку
-      
+
         // Регулярное выражение для разбивки номера
         const match = phone.match(/^(\+7)(\d{3})(\d{3})(\d{2})(\d{2})$/);
         if (match) {
-          return `${match[1]} (${match[2]})-${match[3]}-${match[4]}-${match[5]}`;
+            return `${match[1]} (${match[2]})-${match[3]}-${match[4]}-${match[5]}`;
         }
         return phone; // Возвращаем исходный номер, если формат не совпадает
-      }
+    }
 
     const logOut = () => {
-        var result = confirm("Подтвердите свое действие.") 
+        var result = confirm("Подтвердите свое действие.")
         if (result) {
-            localStorage.setItem("SKUToken","-")
+            localStorage.setItem("SKUToken", "-")
             navigate("/")
         } else {
             null
@@ -66,11 +67,11 @@ const Profile = () => {
             className="main profile">
             {editName ? <NameEditBlock
                 editName={editName}
-                setNameEdit={setNameEdit}/> : console.log(editName)}
+                setNameEdit={setNameEdit} /> : console.log(editName)}
 
             {editAvatar ? <AvatarChangeBlock
                 editAvatar={editAvatar}
-                setAvatarEdit={setAvatarEdit}/> : console.log(editAvatar)}
+                setAvatarEdit={setAvatarEdit} /> : console.log(editAvatar)}
 
             {editDescription ? <DescriptionChange
                 editDesc={editDescription}
@@ -83,8 +84,8 @@ const Profile = () => {
 
             {userProfile.map((el, idx, array) => (
                 <>
-                    <div 
-                    key={idx}
+                    <div
+                        key={idx}
                         className="profile_header">
                         <div className="profile_bg">
 
@@ -97,7 +98,14 @@ const Profile = () => {
                                 setAvatarEdit(true)
                             }}
                             className="profile_header_avatar">
-                            <img className="profile_header_avatar_img" src={`http://${Settings.PORT}/images?id=${el.image}`} />
+                            {el.image == "admin.png" ?
+                                <>
+                                <Avatar fontSize={50} size={150} name={el.full_name}/>
+                                </>
+
+
+                                : <img className="profile_header_avatar_img" src={`http://${Settings.PORT}/images?id=${el.image}`} />}
+
 
                         </div>
 
@@ -117,15 +125,15 @@ const Profile = () => {
 
                         {/* описание профиля */}
                         <p >{formatPhoneNumber(el.phone)}</p>
-                        <p onDoubleClick={()=>setDescriptionEdit(true)}>{el.description}</p>
+                        <p onDoubleClick={() => setDescriptionEdit(true)}>{el.description}</p>
 
                         {/* кнопка выхода */}
                         <a
-                        onClick={logOut}
+                            onClick={logOut}
                             className={location.pathname == "/" ? "nav_links active" : "nav_links"}
 
                         >
-                            <IoLogOut className="log_out_icon"/>
+                            <IoLogOut className="log_out_icon" />
 
                         </a>
                     </div>
@@ -138,11 +146,11 @@ const Profile = () => {
                                 <p>{Math.floor(el.score / 100)} lvl</p>
                             </div>
                         </div> */}
-                <CourseHistory/>
-                <ProfileStats userId={el.user_id} level={el.score / 100}/>
+                        <CourseHistory />
+                        <ProfileStats userId={el.user_id} level={el.score / 100} />
 
                     </div>
-                    
+
                 </>
             ))}
         </main>

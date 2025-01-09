@@ -56,7 +56,12 @@
     height: 150px;
     object-fit: cover;
     border: 6px solid var(--white);
-
+}
+.profile_header_avatar_img .empty::after{
+    position: absolute;
+    content: "sfdrd";  
+    left: 0;  
+    color: #0e0e0e;
 }
 
 .profile_header h2 {
@@ -225,7 +230,7 @@
         z-index: 1;
         background-color: none;
 
-
+        position: relative;
     }
 
     .profile_header_avatar_img {
@@ -235,8 +240,6 @@
         margin-bottom: 10px;
         object-fit: cover;
     }
-
-
 
     .profile_header h2 {
     padding-left: 40px;
