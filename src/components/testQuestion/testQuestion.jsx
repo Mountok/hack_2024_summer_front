@@ -1,13 +1,14 @@
 import React from "react";
 import "./testQuestion.scss";
 import { FaCheck } from "react-icons/fa";
+import { PlayClick } from "../../utils/click";
 
 const TestQuestion = ({ data, index, setValueForQuestion }) => {
   return (
     <div className="question_item">
       <h3>{index + 1 + ". " + data.question}</h3>
       {data.options.split(";").map((option, i) => (
-        <div className="question_option" key={i}>
+        <div onClick={PlayClick} className="question_option" key={i}>
           <label htmlFor={data.question + i}>
             <input
               onChange={(e) => setValueForQuestion(e, data.id)}

@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Loading from '../loading/Loading';
 import { BsPlayCircleFill } from 'react-icons/bs';
+import { PlayClick } from '../../utils/click';
 
-const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
+const CourseBlock = ({ id, image, title, setAllLoad, subtitle }) => {
     const [themesLength, setThemesLength] = useState()
     const [doneThemes, setDoneThemes] = useState(null)
     const [doneThemesLoad, setDoneThemesLoad] = useState(false)
@@ -52,7 +53,7 @@ const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
         setDoneThemesLoad(true)
     }
 
-
+  
 
 
 
@@ -60,9 +61,10 @@ const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
     return (
         <>
             <div onClick={() => {
+                PlayClick()
                 navigate(`/course/${id}`)
             }} className='course_block'>
-                
+
                 <div>
                     <img
                         onLoad={(e) => {
@@ -72,14 +74,14 @@ const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
 
                         style={{ opacity: imgIsLoad ? ('1') : ('0') }}
                         className='course_image' src={image} alt="" />
-                    
-                    
+
+
                     <div className='course_footer'>
                         <p className='course_themes_lenght'>
                             {(themesLength) ? getTopicLabel(themesLength) : <Loading />}
                         </p>
                         <p className='course_themes_complete'>
-                                {(doneThemesLoad && themesLength) ? Math.floor((doneThemes / themesLength) * 100) + "%" : (<Loading />)}
+                            {(doneThemesLoad && themesLength) ? Math.floor((doneThemes / themesLength) * 100) + "%" : (<Loading />)}
                         </p>
 
 
@@ -87,12 +89,12 @@ const CourseBlock = ({ id, image, title, setAllLoad,subtitle }) => {
                     <h3 className='course_title'>{title}</h3>
                     <p className='course_subtitle'>{subtitle}</p>
 
-                    
+
                     <button onClick={() => {
-            navigate(`/course/${id}`)
-        }}
-            className='course_button'> <p>{(doneThemes == 0) ? "Бесплатно" : "Продолжить"}</p>
-        </button>
+                        navigate(`/course/${id}`)
+                    }}
+                        className='course_button'> <p>{(doneThemes == 0) ? "Бесплатно" : "Продолжить"}</p>
+                    </button>
 
                 </div>
 

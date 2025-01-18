@@ -2,14 +2,17 @@ import React from 'react'
 import "./test.scss"
 import Loading from "../../components/loading/Loading"
 import { useNavigate } from 'react-router-dom'
+import { PlayClick } from '../../utils/click'
 const TestResultModal = ({to,setModalView,isLoaded, setIsLoaded,resultPoints}) => {
     const navigate = useNavigate()
+     PlayClick()
     const exitFromModal = () => {
         setModalView(true)
         setIsLoaded(false)
     }
 
     const exitFromTest = () => {
+        PlayClick()
         setModalView(true)
         setIsLoaded(false)
         navigate(to)

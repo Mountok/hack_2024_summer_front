@@ -13,6 +13,7 @@ import { GiDiploma } from "react-icons/gi";
 import { SetLastSubject } from '../../services/profile'
 import AvatarGroup from '../../components/Profile/AvatarGroup/AvatarGroup'
 import { GetUserOnSubject } from '../../services/subject'
+import { PlayClick } from '../../utils/click'
 
 const OpenCourse = ({ port }) => {
     const location = useLocation()
@@ -106,7 +107,7 @@ const OpenCourse = ({ port }) => {
                 <main className="main opencourse">
 
                     <div className="opencourse_header">
-                        <Link to={"/courses"}>
+                        <Link onClick={PlayClick} to={"/courses"}>
                             <FaArrowLeft />
                         </Link>
                     </div>

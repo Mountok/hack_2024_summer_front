@@ -4,6 +4,7 @@ import axios from 'axios'
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 import {FaArrowLeft} from "react-icons/fa6"
 import 'react-quill/dist/quill.snow.css'; // Импорт стилей Quill
+import { PlayClick } from '../../utils/click'
 const Lesson = () => {
     const [content, setContent] = useState([])
     const location = useLocation()
@@ -55,7 +56,7 @@ const Lesson = () => {
     return (
         <main className="main lesson">
             <div className="lesson_header">
-                <Link to={"/course/"+location.pathname.split("/")[2]}>
+                <Link  onClick={PlayClick} to={"/course/"+location.pathname.split("/")[2]}>
                     <FaArrowLeft/>
                 </Link>
             </div>

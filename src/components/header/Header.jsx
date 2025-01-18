@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./header.scss"
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IoIosLogOut } from 'react-icons/io';
+import { PlayClick } from '../../utils/click';
 
 const Header = ({role}) => {
     const location = useLocation()
@@ -39,6 +40,8 @@ const Header = ({role}) => {
         localStorage.setItem("SKUToken","-")
         navigate("/")
     }
+
+   
     
 
     return (
@@ -48,14 +51,14 @@ const Header = ({role}) => {
                 <img  onClick={()=>navigate('/courses')}  src="/images/skillCamp.svg" alt="" />
             </div>
             <nav className="nav">
-            <Link to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>
-            <Link to='/events' className={location.pathname == "/events" ? "nav_links active" : "nav_links"}>События</Link>
-                <Link to='/rate' className={location.pathname == "/rate" ? "nav_links active" : "nav_links"}>Рейтинг</Link>
-                <Link to='/profile' className={location.pathname == "/profile" ? "nav_links active" : "nav_links"}>Профиль</Link>
+            <Link onClick={PlayClick} to='/courses' className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>Курсы</Link>
+            <Link onClick={PlayClick}  to='/events' className={location.pathname == "/events" ? "nav_links active" : "nav_links"}>События</Link>
+                <Link onClick={PlayClick}  to='/rate' className={location.pathname == "/rate" ? "nav_links active" : "nav_links"}>Рейтинг</Link>
+                <Link onClick={PlayClick}  to='/profile' className={location.pathname == "/profile" ? "nav_links active" : "nav_links"}>Профиль</Link>
                 {
                     role == "admin" ? <Link to='/admin' className={location.pathname == "/admin" ? "nav_links active" : "nav_links"}>Админ</Link> : null
                 }
-                <button onClick={(e)=>logout(e)} className={location.pathname == "/" ? "nav_links active outlink" : "nav_links outlink"} >
+                <button  onClick={(e)=>{PlayClick();logout(e)}} className={location.pathname == "/" ? "nav_links active outlink" : "nav_links outlink"} >
                 <IoIosLogOut style={{
                     fontSize:"20px"
                     

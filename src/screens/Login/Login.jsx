@@ -10,6 +10,7 @@ import { CiRead } from "react-icons/ci";
 import { CiUnread } from "react-icons/ci";
 import { TbRuler } from 'react-icons/tb'
 import { authorization, signIn } from '../../services/auth'
+import { PlayClick } from '../../utils/click'
 
 
 const Login = () => {
@@ -32,6 +33,8 @@ const Login = () => {
 
 
   const handleSubmit = async (e) => {
+    PlayClick()
+
     e.preventDefault();
 
     SetLoading(true)
@@ -49,53 +52,58 @@ const Login = () => {
   }
   return (
     <>
-    
-        <section onKeyPress={(e) => {
-          if (e.key === "Enter") {
-            handleSubmit(e)
-          }
-        }} className="login">
-    
-    
-          <div className='login_header'>
-            <img width={100} src="/images/skillCamp.svg" alt="" />
-            {/* <p>IN<span>iT</span></p> */}
-          </div>
-    
-          <div>
-            <CiUser className='icon' />
-            <input value={email}
-              placeholder='Адресс Эл.почты'
-              onChange={(e) => { setCurrentError(""); setEmail(e.target.value) }}
-              name="email" type="text" />
-          </div>
-          <div>
-            <CiLock className='icon' />
-            <input value={password}
-              placeholder='Пароль'
-              onChange={(e) => { setCurrentError(""); setPassword(e.target.value) }}
-              name="password"
-              type={isPassView ? "name" : "password"} />
-    
-            {
-              isPassView ? <CiUnread onClick={() => setisPassView(false)} className='passread' />
-                : <CiRead onClick={() => setisPassView(true)} className='passread' />
-    
-            }
-    
-          </div>
-    
-    
-          <button onClick={(e) => handleSubmit(e)}>{loading ? <Loading /> : "Войти"}</button>
-    
-          <Link to="/signin">Нет аккаунта? Зарегистрируйтесь.</Link>
-    
+
+      <section onKeyPress={(e) => {
+        if (e.key === "Enter") {
+          handleSubmit(e)
+        }
+      }} className="login">
+
+
+        <div className='login_header'>
+          <img width={100} src="/images/skillCamp.svg" alt="" />
+          {/* <p>IN<span>iT</span></p> */}
+        </div>
+
+        <div>
+          <CiUser className='icon' />
+          <input value={email}
+            onClick={PlayClick}
+            placeholder='Адресс Эл.почты'
+            onChange={(e) => { setCurrentError(""); setEmail(e.target.value) }}
+            name="email" type="text" />
+        </div>
+        <div>
+          <CiLock className='icon' />
+          <input
+            onClick={PlayClick}
+            value={password}
+            placeholder='Пароль'
+            onChange={(e) => { setCurrentError(""); setPassword(e.target.value) }}
+            name="password"
+            type={isPassView ? "name" : "password"} />
+
           {
-            currentError == "" ? null : <p className='currentError'>{currentError}</p>
+            isPassView ? <CiUnread onClick={() => setisPassView(false)} className='passread' />
+              : <CiRead onClick={() => setisPassView(true)} className='passread' />
+
           }
-        </section>
+
+        </div>
+
+
+        <button onClick={(e) => handleSubmit(e)}>{loading ? <Loading /> : "Войти"}</button>
+
+        <Link 
+        onClick={PlayClick}
+        to="/signin">Нет аккаунта? Зарегистрируйтесь.</Link>
+
+        {
+          currentError == "" ? null : <p className='currentError'>{currentError}</p>
+        }
+      </section>
     </>
-   
+
   )
 }
 

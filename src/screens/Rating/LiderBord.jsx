@@ -46,7 +46,7 @@ const LiderBord = () => {
                                 display: (idx+1) > 3 ? "none": "block"
                             }}>{idx+1}</p>
                             <div style={{
-                                display: (idx+1) > 3 ? "none": "block"
+                                display: (idx+1) > 3 ? "none": "flex"
                             }} className="bottom_rating_board_image">
 
                                 

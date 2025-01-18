@@ -8,6 +8,7 @@ import { CiEdit } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 import { signUp } from '../../services/auth'
 import { TbRuler2Off } from 'react-icons/tb'
+import { PlayClick } from '../../utils/click'
 
 const SignIn = () => {
   const navigate = useNavigate()
@@ -20,7 +21,9 @@ const SignIn = () => {
   const [isPassView, setisPassView] = useState(false)
 
   const handleSubmit = async (e) => {
+    PlayClick()
     e.preventDefault();
+
 
     if (email.split("@").length == 1 || email.split(".").length == 1) {
       setCurrentError("неверный формат почты")
@@ -55,6 +58,7 @@ const SignIn = () => {
         <div>
           <CiEdit className='icon' />
           <input
+            onClick={PlayClick}
             placeholder='Ваше ФИО'
             value={username}
             onChange={(e) => { setCurrentError(""); setUsername(e.target.value) }}
@@ -65,6 +69,7 @@ const SignIn = () => {
         <div>
           <CiUser className='icon' />
           <input
+          onClick={PlayClick}
             placeholder='Адрес Эл.почты'
             value={email}
             onChange={(e) => { setCurrentError(""); setEmail(e.target.value) }}
@@ -76,6 +81,7 @@ const SignIn = () => {
         <div>
           <CiLock className='icon' />
           <input
+          onClick={PlayClick}
             placeholder='Пароль'
             value={password}
             onChange={(e) => { setCurrentError(""); setPassword(e.target.value) }}
@@ -91,7 +97,7 @@ const SignIn = () => {
 
         <button onClick={(e) => handleSubmit(e)}>{loading ? <Loading /> : "Войти"}</button>
 
-        <Link to="/">Есть аккаунт? Войдите.</Link>
+        <Link onClick={PlayClick} to="/">Есть аккаунт? Войдите.</Link>
 
         {
           currentError == "" ? null : <p className='currentError'>{currentError}</p>

@@ -6,6 +6,7 @@ import TestQuestion from "../../components/testQuestion/testQuestion";
 import { CheckQuestionsForTestId } from "../../services/subject_test";
 import { FaArrowLeft } from "react-icons/fa";
 import TestResultModal from "./TestResultModal";
+import { PlayClick } from "../../utils/click";
 
 const Test = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const Test = () => {
   };
 
   const SubmitQueston = async (e) => {
+    PlayClick()
     e.preventDefault();
     setModalView(false)
     CheckQuestionsForTestId(testId,questions[0].subject_id,selectedQueston).then(resp=>{
@@ -79,7 +81,7 @@ const Test = () => {
     <div className="main test_questions">
       <nav>
 
-        <Link to={"/course/"+subjectId}>
+        <Link  onClick={PlayClick} to={"/course/"+subjectId}>
                     <FaArrowLeft/>
                 </Link>
       </nav>

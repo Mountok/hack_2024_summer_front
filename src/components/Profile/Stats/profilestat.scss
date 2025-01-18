@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
 
-    color: var(--white);
+
 
     & .stat_lvl {
         background-color: var(--grey);
@@ -26,17 +26,17 @@
         animation-fill-mode: forwards;
 
         @keyframes statLvlUp {
-               0%{
+            0% {
                 transform: translateY(20px);
-        opacity: 0;
-               }
+                opacity: 0;
+            }
 
-               100%{
+            100% {
                 transform: translateY(0px);
-        opacity:   1;
-                
+                opacity: 1;
 
-               }
+
+            }
         }
 
 
@@ -45,11 +45,12 @@
             font-weight: 600;
             font-size: 30px;
         }
+
         & p {
             color: rgba(240, 126, 12, 0.839);
             font-weight: 600;
         }
-        
+
     }
 
     & .stat_items {
@@ -57,9 +58,10 @@
         color: var(--black);
         padding-top: 10px;
         display: flex;
-        justify-content: space-between;
+
 
         & .stat_item {
+            margin-right: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,55 +69,49 @@
             background-color: var(--grey);
             border-radius: 10px;
             height: 70px;
-            width: 48%;
+            width: max-content;
+            padding: 5px;
             transform: translateY(20px);
-         opacity: 0;
+            opacity: 0;
             animation-name: statItemUp;
-        animation-duration: .5s;
-        animation-delay: 1.5s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
+            animation-duration: .5s;
+            animation-delay: 1.5s;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
 
             @keyframes statItemUp {
-                0%{
+                0% {
                     transform: translateY(20px);
                     opacity: 0;
                 }
- 
-                100%{
-                 transform: translateY(0px);
-         opacity:   1;
-                 
- 
+
+                100% {
+                    transform: translateY(0px);
+                    opacity: 1;
+
+
                 }
-         }
+            }
 
             &:nth-child(1) {
-                background: rgba(251, 160, 135, 0.859);
+                background: var(--orange);
                 animation-name: statItemUp;
-        animation-duration: .5s;
-        animation-delay: 1.5s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
+                animation-duration: .5s;
+                animation-delay: 1.5s;
+                animation-iteration-count: 1;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards;
             }
 
-            &:nth-child(2) {
-                background: rgba(162, 135, 251, 0.839);
-                animation-name: statItemUp;
-        animation-duration: .5s;
-        animation-delay: 2s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-            }
+            
 
             & p {
                 text-transform: uppercase;
                 font-size: 12px;
                 font-weight: 600;
             }
+
             & span {
                 font-size: 30px;
                 color: var(--white);
@@ -123,5 +119,43 @@
             }
 
         }
+
+        & .stat_item_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80px;
+            & .stat_item {
+                width: 80px;
+                height: 28px;
+                flex-direction: row;
+                justify-content: space-between;
+
+                & span {
+                    font-size: 15px;
+                }
+
+                &:nth-child(1) {
+                    background: rgba(142, 108, 252, 0.839);
+                    animation-name: statItemUp;
+                    animation-duration: .5s;
+                    animation-delay: 2s;
+                    animation-iteration-count: 1;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
+                }
+    
+                &:nth-child(2) {
+                    background: rgba(255, 44, 44, 0.859) ;
+                    animation-name: statItemUp;
+                    animation-duration: .5s;
+                    animation-delay: 2s;
+                    animation-iteration-count: 1;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+
     }
 }

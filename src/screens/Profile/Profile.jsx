@@ -139,15 +139,13 @@ const Profile = () => {
                     </div>
                     <div
                         className="profile_body">
-                        {/* <div
-
-                            className="profile_stats level">
+                        {/* <div className="profile_stats level">
                             <div>
-                                <p>{Math.floor(el.score / 100)} lvl</p>
+                                <p>{Math.floor(el.score)}</p>
                             </div>
                         </div> */}
                         <CourseHistory />
-                        <ProfileStats userId={el.user_id} level={el.score / 100} />
+                        <ProfileStats  userId={el.user_id} score={el.score} />
 
                     </div>
 
