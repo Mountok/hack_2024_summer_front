@@ -12,8 +12,8 @@ const TestQuestion = ({openCode,closeCode,LockUnLockIcon}) => {
     // const [testSubjectId, setTestSubjectId] = useState('');
 
 
-    const handleSubmitTestQuestion = async() => {
-        
+    const handleSubmitTestQuestion = async(e) => {
+        e.preventDefault()
 
         const formData = new FormData()
         formData.append("question",question)
