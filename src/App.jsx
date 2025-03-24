@@ -55,7 +55,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/rate' element={<LiderBord />} />
         <Route path='/course/:id' element={<OpenCourse />} />
-        <Route path='/lesson/:id/:id' element={<Lesson />} />
+        <Route path='/lesson/:id/:id' element={<Lesson userRole={userRole} />} />
         <Route path='/test/:id' element={<Test />} />
         <Route path='/doc' element={<Doc />} />
 

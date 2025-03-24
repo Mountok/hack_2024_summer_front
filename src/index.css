@@ -12,6 +12,7 @@
   --blue: #78b9ff54;
   --red: #ff0e12cb;
   --black-grey: rgba(0, 0, 0, 0.477);
+  --sky: #007bff;
 }
 *{
   padding: 0;
@@ -24,6 +25,7 @@ input[type=text], input[type=submit], textarea{
 	-webkit-appearance: none;
 } 
 #root{
+  font-family: "Roboto";
   -webkit-text-size-adjust: none;
   overflow-y: auto;
 	-webkit-overflow-scrolling:touch;

@@ -79,7 +79,7 @@ const Doc = () => {
         <h2>Видео</h2>
         Видео добавляется с помощью тега iframe: (видео может быть взято с любого видеохостинга который предоставляеть возможноть "встройки" видео по сслыке )
         <MyComponent prevView={true} str={`<code class="lcmd"><p>
-            &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=tSWFgr9dus2SC00g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;
+            &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=tSWFgr9dus2SC00g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/&gt;
 
             </p></code>`} />
         <p>Вывод:</p>

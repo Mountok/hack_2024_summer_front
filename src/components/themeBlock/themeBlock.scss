@@ -2,25 +2,35 @@
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     /*border: 1px solid var(--blue);*/
-    background-color: #f1f1f10b;
-    backdrop-filter: blur(10px);
-    --web-kit-backdrop-filter: blur(10px);
+    background-color: #ffffff;
     border-radius: 10px;
     margin-bottom: 10px;
+    padding: 0 20px;
     color: black;
-    border: 1px solid  #33333362;
     padding-right: 30px;
     transition:  .3s linear;
+    position: relative;
 }
-.theme_block_icons{
+.theme_block.done{
+    background-color: rgb(255, 176, 96);
+}
+.theme_block_icon{
     color: black;
+    font-size: 25px;
+}
+.theme_block_icon.done{
+    color: rgb(0, 187, 0);
 }
 
-.theme_block_icons.done{
-color: darkgreen;
-position: relative;
-
+.theme_block_icons_done{
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color:rgb(0, 187, 0);
+    font-size: 30px;
 }
 .theme_block div{
     cursor: pointer;
@@ -32,8 +42,8 @@ position: relative;
 }
 .theme_block:hover{
     transition: .20s linear;
-    transform: scale(1.01) translateY(-2px);
-    background-color: var(--orange);
+    transform: scale(1.002) translateY(-2px);
+    background-color: rgb(255, 176, 96);
 }
 .theme_block div p:nth-child(1) {
     font-weight: 600;
@@ -41,6 +51,20 @@ position: relative;
     width: 25px;
 }
 .theme_block div p:nth-child(2) {
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 10px;
 }
 
+@media (max-width: 550px) {
+   
+    .theme_block_icons_done{
+        position: absolute;
+        left: calc(100% - 40px);
+        top: 50%;
+        transform: translateY(-50%);
+        color:rgb(0, 187, 0);
+        font-size: 30px;
+    }
+    
+}

@@ -45,19 +45,19 @@ const LiderBord = () => {
                             <p style={{
                                 display: (idx+1) > 3 ? "none": "block"
                             }}>{idx+1}</p>
-                            <div style={{
+                            {/* <div style={{
                                 display: (idx+1) > 3 ? "none": "flex"
                             }} className="bottom_rating_board_image">
 
                                 
 
                                 <img  loading="lazy"  src={`http://${Settings.PORT}/images?id=${el.image}`} alt="" />
-                            </div>
+                            </div> */}
                             <h2
-                            >{(idx+1) > 3 ? truncateText(el.username,25) : el.username} - <span>{el.score}</span></h2>
+                            >{(idx+1) > 3 ? truncateText(el.username,25) :  truncateText(el.username,25)} - <span>{el.score}</span></h2>
                         </div>
                 ))) : (
-                    <Loading/>
+                    <p>Загрузка рейтинг</p>
                 )}
                                 
             </div>

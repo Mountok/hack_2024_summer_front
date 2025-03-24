@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../header/header.scss"
 
 import { IoCopy } from "react-icons/io5";
@@ -13,6 +13,10 @@ const Footer = ({role}) => {
 
     const location = useLocation()
 
+    useEffect(() => {
+        console.log(location.pathname.split("/")[1])
+    }, [])
+
     return (
         <footer className="header_2">
             <nav className="nav">
@@ -23,7 +27,7 @@ const Footer = ({role}) => {
                 </Link>
                 <Link
                     to='/courses'
-                    className={location.pathname == "/courses" ? "nav_links active" : "nav_links"}>
+                    className={location.pathname == "/courses" ? "nav_links active" : (location.pathname.split("/")[1] == "course" ? "nav_links active" : "nav_links")}>
                     <IoCopy />
                     Курсы
                 </Link>

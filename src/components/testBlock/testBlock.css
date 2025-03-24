@@ -2,27 +2,31 @@
     display: flex;
     justify-content: space-between; 
 color: var(--black);
-     background-color: #f1f1f10b;
+     background-color: #ffffff;
      backdrop-filter: blur(10px);
     border-radius: 10px;
-    border:  1px solid #33333362;
-    box-shadow: 0 0 1px #33333362;
+    padding: 1px 20px;
+    height: 50px;
     margin-bottom: 10px;
     transition: .2s linear;
+    position: relative;
 
+}
+.test_block.done{
+    background-color: rgb(255, 176, 96);
+}
+.test_block_icons_done{
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgb(9, 210, 9);
+    font-size: 30px;
 }
 .test_block div{
     padding: 10px 5px;
     display: flex;
     align-items: center;
-    font-size: 20px;
-    font-weight: 500;
-}
-.test_block:hover{
-    background-color: var(--orange);
-    transition: .2s linear;
-    transform: scale(1.01) translateY(-2px);
-
 }
 .test_block div p:nth-child(1) {
     display: flex;
@@ -30,31 +34,6 @@ color: var(--black);
     font-weight: 600;
     font-size: 25px;
     width: 30px;
-}
-.test_block div p:nth-child(2) {
-    font-size: 20px;
-}
-.test_block button{
-    background: none;
-    border: none;
-    outline: none;
-    width: 50px;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:  #ea5333;
-    color: #facf3e;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transition: .15s linear;
-}
-.test_block button:hover{
-    background-color:  #facf3e;
-    color: #ea5333;
-}
-.test_block button:active{
-    font-size: 20px;
 }
 
 .test_block div:nth-child(2) p {
@@ -67,4 +46,19 @@ color: var(--black);
     align-items: center;
     font-weight: 500;
     letter-spacing: 1px;
+}
+
+
+@media (max-width: 550px) {
+    .test_block div p:nth-child(1) {
+        width: 0px;
+    }
+    .test_block_icons_done{
+        position: absolute;
+        left: calc(100% - 40px);
+        top: 50%;
+        transform: translateY(-50%);
+        color:rgb(0, 187, 0);
+        font-size: 30px;
+    }
 }

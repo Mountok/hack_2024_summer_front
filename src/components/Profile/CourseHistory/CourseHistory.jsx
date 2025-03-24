@@ -4,7 +4,7 @@ import { GetSubjectById } from '../../../services/subject'
 import "./courseHistory.css"
 import Settings from '../../../../settings'
 import { useNavigate } from 'react-router-dom'
-import { SlArrowRightCircle } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
 
 
 const CourseHistory = () => {
@@ -25,7 +25,7 @@ const CourseHistory = () => {
     }, [])
     return (
         <>
-            <h2 className='last_course_header'>Вы проходите: </h2>
+            <h2 className='last_course_header'>Продолжите изучение </h2>
             {lastSubject.map(el => (
                 <div
                 onClick={() => {
@@ -33,13 +33,15 @@ const CourseHistory = () => {
                 }}
                 key={el.id} 
                 className="last_course">
-                    {/* <img src={`http://${Settings.PORT}/images?id=`+el.image} alt="" /> */}
                     <div className="last_course_info">
                         <h2>{el.title}</h2>
                         <p>{el.description}</p>
                     </div>
-                    <div className="last_course_control">
+                    {/* <div className="last_course_control">
                         <SlArrowRightCircle/>
+                    </div> */}
+                    <div className="open_course">
+                        <SlArrowRight/>
                     </div>
                 </div>
             ))}

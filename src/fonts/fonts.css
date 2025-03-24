@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    /* Диапазон ширины шрифта */
+    font-style: italic;
+}

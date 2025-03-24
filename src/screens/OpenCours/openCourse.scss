@@ -64,21 +64,22 @@
     animation-timing-function: linear;
 }
 .opencourse_description{
-    width: 500px;
+    width: 100%;
     color: black;
     z-index: 2;
     background-color: var(--grey);
     border-radius: 10px;
     padding: 20px 10px;
     margin-top: 10px;
-    background-color: var(--orange);
+    // background-color: rgb(255, 176, 96);
+    background-color: #fff;
     
 }
 
 .opencourse_description p:nth-child(1) {
     font-weight: 800;
     font-size: 25px;
-    color: var(--black);
+    color: rgb(255, 176, 96);
     padding-bottom: 10px;
 }
 .opencourse_description p:nth-child(2) {

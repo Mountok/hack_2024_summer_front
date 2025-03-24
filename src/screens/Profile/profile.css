@@ -11,6 +11,7 @@
     justify-content: flex-end;
     align-items: flex-start;
     background-color: var(--grey);
+    
 
 }
 .profile_bg{
@@ -176,8 +177,8 @@
         border-bottom-right-radius: 10px;
         display: flex;
         flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
+        justify-content: flex-end;
+        align-items: flex-start;
         animation-name: slow_down;
         animation-fill-mode: forwards;
         animation-duration: .360s;

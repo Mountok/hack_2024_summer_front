@@ -20,8 +20,6 @@ const Header = ({role}) => {
     useState(()=>{
         
   document.onscroll = () => {
-
-    console.log(window.scrollY)
     if (window.scrollY > 15){
         setScrolledHeader(true)
     } else {
@@ -45,7 +43,7 @@ const Header = ({role}) => {
     
 
     return (
-        <header className={scrolledHeader ? "header_1 scrolled": "header_1"}>
+        <header className={scrolledHeader ? "header_1": "header_1"}>
             <div className="logotype">
                 <h2>{currentLocation}</h2>
                 <img  onClick={()=>navigate('/courses')}  src="/images/skillCamp.svg" alt="" />

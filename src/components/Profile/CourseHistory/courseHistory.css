@@ -1,9 +1,10 @@
-.last_course{
+.last_course {
     border-radius: 20px;
-    background:  var(--blue);
+    background: var(--blue);
     display: flex;
-    width: 350px;
-    align-items: center;
+    width: 180px;
+    height: 180px;
+    align-items: flex-start;
     padding: 10px 20px;
     cursor: pointer;
     animation-name: slow-up-last-course;
@@ -11,60 +12,87 @@
     transform: translateY(30px);
     opacity: 0;
     animation-fill-mode: forwards;
+    position: relative;
+    transition: .3s linear;
+
 }
+
+.last_course:hover {
+    scale: .95;
+}
+
+.open_course {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    background-color: var(--orange);
+    height: 100%;
+    padding: 0 5px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 @keyframes slow-up-last-course {
 
-    100%{
-    transform: translateY(0px);
-opacity: 1;
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
     }
 }
+
 .last_course_header {
     margin-top: 20px;
     margin-bottom: 5px;
-    color: var(-- );
+    opacity: 0.5;
 }
 
-.last_course > img {
+.last_course>img {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 10px;   
+    border-radius: 10px;
 }
-.last_course .last_course_info{
+
+.last_course .last_course_info {
     padding: 0 10px;
     display: flex;
     flex-direction: column;
 }
-.last_course .last_course_info > h2{
+
+.last_course .last_course_info>h2 {
     font-size: 20px;
 }
-.last_course .last_course_info > p{
+
+.last_course .last_course_info>p {
     font-size: 14px;
     overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
 }
-.last_course .last_course_control > svg {
+
+.last_course .last_course_control>svg {
     transition: .5s;
-    width: 40px ;
+    width: 40px;
     font-size: 30px;
 
 
 
 }
-.last_course_control:hover > svg {
+
+.last_course_control:hover>svg {
     color: var(--orange);
 }
 
 
 
 @media (max-width: 550px) {
-    .last_course{
+    .last_course {
         padding: 5px 10px;
-        height: 70px;
+        height: 140px;
         width: 250px;
         cursor: pointer;
         justify-content: space-between;
@@ -75,47 +103,75 @@ display: -webkit-box;
         animation-fill-mode: forwards;
         animation-delay: .5s;
     }
+
     @keyframes slow-up-last-course {
-    
-        100%{
-        transform: translateY(0px);
-    opacity: 1;
+
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
         }
     }
+
     .last_course_header {
-        
+
         margin-top: 20px;
         margin-bottom: 5px;
         color: var(--black);
     }
-    
-    .last_course > img {
+
+    .last_course>img {
         width: 70px;
         height: 60px;
         object-fit: cover;
-        border-radius: 10px;   
+        border-radius: 10px;
     }
-    .last_course .last_course_info{
+
+    .last_course .last_course_info {
         padding: 0 10px;
         display: flex;
         flex-direction: column;
     }
-    .last_course .last_course_info > h2{
-        color: var(--black);
-        font-size: 14px;
-    }
-    .last_course .last_course_info > p{
 
+    .last_course .last_course_info>h2 {
+        color: var(--black);
+        font-size: 20px;
+        padding-bottom: 10px;
     }
-    .last_course .last_course_control > svg {
+
+    .last_course .last_course_info>p {}
+
+    .last_course .last_course_info>p {
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+
+    .last_course .last_course_control>svg {
         transition: .5s;
         width: 50px;
         font-size: 25px;
-    
+
     }
-    .last_course:hover .last_course_control > svg {
+
+    .last_course:hover .last_course_control>svg {
         color: var(--black);
         font-weight: 700;
         font-size: 40px;
+    }
+
+    .open_course {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        background-color: var(--orange);
+        height: 100%;
+        padding: 0 8px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 }
