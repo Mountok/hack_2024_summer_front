@@ -3,10 +3,16 @@
 //     PORT: "127.0.0.1:8080",
 //     HOST: "http://127.0.0.1:8080"
 // }
+// const Settings = {
+//     PORT: "193.227.240.114:8080",
+//     HOST: "http://193.227.240.114:8080"
+// }
+
 const Settings = {
-    PORT: "193.227.240.114:8080",
-    HOST: "http://193.227.240.114:8080"
+    PORT: "skillkamp.duckdns.org",
+    HOST: "https://skillkamp.duckdns.org"
 }
+
 
 // https://itupapi-production.up.railway.app/
 // const Settings ={
