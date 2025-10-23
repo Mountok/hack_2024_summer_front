@@ -116,3 +116,15 @@ main.doc {
   
   
 }
+
+
+.chat-bot{
+  position: absolute;
+  left: calc(-50%);
+  top: 120px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 350px;
+  height: 500px;
+  transition: all .3s ease-in-out;
+}

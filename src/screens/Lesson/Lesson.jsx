@@ -10,6 +10,7 @@ import Comment from '../../components/comments/Comment'
 import { BiSolidCommentEdit } from "react-icons/bi";
 import { BiSolidCommentX } from "react-icons/bi";
 import { GetProfile } from '../../services/profile'
+import Settings from "../../../settings.js";
 
 const Lesson = ({userRole}) => {
     const [content, setContent] = useState([])
@@ -161,6 +162,8 @@ const Lesson = ({userRole}) => {
             </div>
 
             <div className="lesson_content">
+                {/*<iframe src={`http://${Settings.PORT}/content?id=py_1.html`}></iframe>*/}
+
                 {content.map(el => (
                     <MyComponent key={el.id} str={el.upkeep}/>
                 ))}
